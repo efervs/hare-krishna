@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hare Krishna Monterrey | Restaurante Vegano & Hostel en Barrio Antiguo</title>
-<meta name="description" content="Restaurante vegano y vegetariano, hostel céntrico y comedores institucionales en Barrio Antiguo, Monterrey. José Mariano Abasolo 916. Martes a domingo, 9:00 am a 8:00 pm.">
-<meta name="keywords" content="restaurante vegano Monterrey, restaurante vegetariano Barrio Antiguo, hostel Monterrey, hospedaje Barrio Antiguo, comida vegana Monterrey, thali Monterrey, comedores escolares Monterrey">
-<meta property="og:title" content="Hare Krishna Monterrey | Restaurante Vegano & Hostel">
-<meta property="og:description" content="Restaurante vegano, hostel céntrico y comedores institucionales. Barrio Antiguo, Monterrey.">
+<title>Hare Krishna Monterrey | Restaurante Vegano, HK Barrio Antiguo & Quinta</title>
+<meta name="description" content="Restaurante vegano y vegetariano, HK Barrio Antiguo (hospedaje), Quinta Hare Krishna (talleres, meditación, yoga) y comedores institucionales en Monterrey. Alimentación consciente, ahimsa y servicio con propósito. José Mariano Abasolo 916.">
+<meta name="keywords" content="restaurante vegano Monterrey, restaurante vegetariano Barrio Antiguo, HK Barrio Antiguo, hospedaje Barrio Antiguo, Quinta Hare Krishna, talleres meditación Monterrey, yoga alimentación consciente, huerta Montemorelos, santuario protección vaca, comedores escolares Monterrey, ahimsa cocina vegana">
+<meta property="og:title" content="Hare Krishna Monterrey | Restaurante Vegano, HK Barrio Antiguo & Quinta">
+<meta property="og:description" content="Restaurante vegano, HK Barrio Antiguo, Quinta para talleres y comedores institucionales. Alimentación consciente y servicio con propósito. Barrio Antiguo, Monterrey.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/img/hero-home.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -264,6 +264,13 @@ h4 { font-size: 1.15rem; }
 }
 #toast.show { transform: translateY(0); opacity: 1; }
 #toast.success { background: var(--olive); }
+
+/* Libros page: prevent absolutely-positioned badges from escaping page bounds */
+#page-libros { position: relative; overflow-x: hidden; }
+
+/* Book items grid isolation */
+#book-items-grid { position: relative; z-index: 1; }
+#book-items-grid .menu-item { position: relative; }
 
 /* PAGE SYSTEM */
 .page { display: none; padding-top: 68px; min-height: 100vh; }
@@ -1629,18 +1636,18 @@ footer {
     <nav class="nav-desktop" id="nav-desktop">
       <span class="nav-link" onclick="navigate('home')">Inicio</span>
       <span class="nav-link" onclick="navigate('restaurante')">Restaurante</span>
-      <span class="nav-link" onclick="navigate('hostel')">Hostel</span>
+      <span class="nav-link" onclick="navigate('hostel')">HK Barrio Antiguo</span>
       <span class="nav-link" onclick="navigate('san-pedro')">San Pedro</span>
       <span class="nav-link" onclick="navigate('apodaca')">Apodaca</span>
       <span class="nav-link" onclick="navigate('comedores')">Comedores</span>
-      <span class="nav-link" onclick="navigate('libros')">Libros</span>
+      <span class="nav-link" onclick="navigate('quinta')">Quinta</span>
       <span class="nav-link" onclick="navigate('blog')">Blog</span>
       <span class="nav-link" onclick="navigate('nosotros')">Nosotros</span>
       <span class="nav-link" onclick="navigate('contacto')">Contacto</span>
     </nav>
     <div class="header-actions">
       <button class="btn btn-primary btn-sm hdr-pedir" onclick="goToRestaurantMenu()">Pedir ahora</button>
-      <a class="btn btn-wa btn-sm hdr-wa" href="https://wa.me/5218111817262" target="_blank">
+      <a class="btn btn-wa btn-sm hdr-wa" href="https://wa.me/5218114986316" target="_blank">
         <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         <span class="wa-label">WhatsApp</span>
       </a>
@@ -1655,22 +1662,23 @@ footer {
 <div id="mobile-nav">
   <span class="mob-nav-link" onclick="navigate('home'); toggleMobile()">Inicio</span>
   <span class="mob-nav-link" onclick="navigate('restaurante'); toggleMobile()">Restaurante</span>
-  <span class="mob-nav-link" onclick="navigate('hostel'); toggleMobile()">Hostel</span>
+  <span class="mob-nav-link" onclick="navigate('hostel'); toggleMobile()">HK Barrio Antiguo</span>
   <span class="mob-nav-link" onclick="navigate('san-pedro'); toggleMobile()">San Pedro</span>
   <span class="mob-nav-link" onclick="navigate('apodaca'); toggleMobile()">Apodaca</span>
   <span class="mob-nav-link" onclick="navigate('comedores'); toggleMobile()">Comedores</span>
+  <span class="mob-nav-link" onclick="navigate('quinta'); toggleMobile()">Quinta Hare Krishna</span>
   <span class="mob-nav-link" onclick="navigate('libros'); toggleMobile()">Libros</span>
   <span class="mob-nav-link" onclick="navigate('blog'); toggleMobile()">Blog</span>
   <span class="mob-nav-link" onclick="navigate('nosotros'); toggleMobile()">Nosotros</span>
   <span class="mob-nav-link" onclick="navigate('contacto'); toggleMobile()">Contacto</span>
   <div class="mob-nav-ctas">
     <button class="btn btn-primary btn-full" onclick="goToRestaurantMenu(); toggleMobile()">🍽️ Pedir ahora</button>
-    <a class="btn btn-wa btn-full" href="https://wa.me/5218111817262" target="_blank">WhatsApp</a>
+    <a class="btn btn-wa btn-full" href="https://wa.me/5218114986316" target="_blank">WhatsApp</a>
   </div>
 </div>
 
 <!-- WA Float -->
-<a id="wa-float" href="https://wa.me/5218111817262" target="_blank" title="Escríbenos por WhatsApp">
+<a id="wa-float" href="https://wa.me/5218114986316" target="_blank" title="Escríbenos por WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -1703,7 +1711,7 @@ footer {
 
 <!-- Sticky Hostel Mobile -->
 <div id="sticky-hostel">
-  <span style="font-size:0.86rem;color:rgba(255,255,255,0.75);">Hostel · Barrio Antiguo</span>
+  <span style="font-size:0.86rem;color:rgba(255,255,255,0.75);">HK Barrio Antiguo · Hospedaje</span>
   <a class="btn btn-terra btn-sm" href="#reservar" onclick="if(window.innerWidth<=768){document.getElementById('page-hostel').scrollIntoView();}">Solicitar reserva →</a>
 </div>
 
@@ -1719,22 +1727,23 @@ footer {
     <div class="container" style="position:relative;z-index:2;">
       <div class="hero-content fade-in">
         <span class="overline">Barrio Antiguo · Monterrey, N.L.</span>
-        <h1>Restaurante vegano<br>y hostel céntrico</h1>
-        <p style="margin-bottom:28px;">Comida consciente y hospedaje real en el corazón de Barrio Antiguo.</p>
+        <h1>Restaurante vegano<br>y hospedaje consciente</h1>
+        <p style="margin-bottom:28px;">Alimentación con propósito y hospedaje real en el corazón de Barrio Antiguo.</p>
         <div class="hero-btns fade-in-2">
           <button class="btn btn-terra btn-lg" onclick="goToRestaurantMenu()">🍽️ Ver menú y pedir</button>
-          <button class="btn btn-ghost btn-lg" onclick="navigate('hostel')">🏨 Ver hospedaje</button>
+          <button class="btn btn-ghost btn-lg" onclick="navigate('hostel')">🏨 HK Barrio Antiguo</button>
         </div>
         <div class="hero-secondary fade-in-3">
           <span class="chip soon" onclick="navigate('san-pedro')" style="opacity:0.75;font-size:0.74rem;">San Pedro — Próx.</span>
           <span class="chip soon" onclick="navigate('apodaca')" style="opacity:0.75;font-size:0.74rem;">Apodaca — Próx.</span>
           <span class="chip" onclick="navigate('comedores')" style="opacity:0.82;font-size:0.74rem;">Comedores</span>
+          <span class="chip" onclick="navigate('quinta')" style="opacity:0.88;font-size:0.74rem;">🌿 Quinta</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DOS PATHS PRINCIPALES -->
+  <!-- DOS PATHS PRINCIPALES + QUINTA -->
   <section class="section-sm bg-cream" style="padding:40px 0;">
     <div class="container">
       <div class="units-grid" style="grid-template-columns:1fr 1fr;gap:20px;">
@@ -1746,25 +1755,40 @@ footer {
           </div>
           <div class="unit-card-body">
             <div class="unit-card-name">Restaurante</div>
-            <p class="unit-card-desc">Vegano y vegetariano. Thali del día, carta completa, pedido directo sin apps.</p>
+            <p class="unit-card-desc">Vegano y vegetariano. Thali del día, carta completa, pedido directo sin apps. Alimentación consciente.</p>
             <div class="unit-card-actions">
               <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();goToRestaurantMenu()">Ver menú y pedir</button>
-              <a class="btn btn-outline btn-sm" href="https://wa.me/5218111817262?text=Hola, quiero pedir comida" target="_blank" onclick="event.stopPropagation()">WhatsApp</a>
+              <a class="btn btn-outline btn-sm" href="https://wa.me/5218114986316?text=Hola, quiero pedir comida" target="_blank" onclick="event.stopPropagation()">WhatsApp</a>
             </div>
           </div>
         </div>
-        <!-- Hostel -->
+        <!-- HK Barrio Antiguo -->
         <div class="unit-card" onclick="navigate('hostel')" style="cursor:pointer;">
           <div class="unit-card-hero" style="background-image:url('assets/img/terraza.webp');height:180px;">
             <div class="unit-card-hero-overlay"></div>
             <span class="unit-card-label">● Disponible</span>
           </div>
           <div class="unit-card-body">
-            <div class="unit-card-name">Hostel</div>
-            <p class="unit-card-desc">Céntrico, con terraza, Wi-Fi y restaurante en la propiedad. Desde $350 MXN/noche.</p>
+            <div class="unit-card-name">HK Barrio Antiguo</div>
+            <p class="unit-card-desc">Hospedaje céntrico con terraza, calma y restaurante en la propiedad. Barrio Antiguo, Monterrey.</p>
             <div class="unit-card-actions">
               <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();navigate('hostel')">Ver hospedaje</button>
               <a class="btn btn-outline btn-sm" href="https://www.booking.com/hotel/mx/hostal-hk.es-mx.html" target="_blank" onclick="event.stopPropagation()">Booking.com</a>
+            </div>
+          </div>
+        </div>
+        <!-- Quinta Hare Krishna -->
+        <div class="unit-card full" onclick="navigate('quinta')" style="cursor:pointer;">
+          <div class="unit-card-hero" style="background:linear-gradient(135deg,#2a3d1a,#4a6230);height:120px;">
+            <div class="unit-card-hero-overlay" style="background:linear-gradient(to bottom,rgba(0,0,0,0.05) 0%,rgba(0,0,0,0.38) 100%);"></div>
+            <span class="unit-card-label">🌿 Entre Allende y Montemorelos</span>
+          </div>
+          <div class="unit-card-body">
+            <div class="unit-card-name">Quinta Hare Krishna</div>
+            <p class="unit-card-desc">Espacio entre Allende y Montemorelos para talleres de salud, meditación, yoga y alimentación consciente. Un lugar para pausar, aprender y reconectar.</p>
+            <div class="unit-card-actions">
+              <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();navigate('quinta')">Conocer la quinta</button>
+              <a class="btn btn-outline btn-sm" href="https://wa.me/5218114986316?text=Hola, quiero información sobre la Quinta Hare Krishna" target="_blank" onclick="event.stopPropagation()">WhatsApp</a>
             </div>
           </div>
         </div>
@@ -1800,7 +1824,7 @@ footer {
           <button class="btn btn-ghost btn-lg" onclick="goToRestaurantMenu()">Ver menú completo</button>
         </div>
         <div class="hero-secondary fade-in-3" style="margin-top:16px;">
-          <a href="https://wa.me/5218111817262?text=Hola, quiero hacer un pedido" target="_blank" class="chip">WhatsApp</a>
+          <a href="https://wa.me/5218114986316?text=Hola, quiero hacer un pedido" target="_blank" class="chip">WhatsApp</a>
           <a href="https://maps.google.com/?q=José+Mariano+Abasolo+916+Barrio+Antiguo+Monterrey" target="_blank" class="chip">🗺️ Cómo llegar</a>
           <span class="chip soon">⏰ Mar–Dom · 9:00 am – 8:00 pm</span>
         </div>
@@ -1964,11 +1988,10 @@ footer {
           <h2 style="margin:12px 0 24px;">Dónde encontrarnos</h2>
           <div class="contact-item"><div class="contact-icon">📍</div><div class="contact-text"><strong>Dirección</strong><span>José Mariano Abasolo 916, Barrio Antiguo, Monterrey, N.L.</span></div></div>
           <div class="contact-item"><div class="contact-icon">🕐</div><div class="contact-text"><strong>Horario</strong><span>Martes a domingo, de 9:00 am a 8:00 pm</span></div></div>
-          <div class="contact-item"><div class="contact-icon">📱</div><div class="contact-text"><strong>WhatsApp</strong><span>+52 1 81 1181 7262</span></div></div>
-          <div class="contact-item"><div class="contact-icon">📞</div><div class="contact-text"><strong>Teléfono</strong><span>+52 81 8340 0916</span></div></div>
+          <div class="contact-item"><div class="contact-icon">📱</div><div class="contact-text"><strong>WhatsApp</strong><span>+52 81 1498 6316</span></div></div>
           <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;">
             <a class="btn btn-primary" href="https://maps.google.com/?q=José+Mariano+Abasolo+916+Barrio+Antiguo+Monterrey" target="_blank">🗺️ Google Maps</a>
-            <a class="btn btn-wa" href="https://wa.me/5218111817262?text=Hola, quiero hacer un pedido" target="_blank">Pedir por WhatsApp</a>
+            <a class="btn btn-wa" href="https://wa.me/5218114986316?text=Hola, quiero hacer un pedido" target="_blank">Pedir por WhatsApp</a>
           </div>
         </div>
         <div class="map-box">
@@ -1985,7 +2008,7 @@ footer {
       <p style="margin-bottom:28px;">Sin apps intermediarias. Sin comisiones extra. Comida real, atención directa.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
         <a class="btn btn-terra btn-lg" onclick="goToRestaurantMenu()" style="cursor:pointer;">🍽️ Ver el menú</a>
-        <a class="btn btn-ghost btn-lg" href="https://wa.me/5218111817262?text=Hola, quiero hacer un pedido" target="_blank">WhatsApp</a>
+        <a class="btn btn-ghost btn-lg" href="https://wa.me/5218114986316?text=Hola, quiero hacer un pedido" target="_blank">WhatsApp</a>
         <a class="btn btn-outline-light btn-lg" href="https://maps.google.com/?q=José+Mariano+Abasolo+916+Barrio+Antiguo+Monterrey" target="_blank">Cómo llegar</a>
       </div>
     </div>
@@ -2003,14 +2026,14 @@ footer {
     <div class="hero-overlay" style="background:linear-gradient(140deg,rgba(12,9,6,0.93) 0%,rgba(38,26,16,0.70) 55%,rgba(22,14,6,0.38) 100%);"></div>
     <div class="container" style="position:relative;z-index:2;">
       <div class="hero-content fade-in">
-        <span class="overline">Hostel · Barrio Antiguo, Monterrey</span>
-        <h1>Hostel Hare Krishna</h1>
-        <p style="margin-bottom:8px;">Hospedaje económico-práctico en Barrio Antiguo, con terraza, calma y restaurante dentro de la propiedad.</p>
+        <span class="overline">HK Barrio Antiguo · Monterrey, N.L.</span>
+        <h1>HK Barrio Antiguo</h1>
+        <p style="margin-bottom:8px;">Hospedaje con calma y propósito en Barrio Antiguo, con terraza propia y restaurante vegano en la propiedad.</p>
         <p style="margin-bottom:24px;font-size:0.88rem;color:rgba(255,255,255,0.60);max-width:100%;">Estancia mínima 3 días · Reserva directa sin comisiones · Atención por WhatsApp</p>
         <div class="hero-btns fade-in-2">
           <a href="#habitaciones" class="btn btn-terra btn-lg">🛏 Ver habitaciones</a>
           <a href="#reservar" class="btn btn-ghost btn-lg">📋 Solicitar reserva</a>
-          <a href="https://wa.me/5218111817262?text=Hola, quiero información del hostel" target="_blank" class="btn btn-ghost">💬 WhatsApp</a>
+          <a href="https://wa.me/5218114986316?text=Hola, quiero información sobre HK Barrio Antiguo" target="_blank" class="btn btn-ghost">💬 WhatsApp</a>
         </div>
       </div>
     </div>
@@ -2082,42 +2105,42 @@ footer {
               <td style="padding:10px 14px;font-weight:600;">Doble – 2 camas dobles</td>
               <td style="padding:10px 14px;text-align:center;"><span class="amenity-tag">Privada</span></td>
               <td style="padding:10px 14px;text-align:center;">1–2 personas</td>
-              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">Desde $3,150</td>
+              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">Desde $1,690</td>
               <td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(0)" style="white-space:nowrap;">Ver detalle</button></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);background:var(--white-bone);">
               <td style="padding:10px 14px;font-weight:600;">Doble Económica</td>
               <td style="padding:10px 14px;text-align:center;"><span class="amenity-tag">Privada</span></td>
               <td style="padding:10px 14px;text-align:center;">1–2 personas</td>
-              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">$3,650</td>
+              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">$1,790</td>
               <td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(1)" style="white-space:nowrap;">Ver detalle</button></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);background:#fff;">
               <td style="padding:10px 14px;font-weight:600;">Individual Económica</td>
               <td style="padding:10px 14px;text-align:center;"><span class="amenity-tag">Privada</span></td>
               <td style="padding:10px 14px;text-align:center;">1 persona</td>
-              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">$1,995</td>
+              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">$1,250</td>
               <td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(2)" style="white-space:nowrap;">Ver detalle</button></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);background:var(--white-bone);">
               <td style="padding:10px 14px;font-weight:600;">Doble Estándar</td>
               <td style="padding:10px 14px;text-align:center;"><span class="amenity-tag">Privada</span></td>
               <td style="padding:10px 14px;text-align:center;">1–2 personas</td>
-              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">Desde $2,509</td>
+              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">Desde $1,250</td>
               <td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(3)" style="white-space:nowrap;">Ver detalle</button></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);background:#fff;">
               <td style="padding:10px 14px;font-weight:600;">Compartida Mixta · 8 camas</td>
               <td style="padding:10px 14px;text-align:center;"><span class="amenity-tag" style="background:var(--beige);">Compartida</span></td>
               <td style="padding:10px 14px;text-align:center;">1 persona</td>
-              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">$995</td>
+              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">$450</td>
               <td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(4)" style="white-space:nowrap;">Ver detalle</button></td>
             </tr>
             <tr style="background:var(--white-bone);">
               <td style="padding:10px 14px;font-weight:600;">Sencilla Matrimonial baño exterior</td>
               <td style="padding:10px 14px;text-align:center;"><span class="amenity-tag">Privada</span></td>
               <td style="padding:10px 14px;text-align:center;">1 persona</td>
-              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">$1,950</td>
+              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">$990</td>
               <td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(5)" style="white-space:nowrap;">Ver detalle</button></td>
             </tr>
           </tbody>
@@ -2143,8 +2166,8 @@ footer {
             </div>
             <div class="room-footer">
               <div>
-                <div class="room-price">Desde $3,150 <small>tarifa base</small></div>
-                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">2 personas: $3,500</div>
+                <div class="room-price">Desde $1,690 <small>1 pax · Semana Santa</small></div>
+                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">2 personas: $1,790</div>
               </div>
               <button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(0)">Ver habitación</button>
             </div>
@@ -2162,7 +2185,7 @@ footer {
             </div>
             <div class="room-footer">
               <div>
-                <div class="room-price">$3,650 <small>tarifa base</small></div>
+                <div class="room-price">$1,790 <small>1 o 2 pax · Semana Santa</small></div>
                 <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">1 o 2 personas · mismo precio</div>
               </div>
               <button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(1)">Ver habitación</button>
@@ -2181,8 +2204,8 @@ footer {
             </div>
             <div class="room-footer">
               <div>
-                <div class="room-price">$1,995 <small>tarifa base</small></div>
-                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">Solo 1 persona</div>
+                <div class="room-price">$1,250 <small>1 pax · Semana Santa</small></div>
+                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">Solo 1 persona · $1,390 con 2 pax</div>
               </div>
               <button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(2)">Ver habitación</button>
             </div>
@@ -2200,8 +2223,8 @@ footer {
             </div>
             <div class="room-footer">
               <div>
-                <div class="room-price">Desde $2,509 <small>tarifa base</small></div>
-                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">2 personas: $2,951</div>
+                <div class="room-price">Desde $1,250 <small>1 pax · Semana Santa</small></div>
+                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">2 personas: $1,390</div>
               </div>
               <button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(3)">Ver habitación</button>
             </div>
@@ -2222,7 +2245,7 @@ footer {
             </div>
             <div class="room-footer">
               <div>
-                <div class="room-price">$995 <small>tarifa base</small></div>
+                <div class="room-price">$450 <small>1 pax · Semana Santa</small></div>
                 <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">Solo 1 persona · Dormitorio mixto</div>
               </div>
               <button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(4)">Ver habitación</button>
@@ -2242,8 +2265,8 @@ footer {
             </div>
             <div class="room-footer">
               <div>
-                <div class="room-price">$1,950 <small>tarifa base</small></div>
-                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">Solo 1 persona</div>
+                <div class="room-price">$990 <small>1 pax · Semana Santa</small></div>
+                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">Solo 1 persona · $1,390 con 2 pax</div>
               </div>
               <button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(5)">Ver habitación</button>
             </div>
@@ -2451,7 +2474,7 @@ footer {
       <p style="margin-bottom:28px;">Céntrico, tranquilo, con terraza y restaurante vegano. Reserva directa, sin comisiones.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
         <a class="btn btn-terra btn-lg" href="#reservar">📋 Solicitar reserva</a>
-        <a class="btn btn-ghost btn-lg" href="https://wa.me/5218111817262?text=Hola, quiero información del hostel" target="_blank">💬 WhatsApp</a>
+        <a class="btn btn-ghost btn-lg" href="https://wa.me/5218114986316?text=Hola, quiero información sobre HK Barrio Antiguo" target="_blank">💬 WhatsApp</a>
         <a class="btn btn-outline-light" href="#habitaciones">Ver habitaciones</a>
       </div>
       <p style="margin-top:20px;font-size:0.78rem;color:rgba(255,255,255,0.45);">¿Prefieres reservar por una plataforma? <a href="https://www.booking.com/hotel/mx/hostal-hk.es-mx.html" target="_blank" style="color:rgba(255,255,255,0.6);text-decoration:underline;">También estamos en Booking.com</a></p>
@@ -2475,7 +2498,7 @@ footer {
           <button class="btn btn-terra" onclick="notifyMe('san-pedro')">Quiero enterarme →</button>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:24px;">
-          <a class="btn btn-ghost" href="https://wa.me/528114986316?text=Hola, me interesa la unidad San Pedro de Hare Krishna" target="_blank">💬 WhatsApp +52 81 1498 6316</a>
+          <a class="btn btn-ghost" href="https://wa.me/5218114986316?text=Hola, me interesa la unidad San Pedro de Hare Krishna" target="_blank">💬 WhatsApp +52 81 1498 6316</a>
           <button class="btn btn-outline-light btn-sm" onclick="navigate('home')">← Volver al inicio</button>
         </div>
       </div>
@@ -2499,7 +2522,7 @@ footer {
           <button class="btn btn-terra" onclick="notifyMe('apodaca')">Quiero enterarme →</button>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:24px;">
-          <a class="btn btn-ghost" href="https://wa.me/528114986316?text=Hola, me interesa la unidad Apodaca de Hare Krishna" target="_blank">💬 WhatsApp +52 81 1498 6316</a>
+          <a class="btn btn-ghost" href="https://wa.me/5218114986316?text=Hola, me interesa la unidad Apodaca de Hare Krishna" target="_blank">💬 WhatsApp +52 81 1498 6316</a>
           <button class="btn btn-outline-light btn-sm" onclick="navigate('home')">← Volver al inicio</button>
         </div>
       </div>
@@ -2522,7 +2545,7 @@ footer {
         <p style="margin-bottom:26px;">Servicio de alimentos para escuelas, universidades e instituciones. Operación ordenada, calidad consistente y filosofía de alimentación consciente.</p>
         <div class="hero-btns fade-in-2">
           <a href="#contacto-comedores" class="btn btn-terra btn-lg">Solicitar información</a>
-          <a class="btn btn-ghost" href="https://wa.me/528114986316?text=Hola, necesito información sobre comedores institucionales" target="_blank">WhatsApp +52 81 1498 6316</a>
+          <a class="btn btn-ghost" href="https://wa.me/5218114986316?text=Hola, necesito información sobre comedores institucionales" target="_blank">WhatsApp +52 81 1498 6316</a>
         </div>
       </div>
     </div>
@@ -2572,9 +2595,9 @@ footer {
           <span class="overline">Contacto institucional</span>
           <h2 style="margin:12px 0 16px;">Hablemos de lo que<br>necesita tu institución</h2>
           <p style="color:var(--text-muted);margin-bottom:24px;">Cuéntanos el tamaño del comedor, frecuencia y necesidades. Te preparamos una propuesta a medida.</p>
-          <div class="contact-item"><div class="contact-icon">📱</div><div class="contact-text"><strong>WhatsApp · Comedores y Dark Kitchens</strong><span>+52 81 1498 6316</span></div></div>
-          <div class="contact-item"><div class="contact-icon">📞</div><div class="contact-text"><strong>Teléfono</strong><span>+52 81 8340 0916</span></div></div>
-          <a class="btn btn-primary" href="https://wa.me/528114986316?text=Hola, necesito información sobre comedores institucionales para mi institución" target="_blank" style="margin-top:8px;">Contactar por WhatsApp →</a>
+          <div class="contact-item"><div class="contact-icon">📱</div><div class="contact-text"><strong>WhatsApp · Contacto directo</strong><span>+52 81 1498 6316</span></div></div>
+          <div class="contact-item"><div class="contact-icon">📞</div><div class="contact-text"><strong>Teléfono</strong><span>+52 81 1498 6316</span></div></div>
+          <a class="btn btn-primary" href="https://wa.me/5218114986316?text=Hola, necesito información sobre comedores institucionales para mi institución" target="_blank" style="margin-top:8px;">Contactar por WhatsApp →</a>
         </div>
         <div class="b2b-form">
           <h3 style="margin-bottom:20px;">Solicitar información</h3>
@@ -2617,74 +2640,74 @@ footer {
     <div class="hero-overlay"></div>
     <div class="container" style="position:relative;z-index:2;">
       <div class="hero-content fade-in" style="max-width:580px;">
-        <span class="overline">Nosotros · Filosofía</span>
+        <span class="overline">Nosotros · Filosofía · Ecosistema</span>
         <h1>Hare Krishna<br>Monterrey</h1>
-        <p>Un proyecto que nació desde el servicio y creció desde la convicción. Desde Barrio Antiguo, desde 2013.</p>
+        <p>Un proyecto que integra alimentación consciente, hospitalidad, espacios de calma y aprendizaje, desde 2013 en Barrio Antiguo.</p>
       </div>
     </div>
   </section>
 
-  <!-- 1. HISTORIA -->
+  <!-- 1. QUIÉNES SOMOS -->
   <section class="section">
     <div class="container">
       <div class="about-split">
         <div class="about-img" style="background-image:url('assets/img/fachada-lateral.webp');"></div>
         <div>
-          <span class="overline">Historia</span>
-          <h2 style="margin:12px 0 20px;">Un proyecto que crece<br>desde el servicio</h2>
-          <p style="color:var(--text-muted);margin-bottom:16px;">Hare Krishna Monterrey abrió en 2013 en Barrio Antiguo con una idea sin complicaciones: ofrecer comida real, honesta y bien hecha, desde una filosofía que pone el servicio al centro. Desde ese pequeño espacio, el proyecto ha crecido sin perder lo que lo define.</p>
-          <p style="color:var(--text-muted);margin-bottom:16px;">El restaurante fue el primer paso. Luego llegó el hostel, que hoy recibe a cientos de viajeros cada año. Y el camino sigue: comedores para instituciones, y nuevas unidades de delivery en camino.</p>
+          <span class="overline">Quiénes somos</span>
+          <h2 style="margin:12px 0 20px;">Un ecosistema que<br>crece desde el servicio</h2>
+          <p style="color:var(--text-muted);margin-bottom:16px;">Hare Krishna es un proyecto que integra alimentación consciente, hospitalidad, espacios de calma y aprendizaje, con una forma de vida inspirada en el respeto por la vida, la sencillez y el servicio.</p>
+          <p style="color:var(--text-muted);margin-bottom:16px;">Comenzamos en 2013 con el restaurante en Barrio Antiguo. Desde ahí creció el hostel —hoy HK Barrio Antiguo— y luego los comedores institucionales. Hoy también formamos parte de un ecosistema más amplio: la Quinta Hare Krishna para talleres y aprendizaje, y una huerta con santuario de protección a la vaca en Montemorelos Canoas.</p>
           <p style="color:var(--text-muted);">No somos una empresa sin rostro. Somos personas que creen que comer bien, vivir bien y servir bien son formas concretas de hacer algo con sentido.</p>
           <div class="timeline" style="margin-top:28px;">
             <div class="timeline-item"><h4>2013 — El restaurante</h4><p>Apertura en José Mariano Abasolo 916. Comida vegana y vegetariana, ambiente cálido, servicio directo desde el primer día.</p></div>
-            <div class="timeline-item"><h4>2015 — El hostel</h4><p>Abrimos el hostel en la misma propiedad. Hospedaje económico-práctico para viajeros que buscan Barrio Antiguo desde adentro.</p></div>
+            <div class="timeline-item"><h4>2015 — HK Barrio Antiguo</h4><p>Abrimos el hospedaje en la misma propiedad. Hospedaje consciente para viajeros que buscan Barrio Antiguo desde adentro.</p></div>
             <div class="timeline-item"><h4>2020 — Comedores institucionales</h4><p>Comenzamos a servir escuelas e instituciones bajo el mismo enfoque: calidad consistente, alimentación consciente, trato humano.</p></div>
-            <div class="timeline-item"><h4>Hoy — Ecosistema en crecimiento</h4><p>Nuevas dark kitchens para delivery, expansión hacia San Pedro y Apodaca, y una identidad de marca cada vez más clara y coherente.</p></div>
+            <div class="timeline-item"><h4>Hoy — Ecosistema en crecimiento</h4><p>Quinta Hare Krishna para talleres, huerta y santuario en Montemorelos Canoas, nuevas unidades de delivery, y expansión hacia San Pedro y Apodaca.</p></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. QUÉ NOS INSPIRA -->
+  <!-- 2. NUESTRA INSPIRACIÓN -->
   <section class="section bg-cream">
     <div class="container">
       <div style="max-width:780px;margin:0 auto;">
         <div class="section-header text-center">
           <span class="overline">Inspiración</span>
           <h2>Lo que nos mueve</h2>
-          <p>Hare Krishna como proyecto nace de una tradición espiritual milenaria. Pero su propuesta es concreta y cercana: una manera de estar en el mundo con más conciencia, más cuidado y menos daño.</p>
+          <p>Nuestra inspiración nace de una tradición de sabiduría que pone en el centro el servicio, la conciencia y el respeto por todos los seres. Por eso la cocina, la hospitalidad y los espacios que creamos buscan ser coherentes con una vida más simple, más amable y más atenta.</p>
         </div>
       </div>
       <div class="vision-grid">
         <div class="vision-item">
           <div class="icon">📖</div>
-          <h4>Una tradición con raíces</h4>
-          <p>El movimiento Hare Krishna parte del bhakti yoga: la práctica de la devoción, el servicio y la presencia. Una filosofía india que lleva siglos preguntando cómo vivir de forma más honesta y compasiva.</p>
+          <h4>Enseñanzas védicas</h4>
+          <p>El proyecto se inspira en enseñanzas védicas y en una visión de servicio, conciencia y respeto por toda forma de vida. Una tradición que lleva siglos preguntando cómo vivir con más honestidad y compasión.</p>
         </div>
         <div class="vision-item">
           <div class="icon">🌱</div>
-          <h4>No solo una estética</h4>
-          <p>Lo que nos inspira no es la forma externa, sino la pregunta de fondo: ¿cómo servir mejor? ¿cómo alimentar sin violencia? ¿cómo crear espacios donde la gente se sienta bien de verdad?</p>
+          <h4>Comida con intención</h4>
+          <p>La comida no es solo alimento: también es cuidado, intención y relación con el entorno. Cada platillo que preparamos lleva esa idea al centro: ¿qué significa comer bien y comer con conciencia?</p>
         </div>
         <div class="vision-item">
           <div class="icon">🤲</div>
           <h4>Para cualquier persona</h4>
-          <p>No necesitas ser devoto para comer aquí o hospedarte. Hare Krishna en Monterrey es un espacio abierto, cálido y sin dogma. La filosofía se vive en la cocina, en el trato y en el espacio, no en requisitos.</p>
+          <p>La hospitalidad y la calma son parte esencial de la experiencia. No necesitas ser devoto para comer aquí o hospedarte. Este es un espacio abierto, cálido y sin dogma.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. ALIMENTACIÓN CONSCIENTE -->
+  <!-- 3. AHIMSA -->
   <section class="section">
     <div class="container">
       <div class="about-split">
         <div>
-          <span class="overline">Alimentación</span>
-          <h2 style="margin:12px 0 20px;">Comer sin violencia,<br>alimentar con respeto</h2>
-          <p style="color:var(--text-muted);margin-bottom:16px;">Una de las ideas centrales de la filosofía que nos inspira es la ahimsa: la no violencia. Aplicada a la comida, significa que ningún ser debería sufrir para que podamos alimentarnos.</p>
-          <p style="color:var(--text-muted);margin-bottom:16px;">No lo planteamos como moralismo ni como restricción. Lo planteamos como una invitación: ¿qué pasaría si lo que comes fuera un reflejo de lo que valoras? La cocina vegana y vegetariana, bien hecha, demuestra que elegir con consciencia no implica sacrificar sabor, variedad ni placer.</p>
+          <span class="overline">No violencia</span>
+          <h2 style="margin:12px 0 20px;">Ahimsa<br>(no violencia)</h2>
+          <p style="color:var(--text-muted);margin-bottom:16px;">Ahimsa significa no violencia. En nuestro contexto, se expresa como respeto por la vida, alimentación consciente y una forma de servir que busca cuidar, no explotar. Esta idea inspira nuestra cocina, nuestros espacios y nuestra manera de recibir.</p>
+          <p style="color:var(--text-muted);margin-bottom:16px;">No lo planteamos como moralismo ni como restricción. Lo planteamos como una invitación: ¿qué pasaría si lo que comes fuera un reflejo de lo que valoras? La cocina vegana y vegetariana, bien hecha, demuestra que elegir con conciencia no implica sacrificar sabor, variedad ni placer.</p>
           <p style="color:var(--text-muted);">Cada platillo en Hare Krishna está preparado con intención: ingredientes frescos, recetas que respetan los sabores reales, y la convicción de que comer bien y vivir bien no deberían ser cosas distintas.</p>
         </div>
         <div class="about-img" style="background-image:url('assets/img/tacos.webp');"></div>
@@ -2692,36 +2715,85 @@ footer {
     </div>
   </section>
 
-  <!-- 4. SERVICIO Y HOSPITALIDAD -->
+  <!-- 4. HUERTA Y SANTUARIO -->
   <section class="section bg-olive">
     <div class="container">
-      <div style="max-width:720px;">
-        <span class="overline" style="color:rgba(255,255,255,0.45);">Servicio</span>
-        <h2 style="color:#fff;margin:12px 0 18px;">La hospitalidad como<br>acto de conciencia</h2>
-        <p style="color:rgba(255,255,255,0.8);margin-bottom:16px;">En la tradición que nos inspira, recibir a alguien que llega es un acto sagrado. No en el sentido ceremonial, sino en el sentido de que merece toda tu atención y tu cuidado. El huésped, el comensal, quien llega con hambre o cansado de viaje: todos merecen ser vistos.</p>
-        <p style="color:rgba(255,255,255,0.7);margin-bottom:16px;">Eso se traduce en cosas concretas: trato directo, sin protocolo frío. Espacios limpios y pensados para el descanso. Comida preparada el mismo día. Respuestas por WhatsApp que suenan a persona, no a bot.</p>
-        <p style="color:rgba(255,255,255,0.65);">No siempre lo logramos perfectamente. Pero es el horizonte que nos guía.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. MEDITACIÓN / CALMA -->
-  <section class="section">
-    <div class="container">
-      <div class="about-split">
-        <div class="about-img" style="background-image:url('assets/img/terraza.webp');"></div>
+      <div class="philosophy-block">
         <div>
-          <span class="overline">Calma</span>
-          <h2 style="margin:12px 0 20px;">Un espacio para<br>respirar en la ciudad</h2>
-          <p style="color:var(--text-muted);margin-bottom:16px;">Monterrey es una ciudad de velocidad. Y en medio de eso, Barrio Antiguo guarda algo diferente. Hare Krishna también.</p>
-          <p style="color:var(--text-muted);margin-bottom:16px;">La práctica de la meditación y la calma interior es parte de la filosofía que nos inspira. En el día a día del restaurante y el hostel, eso se traduce en espacios tranquilos, sin ruido innecesario, sin prisa artificial. Lugares donde puedes estar presente.</p>
-          <p style="color:var(--text-muted);">Si has venido a comer y te quedaste mirando por la ventana unos minutos sin razón, eso es exactamente lo que buscamos.</p>
+          <span class="overline" style="color:rgba(255,255,255,0.45);">Tierra · Vida · Cuidado</span>
+          <h2 style="color:#fff;margin:12px 0 18px;">Huerta y Santuario<br>en Montemorelos Canoas</h2>
+          <p style="color:rgba(255,255,255,0.8);margin-bottom:16px;">En Montemorelos Canoas, el proyecto también se extiende a una huerta y a un santuario de protección a la vaca. Este espacio representa de forma viva una de las ideas centrales que inspiran a Hare Krishna: cuidar la tierra, respetar la vida y construir una relación más consciente con el alimento y el entorno.</p>
+          <p style="color:rgba(255,255,255,0.65);">La huerta conecta directamente con lo que servimos en el restaurante: una relación más honesta con el origen de la comida. Y el santuario habla de una idea más profunda: que respetar la vida es también respetar a los animales que nos acompañan.</p>
+        </div>
+        <div class="philosophy-pillars">
+          <div class="philo-pill"><div class="icon">🌱</div><span>Huerta propia</span></div>
+          <div class="philo-pill"><div class="icon">🐄</div><span>Santuario de protección</span></div>
+          <div class="philo-pill"><div class="icon">🌿</div><span>Cultivo consciente</span></div>
+          <div class="philo-pill"><div class="icon">🤲</div><span>Respeto por la vida</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. VISIÓN DEL PROYECTO -->
+  <!-- 5. HOSPITALIDAD Y SERVICIO -->
+  <section class="section">
+    <div class="container">
+      <div class="about-split">
+        <div class="about-img" style="background-image:url('assets/img/terraza.webp');"></div>
+        <div>
+          <span class="overline">Hospitalidad</span>
+          <h2 style="margin:12px 0 20px;">Servicio con propósito,<br>hospitalidad con calma</h2>
+          <p style="color:var(--text-muted);margin-bottom:16px;">En la tradición que nos inspira, recibir a alguien que llega es un acto de cuidado real. No en el sentido ceremonial, sino en el sentido de que merece toda tu atención. El huésped, el comensal, quien llega con hambre o cansado de viaje: todos merecen ser vistos.</p>
+          <p style="color:var(--text-muted);margin-bottom:16px;">Eso se traduce en cosas concretas: trato directo, sin protocolo frío. Espacios limpios y pensados para el descanso. Comida preparada el mismo día. Respuestas por WhatsApp que suenan a persona, no a bot.</p>
+          <p style="color:var(--text-muted);">No siempre lo logramos perfectamente. Pero es el horizonte que nos guía.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. MEDITACIÓN Y CALMA -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div style="max-width:720px;margin:0 auto;text-align:center;">
+        <span class="overline">Calma · Pausa · Bienestar</span>
+        <h2 style="margin:12px 0 18px;">Un espacio para pausar,<br>respirar y reconectar</h2>
+        <p style="color:var(--text-muted);margin-bottom:16px;">Además de la comida y la hospitalidad, Hare Krishna busca abrir espacio para la pausa, la meditación y la calma. Creemos que un buen lugar también puede ayudar a respirar mejor, bajar el ritmo y reconectar.</p>
+        <p style="color:var(--text-muted);margin-bottom:24px;">Monterrey es una ciudad de velocidad. Y en medio de eso, Barrio Antiguo guarda algo diferente. La práctica de la meditación y la calma interior es parte de la filosofía que nos inspira. En el día a día del restaurante y el hospedaje, eso se traduce en espacios tranquilos, sin ruido innecesario.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+          <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;text-align:center;min-width:130px;">
+            <div style="font-size:1.6rem;margin-bottom:6px;">🧘</div>
+            <span style="font-size:0.82rem;font-weight:600;">Meditación</span>
+          </div>
+          <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;text-align:center;min-width:130px;">
+            <div style="font-size:1.6rem;margin-bottom:6px;">🌿</div>
+            <span style="font-size:0.82rem;font-weight:600;">Atención consciente</span>
+          </div>
+          <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;text-align:center;min-width:130px;">
+            <div style="font-size:1.6rem;margin-bottom:6px;">🌸</div>
+            <span style="font-size:0.82rem;font-weight:600;">Bienestar interior</span>
+          </div>
+          <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;text-align:center;min-width:130px;">
+            <div style="font-size:1.6rem;margin-bottom:6px;">☮️</div>
+            <span style="font-size:0.82rem;font-weight:600;">Calma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. VIDA SENCILLA / SERVICIO -->
+  <section class="section bg-charcoal">
+    <div class="container">
+      <div style="max-width:720px;">
+        <span class="overline" style="color:rgba(255,255,255,0.4);">Filosofía de vida</span>
+        <h2 style="color:#fff;margin:12px 0 18px;">Vida sencilla,<br>pensamiento elevado</h2>
+        <p style="color:rgba(255,255,255,0.75);margin-bottom:18px;">Nos inspira una forma de vida más sencilla, atenta y coherente: menos exceso, más cuidado; menos ruido, más presencia; menos prisa, más intención.</p>
+        <p style="color:rgba(255,255,255,0.60);font-size:0.9rem;">Esta idea no es abstracta ni doctrinal. Se vive en la cocina, en el trato, en el espacio. Se vive cuando el thali está bien hecho, cuando alguien llega al hostel y siente que puede respirar, cuando la quinta acoge un taller y la gente se va con algo real.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. VISIÓN DEL PROYECTO -->
   <section class="section bg-cream">
     <div class="container">
       <div class="section-header">
@@ -2732,18 +2804,18 @@ footer {
       <div class="vision-grid">
         <div class="vision-item">
           <div class="icon">🏪</div>
-          <h4>Más unidades, misma calidad</h4>
+          <h4>Más unidades, misma esencia</h4>
           <p>San Pedro y Apodaca están en camino. Cada nueva unidad parte del mismo estándar: comida real, servicio honesto, identidad coherente.</p>
         </div>
         <div class="vision-item">
-          <div class="icon">🏫</div>
-          <h4>Comedores con propósito</h4>
-          <p>Llevar alimentación consciente a escuelas e instituciones es una de las formas más directas de hacer que esta filosofía tenga impacto real.</p>
+          <div class="icon">🌿</div>
+          <h4>Quinta y talleres</h4>
+          <p>La Quinta Hare Krishna entre Allende y Montemorelos, como espacio de aprendizaje: talleres de salud, meditación, yoga y alimentación consciente.</p>
         </div>
         <div class="vision-item">
-          <div class="icon">🌐</div>
-          <h4>Marca con profundidad</h4>
-          <p>Más allá del negocio, queremos construir una referencia: de que comer bien, vivir con simplicidad y servir con propósito son ideas que se pueden practicar hoy.</p>
+          <div class="icon">🐄</div>
+          <h4>Huerta y santuario</h4>
+          <p>En Montemorelos Canoas cultivamos la relación con la tierra y los animales. La huerta y el santuario de protección a la vaca son parte del ecosistema real.</p>
         </div>
       </div>
     </div>
@@ -2756,8 +2828,124 @@ footer {
       <p style="margin-bottom:28px;">La mejor forma de entender Hare Krishna es estar aquí.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
         <button class="btn btn-terra btn-lg" onclick="navigate('restaurante')">🍽️ Ver el restaurante</button>
-        <button class="btn btn-ghost btn-lg" onclick="navigate('hostel')">🏨 Ver el hostel</button>
-        <button class="btn btn-outline-light btn-lg" onclick="navigate('blog')">📝 Leer el blog</button>
+        <button class="btn btn-ghost btn-lg" onclick="navigate('hostel')">🏨 HK Barrio Antiguo</button>
+        <button class="btn btn-ghost btn-lg" onclick="navigate('quinta')">🌿 Quinta Hare Krishna</button>
+        <a class="btn btn-outline-light btn-lg" href="https://wa.me/5218114986316" target="_blank">💬 WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================================================================
+     PAGE: QUINTA HARE KRISHNA
+================================================================ -->
+<div class="page" id="page-quinta">
+
+  <!-- HERO -->
+  <section class="hero" style="min-height:58vh;background:linear-gradient(140deg,#0e1808,#1e2f10);">
+    <div class="hero-bg" style="background-image:url('assets/img/fachada-exterior.webp');opacity:0.22;filter:saturate(0.5) hue-rotate(30deg);"></div>
+    <div class="hero-overlay" style="background:linear-gradient(140deg,rgba(8,14,4,0.96) 0%,rgba(18,32,8,0.80) 55%,rgba(12,22,4,0.55) 100%);"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="hero-content fade-in">
+        <span class="overline">Entre Allende y Montemorelos</span>
+        <h1>Quinta<br>Hare Krishna</h1>
+        <p style="margin-bottom:8px;">Un espacio entre Allende y Montemorelos para talleres, aprendizaje, salud, meditación y alimentación consciente.</p>
+        <p style="margin-bottom:24px;font-size:0.88rem;color:rgba(255,255,255,0.55);max-width:100%;">Talleres · Yoga · Meditación · Salud · Vida consciente</p>
+        <div class="hero-btns fade-in-2">
+          <a class="btn btn-terra btn-lg" href="https://wa.me/5218114986316?text=Hola, quiero información sobre la Quinta Hare Krishna" target="_blank">💬 Pedir información</a>
+          <a class="btn btn-ghost btn-lg" href="tel:+528114986316">📞 +52 81 1498 6316</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ ES LA QUINTA -->
+  <section class="section">
+    <div class="container">
+      <div class="about-split">
+        <div class="about-img" style="background:linear-gradient(135deg,#2a4a1a 0%,#4a7a28 50%,#3a6020 100%);display:flex;align-items:center;justify-content:center;font-size:6rem;">🌿</div>
+        <div>
+          <span class="overline">El espacio</span>
+          <h2 style="margin:12px 0 20px;">Qué es la Quinta<br>Hare Krishna</h2>
+          <p style="color:var(--text-muted);margin-bottom:16px;">La Quinta Hare Krishna es un espacio de encuentro y aprendizaje orientado a actividades que promueven salud, conciencia, calma y una relación más respetuosa con la vida.</p>
+          <p style="color:var(--text-muted);margin-bottom:16px;">Ubicada entre Allende y Montemorelos, la quinta ofrece un entorno natural propicio para pausar, aprender y reconectar. Lejos del ritmo de la ciudad, pero parte del mismo ecosistema que incluye el restaurante, el hospedaje y los comedores.</p>
+          <p style="color:var(--text-muted);">Es un lugar para formación, encuentro y práctica consciente. Sin lujo innecesario, sin protocolo frío. Solo espacio, calma y propósito.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUÉ SIRVE -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="overline">Actividades</span>
+        <h2>¿Para qué sirve<br>la Quinta?</h2>
+        <p>Un espacio versátil para experiencias de aprendizaje, pausa y bienestar consciente.</p>
+      </div>
+      <div class="pillars" >
+        <div class="pillar">
+          <div class="pillar-icon">🧘</div>
+          <h4>Meditación</h4>
+          <p>Retiros y prácticas de meditación en un entorno tranquilo, alejado del ruido urbano.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🌿</div>
+          <h4>Alimentación consciente</h4>
+          <p>Talleres sobre alimentación basada en plantas, preparación de alimentos y relación con el entorno.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🏋️</div>
+          <h4>Yoga</h4>
+          <p>Práctica de yoga en espacio abierto. Sesiones de distintas tradiciones y niveles.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">💚</div>
+          <h4>Salud integral</h4>
+          <p>Encuentros y talleres sobre bienestar físico, emocional y mental desde una perspectiva integradora.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">📚</div>
+          <h4>Encuentros formativos</h4>
+          <p>Workshops, cursos y experiencias educativas vinculadas a la filosofía y el proyecto.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🌱</div>
+          <h4>Experiencias de pausa</h4>
+          <p>Retiros cortos y experiencias diseñadas para desacelerar, respirar y reconectar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELACIÓN CON EL ECOSISTEMA -->
+  <section class="section bg-olive">
+    <div class="container">
+      <div style="max-width:720px;">
+        <span class="overline" style="color:rgba(255,255,255,0.45);">Ecosistema</span>
+        <h2 style="color:#fff;margin:12px 0 18px;">Parte de un proyecto<br>más amplio</h2>
+        <p style="color:rgba(255,255,255,0.8);margin-bottom:16px;">La Quinta Hare Krishna forma parte del mismo proyecto que incluye el restaurante vegano en Barrio Antiguo, HK Barrio Antiguo (hospedaje), la huerta y santuario de protección a la vaca en Montemorelos Canoas, los comedores institucionales y las nuevas unidades en crecimiento.</p>
+        <p style="color:rgba(255,255,255,0.65);">Cada espacio tiene su propia función, pero todos comparten la misma raíz: respeto por la vida, servicio con propósito y una forma más consciente de comer, vivir y aprender.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;">
+        <span class="chip" onclick="navigate('restaurante')" style="cursor:pointer;">🍽️ Restaurante</span>
+        <span class="chip" onclick="navigate('hostel')" style="cursor:pointer;">🏨 HK Barrio Antiguo</span>
+        <span class="chip" onclick="navigate('comedores')" style="cursor:pointer;">🏫 Comedores</span>
+        <span class="chip" style="cursor:default;">🌿 Huerta · Montemorelos</span>
+        <span class="chip" style="cursor:default;">🐄 Santuario · Canoas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-band">
+    <div class="container text-center">
+      <h2>¿Te interesa la Quinta?</h2>
+      <p style="margin-bottom:28px;">Para talleres, retiros o información sobre actividades, escríbenos directamente.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        <a class="btn btn-terra btn-lg" href="https://wa.me/5218114986316?text=Hola, quiero información sobre la Quinta Hare Krishna" target="_blank">💬 WhatsApp</a>
+        <a class="btn btn-ghost btn-lg" href="tel:+528114986316">📞 +52 81 1498 6316</a>
+        <button class="btn btn-outline-light btn-lg" onclick="navigate('nosotros')">🌿 Conocer el proyecto</button>
       </div>
     </div>
   </section>
@@ -2792,10 +2980,8 @@ footer {
     <div class="book-categories-wrap">
       <div class="menu-categories" id="book-categories">
         <button class="cat-btn active" onclick="filterBookCat(this,'todos')">📚 Todos</button>
-        <button class="cat-btn" onclick="filterBookCat(this,'filosofia')">🔆 Filosofía</button>
-        <button class="cat-btn" onclick="filterBookCat(this,'bhakti')">🌸 Bhakti Yoga</button>
-        <button class="cat-btn" onclick="filterBookCat(this,'meditacion')">🧘 Meditación</button>
-        <button class="cat-btn" onclick="filterBookCat(this,'colecciones')">📖 Colecciones</button>
+        <button class="cat-btn" onclick="filterBookCat(this,'libros')">📖 Libros</button>
+        <button class="cat-btn" onclick="filterBookCat(this,'tienda')">🪔 Tienda</button>
       </div>
     </div>
 
@@ -2939,24 +3125,16 @@ footer {
             <div class="contact-text"><strong>Horario restaurante</strong><span>Martes a domingo, de 9:00 am a 8:00 pm</span></div>
           </div>
 
-          <!-- Separador visual -->
+          <!-- Número único de contacto -->
           <div style="margin:20px 0 16px;padding:16px;background:rgba(61,74,46,0.07);border-radius:var(--radius);border-left:3px solid var(--olive);">
-            <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--olive);margin-bottom:10px;">Restaurante y Hostel</div>
+            <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--olive);margin-bottom:10px;">Contacto directo · Todos los servicios</div>
             <div class="contact-item" style="margin-bottom:8px;">
               <div class="contact-icon" style="width:36px;height:36px;">📱</div>
-              <div class="contact-text"><strong>WhatsApp</strong><span>+52 1 81 1181 7262</span></div>
+              <div class="contact-text"><strong>WhatsApp</strong><span>+52 81 1498 6316</span></div>
             </div>
             <div class="contact-item" style="margin-bottom:0;">
               <div class="contact-icon" style="width:36px;height:36px;">📞</div>
-              <div class="contact-text"><strong>Teléfono</strong><span>+52 81 8340 0916</span></div>
-            </div>
-          </div>
-
-          <div style="margin:16px 0 16px;padding:16px;background:rgba(176,94,66,0.07);border-radius:var(--radius);border-left:3px solid var(--terracotta);">
-            <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--terracotta);margin-bottom:10px;">Comedores y Dark Kitchens</div>
-            <div class="contact-item" style="margin-bottom:0;">
-              <div class="contact-icon" style="width:36px;height:36px;">📱</div>
-              <div class="contact-text"><strong>WhatsApp / Contacto</strong><span>+52 81 1498 6316</span></div>
+              <div class="contact-text"><strong>Llamar</strong><span>+52 81 1498 6316</span></div>
             </div>
           </div>
 
@@ -2967,15 +3145,16 @@ footer {
 
           <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
             <a class="btn btn-primary" href="https://maps.google.com/?q=José+Mariano+Abasolo+916+Barrio+Antiguo+Monterrey" target="_blank">🗺️ Google Maps</a>
-            <a class="btn btn-wa" href="https://wa.me/5218111817262" target="_blank">WhatsApp Restaurante</a>
-            <a class="btn btn-outline" href="tel:+528183400916">📞 Llamar</a>
+            <a class="btn btn-wa" href="https://wa.me/5218114986316" target="_blank">WhatsApp</a>
+            <a class="btn btn-outline" href="tel:+528114986316">📞 Llamar</a>
           </div>
 
           <div style="margin-top:24px;padding:18px;background:var(--beige);border-radius:var(--radius);font-size:0.84rem;color:var(--text-muted);line-height:1.9;">
             <strong style="color:var(--text-main);display:block;margin-bottom:8px;">¿Qué necesitas?</strong>
-            🍽️ Pedir comida → <a href="https://wa.me/5218111817262?text=Hola, quiero hacer un pedido" target="_blank" style="color:var(--olive);font-weight:500;">WhatsApp +52 1 81 1181 7262</a><br>
-            🏨 Reservar hostel → <a href="https://wa.me/5218111817262?text=Hola, quiero información del hostel" target="_blank" style="color:var(--olive);font-weight:500;">WhatsApp +52 1 81 1181 7262</a><br>
-            🏫 Comedores / Dark kitchens → <a href="https://wa.me/528114986316?text=Hola, necesito información sobre comedores o dark kitchens" target="_blank" style="color:var(--terracotta);font-weight:500;">WhatsApp +52 81 1498 6316</a>
+            🍽️ Pedir comida → <a href="https://wa.me/5218114986316?text=Hola, quiero hacer un pedido" target="_blank" style="color:var(--olive);font-weight:500;">WhatsApp +52 81 1498 6316</a><br>
+            🏨 Reservar HK Barrio Antiguo → <a href="https://wa.me/5218114986316?text=Hola, quiero información sobre HK Barrio Antiguo" target="_blank" style="color:var(--olive);font-weight:500;">WhatsApp +52 81 1498 6316</a><br>
+            🌿 Quinta Hare Krishna → <a href="https://wa.me/5218114986316?text=Hola, quiero información sobre la Quinta Hare Krishna" target="_blank" style="color:var(--olive);font-weight:500;">WhatsApp +52 81 1498 6316</a><br>
+            🏫 Comedores / Dark Kitchens → <a href="https://wa.me/5218114986316?text=Hola, necesito información sobre comedores o dark kitchens" target="_blank" style="color:var(--olive);font-weight:500;">WhatsApp +52 81 1498 6316</a>
           </div>
         </div>
         <div class="map-box" style="height:420px;">
@@ -2995,20 +3174,21 @@ footer {
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="logo-name" style="font-family:var(--font-display);font-size:1.4rem;color:#fff;">Hare <em style="color:var(--terracotta);font-style:normal;">Krishna</em></div>
-          <p>Restaurante vegano, hostel y comedores institucionales en Barrio Antiguo, Monterrey. Desde 2013.</p>
+          <p>Restaurante vegano, HK Barrio Antiguo, Quinta, comedores y espacios de calma en Monterrey. Desde 2013.</p>
           <div class="social-links" style="margin-top:14px;">
             <a class="social-link" href="https://www.instagram.com/harekrishnamty/" target="_blank">📸</a>
-            <a class="social-link" href="https://wa.me/5218111817262" target="_blank">💬</a>
+            <a class="social-link" href="https://wa.me/5218114986316" target="_blank">💬</a>
           </div>
         </div>
         <div class="footer-col">
           <h5>Nuestros espacios</h5>
           <ul class="footer-links">
             <li><span onclick="navigate('restaurante')">Restaurante</span></li>
-            <li><span onclick="navigate('hostel')">Hostel</span></li>
+            <li><span onclick="navigate('hostel')">HK Barrio Antiguo</span></li>
             <li><span onclick="navigate('san-pedro')">San Pedro</span></li>
             <li><span onclick="navigate('apodaca')">Apodaca</span></li>
             <li><span onclick="navigate('comedores')">Comedores</span></li>
+            <li><span onclick="navigate('quinta')">Quinta Hare Krishna</span></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -3026,13 +3206,13 @@ footer {
             <li><span style="cursor:default;">José Mariano Abasolo 916</span></li>
             <li><span style="cursor:default;">Barrio Antiguo, Monterrey</span></li>
             <li><span style="cursor:default;">Mar–Dom · 9:00 am – 8:00 pm</span></li>
-            <li style="margin-top:8px;"><a href="https://wa.me/5218111817262" target="_blank" style="color:rgba(255,255,255,0.6);">Restaurante & Hostel: +52 1 81 1181 7262</a></li>
-            <li><a href="https://wa.me/528114986316" target="_blank" style="color:rgba(255,255,255,0.5);">Comedores: +52 81 1498 6316</a></li>
+            <li style="margin-top:8px;"><a href="https://wa.me/5218114986316" target="_blank" style="color:rgba(255,255,255,0.6);">WhatsApp: +52 81 1498 6316</a></li>
+            <li><a href="https://wa.me/5218114986316" target="_blank" style="color:rgba(255,255,255,0.5);">+52 81 1498 6316</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 Hare Krishna Monterrey · Restaurante vegano & Hostel · Barrio Antiguo, Monterrey, N.L.</p>
+        <p>© 2026 Hare Krishna Monterrey · Restaurante vegano · HK Barrio Antiguo · Quinta · Barrio Antiguo, Monterrey, N.L.</p>
         <p style="font-size:0.72rem;">Hecho con 🌿 en Monterrey</p>
       </div>
     </div>
@@ -3043,7 +3223,7 @@ footer {
 /* ============================================================
    NAVIGATION SYSTEM
 ============================================================ */
-const pages = ['home','restaurante','hostel','san-pedro','apodaca','comedores','libros','nosotros','blog','blog-article','contacto'];
+const pages = ['home','restaurante','hostel','san-pedro','apodaca','comedores','quinta','libros','nosotros','blog','blog-article','contacto'];
 
 function navigate(to) {
   pages.forEach(p => {
@@ -3076,17 +3256,21 @@ function navigate(to) {
   if(to === 'libros') {
     setTimeout(initBooks, 80);
   }
+  if(to === 'quinta') {
+    // no special init needed — static page
+  }
   // Inject footer if needed
   injectFooters();
   // Update document title
   const titles = {
-    home: 'Hare Krishna Monterrey | Restaurante Vegano & Hostel en Barrio Antiguo',
+    home: 'Hare Krishna Monterrey | Restaurante Vegano, HK Barrio Antiguo & Quinta',
     restaurante: 'Restaurante Hare Krishna | Vegano & Vegetariano en Barrio Antiguo, Monterrey',
-    hostel: 'Hostel Hare Krishna | Hospedaje en Barrio Antiguo, Monterrey',
+    hostel: 'HK Barrio Antiguo | Hospedaje consciente en Barrio Antiguo, Monterrey',
     'san-pedro': 'Hare Krishna San Pedro | Próximamente',
     apodaca: 'Hare Krishna Apodaca | Próximamente',
     comedores: 'Comedores Hare Krishna | Servicio Institucional en Monterrey',
-    nosotros: 'Nosotros | Hare Krishna Monterrey — Filosofía y Historia',
+    quinta: 'Quinta Hare Krishna | Talleres, Salud, Meditación y Alimentación Consciente',
+    nosotros: 'Nosotros | Hare Krishna Monterrey — Filosofía, Ahimsa y Ecosistema',
     libros: 'Tienda de Libros | Hare Krishna Monterrey',
     blog: 'Blog Hare Krishna Monterrey | Filosofía y Alimentación Consciente',
     contacto: 'Contacto | Hare Krishna Monterrey'
@@ -3164,10 +3348,10 @@ const menuItems = [
     imgColor:'background:url(assets/img/tacos.webp) center/cover' },
 
   { id:5,  cat:'favoritos', hero:true,
-    name:'Lassi', price:109, emoji:'🥛',
-    badge:'Clásico', badgeType:'fav',
-    desc:'Bebida tradicional india de yogurt vegano con fruta del día. Pregunta el sabor.',
-    imgColor:'background:linear-gradient(135deg,#4a5238,#8a9870)' },
+    name:'Pizza', price:309, emoji:'🍕',
+    badge:'Favorito', badgeType:'fav',
+    desc:'Pizza de la casa.',
+    imgColor:'background:linear-gradient(135deg,#7a2a18,#b04a38)' },
 
   { id:6,  cat:'favoritos', hero:true,
     name:'Chai Latte', price:89, emoji:'🫖',
@@ -3283,9 +3467,9 @@ const menuItems = [
     imgColor:'background:linear-gradient(135deg,#3a5020,#5a7838)' },
 
   { id:44, cat:'pizzas',
-    name:'Pepperoni Vegana', price:309, emoji:'🍕',
+    name:'Pepperoni', price:309, emoji:'🍕',
     badge:'Favorito', badgeType:'pop',
-    desc:'Salsa de tomate, pepperoni de soya y mozzarella vegana.',
+    desc:'Salsa de tomate, pepperoni de soya y mozzarella.',
     imgColor:'background:linear-gradient(135deg,#7a2a18,#b04a38)' },
 
   /* ── REBANADAS ── */
@@ -3296,7 +3480,7 @@ const menuItems = [
     imgColor:'background:linear-gradient(135deg,#6b3a1a,#a05a38)' },
 
   { id:51, cat:'rebanadas',
-    name:'Pepperoni Vegana', price:65, emoji:'🍕',
+    name:'Pepperoni', price:65, emoji:'🍕',
     desc:'Pepperoni de soya con mozzarella. Una rebanada para probar sin compromiso.',
     imgColor:'background:linear-gradient(135deg,#7a2a18,#b04a38)' },
 
@@ -3684,7 +3868,7 @@ function whatsappOrder() {
   }
   msg += '\nTotal: $' + total;
   if (notes) msg += '\nNotas: ' + notes;
-  window.open('https://wa.me/5218111817262?text=' + encodeURIComponent(msg), '_blank');
+  window.open('https://wa.me/5218114986316?text=' + encodeURIComponent(msg), '_blank');
 }
 
 function pickupOrder() {
@@ -3697,7 +3881,7 @@ function pickupOrder() {
     msg += '• ' + c.name + ' x' + c.qty + '\n';
   }
   msg += '\nTotal: $' + total + '\n¿En cuánto tiempo está listo?';
-  window.open('https://wa.me/5218111817262?text=' + encodeURIComponent(msg), '_blank');
+  window.open('https://wa.me/5218114986316?text=' + encodeURIComponent(msg), '_blank');
 }
 
 /* ============================================================
@@ -3730,7 +3914,7 @@ function sendBookingWA() {
   const roomType = document.getElementById('room-type')?.value || '';
   const guests = document.getElementById('guest-count')?.value || '1';
   const notes = document.getElementById('booking-notes')?.value || '';
-  let msg = `Hola, quiero reservar en el Hostel Hare Krishna:\n\n`;
+  let msg = `Hola, quiero reservar en el HK Barrio Antiguo:\n\n`;
   if(name) msg += `👤 Nombre: ${name}\n`;
   if(checkin) msg += `📅 Entrada: ${checkin}\n`;
   if(checkout) msg += `📅 Salida: ${checkout}\n`;
@@ -3738,7 +3922,7 @@ function sendBookingWA() {
   msg += `👥 Huéspedes: ${guests}\n`;
   if(phone) msg += `📱 Contacto: ${phone}\n`;
   if(notes) msg += `\nNotas: ${notes}`;
-  window.open(`https://wa.me/5218111817262?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open(`https://wa.me/5218114986316?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
 /* ============================================================
@@ -3756,7 +3940,7 @@ function sendB2BWA() {
   if(phone) msg += `📱 Contacto: ${phone}\n`;
   if(count) msg += `👥 Personas aprox: ${count}\n`;
   if(msg_) msg += `\nDetalles: ${msg_}`;
-  window.open(`https://wa.me/528114986316?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open(`https://wa.me/5218114986316?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
 /* ============================================================
@@ -3766,7 +3950,7 @@ function notifyMe(unit) {
   const email = document.getElementById(unit === 'san-pedro' ? 'sp-email' : 'ap-email')?.value || '';
   if(!email || !email.includes('@')) { showToast('❗ Ingresa un correo válido'); return; }
   let msg = `Hola, quiero que me avisen cuando abra Hare Krishna ${unit === 'san-pedro' ? 'San Pedro' : 'Apodaca'}. Mi correo: ${email}`;
-  window.open(`https://wa.me/528114986316?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open(`https://wa.me/5218114986316?text=${encodeURIComponent(msg)}`, '_blank');
   showToast('✅ ¡Te avisaremos pronto!', 'success');
 }
 
@@ -4101,7 +4285,7 @@ function orderProductByWA() {
   var msg = 'Hola, quiero pedir:\n• ' + item.name + ' x' + currentProductQty + ' — $' + (item.price * currentProductQty);
   if (notes) msg += '\nNotas: ' + notes;
   msg += '\n\n¿Está disponible para pickup?';
-  window.open('https://wa.me/5218111817262?text=' + encodeURIComponent(msg), '_blank');
+  window.open('https://wa.me/5218114986316?text=' + encodeURIComponent(msg), '_blank');
 }
 
 /* ============================================================
@@ -4226,9 +4410,9 @@ var hostelRooms = [
       type: 'Privada',
       maxGuests: 2,
       beds: '1 cama matrimonial + sofá-cama matrimonial',
-      price1: 3190,
-      price2: 3490,
-      priceLabel: 'Desde $3,190',
+      price1: 1690,
+      price2: 1790,
+      priceLabel: 'Desde $1,690',
       cover: 'assets/img/doble-superior-2-camas.webp',
       gallery: [
         'assets/img/doble-superior-2-camas.webp',
@@ -4252,9 +4436,9 @@ var hostelRooms = [
       type: 'Privada',
       maxGuests: 2,
       beds: '1 cama king',
-      price1: 3590,
-      price2: 3590,
-      priceLabel: '$3,590',
+      price1: 1790,
+      price2: 1790,
+      priceLabel: '$1,790',
       cover: 'assets/img/Suite-King-con-baño-privado.webp',
       gallery: [
         'assets/img/Suite-King-con-baño-privado.webp'
@@ -4272,9 +4456,9 @@ var hostelRooms = [
       type: 'Privada',
       maxGuests: 2,
       beds: '1 cama doble',
-      price1: 2490,
-      price2: 2890,
-      priceLabel: 'Desde $2,490',
+      price1: 1250,
+      price2: 1390,
+      priceLabel: 'Desde $1,250',
       cover: 'assets/img/Doble-Estandar-baño-exterior.webp',
       gallery: [
         'assets/img/Doble-Estandar-baño-exterior.webp',
@@ -4295,9 +4479,9 @@ var hostelRooms = [
       type: 'Compartida',
       maxGuests: 1,
       beds: 'Cama en dormitorio compartido',
-      price1: 950,
+      price1: 450,
       price2: null,
-      priceLabel: '$950',
+      priceLabel: '$450',
       cover: 'assets/img/dormitorio-compartido.webp',
       gallery: [
         'assets/img/dormitorio-compartido.webp',
@@ -4317,9 +4501,9 @@ var hostelRooms = [
       type: 'Privada',
       maxGuests: 2,
       beds: '2 camas matrimoniales',
-      price1: 2990,
-      price2: 3290,
-      priceLabel: 'Desde $2,990',
+      price1: 1290,
+      price2: 1390,
+      priceLabel: 'Desde $1,290',
       cover: 'assets/img/Doble-familiar-baño-exterior.webp',
       gallery: [
         'assets/img/Doble-familiar-baño-exterior.webp'
@@ -4337,9 +4521,9 @@ var hostelRooms = [
       type: 'Privada',
       maxGuests: 1,
       beds: '1 cama matrimonial',
-      price1: 1950,
+      price1: 990,
       price2: null,
-      priceLabel: '$1,950',
+      priceLabel: '$990',
       cover: 'assets/img/Sencilla-Matrimonial-baño-exterior.webp',
       gallery: [
         'assets/img/Sencilla-Matrimonial-baño-exterior.webp',
@@ -4535,7 +4719,7 @@ function sendHostelWA() {
   if (!d.name) { showToast('❗ Ingresa tu nombre completo'); return; }
   if (!d.phone) { showToast('❗ Ingresa tu WhatsApp'); return; }
 
-  var msg = 'Hola, quiero solicitar una reserva en Hostel Hare Krishna.\n\n';
+  var msg = 'Hola, quiero solicitar una reserva en HK Barrio Antiguo.\n\n';
   msg += '🏨 Habitación: ' + d.room.name + '\n';
   msg += '👥 Huéspedes: ' + d.guests + ' persona' + (d.guests !== 1 ? 's' : '') + '\n';
   msg += '📅 Entrada: ' + formatDate(d.checkin) + '\n';
@@ -4547,7 +4731,7 @@ function sendHostelWA() {
   if (d.notes) msg += '📝 Notas: ' + d.notes + '\n';
   msg += '\nEntiendo que la disponibilidad y el bloqueo de fechas se confirman manualmente por este medio.';
 
-  window.open('https://wa.me/5218111817262?text=' + encodeURIComponent(msg), '_blank');
+  window.open('https://wa.me/5218114986316?text=' + encodeURIComponent(msg), '_blank');
 }
 
 
@@ -4613,8 +4797,8 @@ function openRoomModal(id) {
 
   var waBtn = document.getElementById('rm-wa-btn');
   if (waBtn) {
-    var waMsg = 'Hola, me interesa la ' + room.name + ' del Hostel Hare Krishna. ¿Podrían darme más información sobre disponibilidad y precios?';
-    waBtn.href = 'https://wa.me/5218111817262?text=' + encodeURIComponent(waMsg);
+    var waMsg = 'Hola, me interesa la ' + room.name + ' del HK Barrio Antiguo. ¿Podrían darme más información sobre disponibilidad y precios?';
+    waBtn.href = 'https://wa.me/5218114986316?text=' + encodeURIComponent(waMsg);
   }
 
   var overlay = document.getElementById('room-modal-overlay');
@@ -4775,46 +4959,26 @@ document.addEventListener('DOMContentLoaded', function() {
    BOOKS E-COMMERCE
 ============================================ */
 var bookItems = [
-  { id:101, cat:'todos', name:'Bhagavad-gita tal como es', price:250, emoji:'📖',
-    badge:'Más vendido', badgeType:'pop',
-    desc:'La obra maestra de la sabiduría védica. Traducción y comentarios de A.C. Bhaktivedanta Swami Prabhupada. Edición completa con sánscrito, transliteración y explicaciones filosóficas.',
-    imgColor:'background:linear-gradient(135deg,#3d4a2e,#6b7a52)' },
-  { id:102, cat:'bhakti', name:'El Néctar de la Devoción', price:290, emoji:'🌸',
+  { id:101, cat:'todos', name:'Libro "Bhagavad Gita"', price:450, emoji:'📖',
     badge:'Esencial', badgeType:'firm',
-    desc:'Estudio completo de la ciencia de la devoción. Basado en el Bhakti-rasāmṛta-sindhu de Srila Rupa Goswami. Ideal para devotos y estudiantes de yoga devocional.',
-    imgColor:'background:linear-gradient(135deg,#7a4a2e,#c4906a)' },
-  { id:103, cat:'todos', name:'La Ciencia de la Autorrealización', price:220, emoji:'🔆',
-    badge:'Para comenzar', badgeType:'fav',
-    desc:'Colección de entrevistas, conferencias y cartas de Srila Prabhupada. El libro perfecto para quienes se acercan por primera vez a la filosofía Vaishnava.',
-    imgColor:'background:linear-gradient(135deg,#4a3a6a,#8a7ab0)' },
-  { id:104, cat:'filosofia', name:'Más allá del nacimiento y la muerte', price:120, emoji:'🕊️',
+    desc:'La escritura sagrada más importante del mundo védico. Traducción y comentarios de A.C. Bhaktivedanta Swami Prabhupada.',
+    imgColor:'background:linear-gradient(135deg,#3d4a2e,#6b7a52)' },
+  { id:102, cat:'todos', name:'Incienso', price:60, emoji:'🪔',
     badge:null, badgeType:null,
-    desc:'Una exploración profunda de la naturaleza del alma, la reencarnación y la liberación espiritual. Lectura breve y accesible para todo público.',
-    imgColor:'background:linear-gradient(135deg,#1e2a3a,#4a6a8a)' },
-  { id:105, cat:'filosofia', name:'El Libro de Kṛṣṇa', price:280, emoji:'🦚',
-    badge:'Ilustrado', badgeType:'fav',
-    desc:'Relato completo de las actividades y enseñanzas de Sri Krishna basado en el décimo canto del Srimad Bhagavatam. Con ilustraciones a color.',
-    imgColor:'background:linear-gradient(135deg,#1a3a5a,#2a6a9a)' },
-  { id:106, cat:'bhakti', name:'Néctar de Instrucción', price:180, emoji:'📿',
-    badge:'Compacto', badgeType:null,
-    desc:'Once versos de Srila Rupa Goswami con los principios fundamentales del bhakti yoga. Edición con sánscrito, transliteración, traducción y purports.',
-    imgColor:'background:linear-gradient(135deg,#3a2a1a,#7a5a3a)' },
-  { id:107, cat:'meditacion', name:'Raja Vidya: El Rey del Conocimiento', price:195, emoji:'👑',
+    desc:'Incienso artesanal de la tradición Krishna. Purifica el ambiente y eleva la consciencia.',
+    imgColor:'background:linear-gradient(135deg,#6a4a2a,#a07848)' },
+  { id:103, cat:'todos', name:'Libro "Un gusto superior"', price:200, emoji:'📗',
     badge:null, badgeType:null,
-    desc:'Exposición de los capítulos centrales del Bhagavad-gita. Srila Prabhupada explica el conocimiento más confidencial de la espiritualidad védica.',
-    imgColor:'background:linear-gradient(135deg,#2a1a0a,#6a4a1a)' },
-  { id:108, cat:'meditacion', name:'Conciencia de Kṛṣṇa: El proceso supremo', price:165, emoji:'🧘',
-    badge:'Para principiantes', badgeType:'fav',
-    desc:'Introducción práctica al proceso de meditación y devoción. Cubre el mantra Hare Krishna, la dieta vegetariana y el estilo de vida consciente.',
-    imgColor:'background:linear-gradient(135deg,#0a2a1a,#1a6a4a)' },
-  { id:109, cat:'colecciones', name:'Srimad Bhagavatam — Canto 1', price:350, emoji:'📚',
-    badge:'Colección', badgeType:'firm',
-    desc:'El primero de los 12 cantos del Srimad Bhagavatam, la joya de toda la literatura védica. Texto original en sánscrito con transliteración, traducción y comentarios.',
-    imgColor:'background:linear-gradient(135deg,#2a0a0a,#7a2a2a)' },
-  { id:110, cat:'colecciones', name:'Pequeño Bhagavatam', price:150, emoji:'🌿',
-    badge:'Edición especial', badgeType:null,
-    desc:'Selección de los versos más esenciales del Srimad Bhagavatam. Ideal como regalo o introducción a esta monumental escritura védica.',
-    imgColor:'background:linear-gradient(135deg,#1a3a1a,#4a8a4a)' }
+    desc:'Cocina vegetariana consciente con raíces védicas. Recetas y filosofía de alimentación Prasadam.',
+    imgColor:'background:linear-gradient(135deg,#2a4a2a,#4a8a4a)' },
+  { id:104, cat:'todos', name:'Libro "Ayurveda"', price:150, emoji:'📘',
+    badge:null, badgeType:null,
+    desc:'Introducción a la medicina tradicional india. Guía práctica para el equilibrio del cuerpo y la mente.',
+    imgColor:'background:linear-gradient(135deg,#1e2a5a,#3a5a9a)' },
+  { id:105, cat:'todos', name:'Libro "La ciencia de la autorealización"', price:200, emoji:'🔆',
+    badge:'Popular', badgeType:'pop',
+    desc:'Entrevistas, conferencias y cartas de Srila Prabhupada. Filosofía práctica para el día a día.',
+    imgColor:'background:linear-gradient(135deg,#4a3a6a,#8a7ab0)' }
 ];
 
 var activeBookCat = 'todos';
@@ -5013,7 +5177,7 @@ function _sendBookWA(notes, method) {
   } else {
     msg += '\n\n¿Están disponibles para pickup o tienen envío a domicilio?';
   }
-  window.open('https://wa.me/5218111817262?text=' + encodeURIComponent(msg), '_blank');
+  window.open('https://wa.me/5218114986316?text=' + encodeURIComponent(msg), '_blank');
 }
 
 function checkStickyBookCart() {
@@ -5030,11 +5194,14 @@ function renderBooks() {
   var items = activeBookCat === 'todos' ? bookItems : bookItems.filter(b => b.cat === activeBookCat || b.cat === 'todos');
   var html = '';
   items.forEach(function(b) {
-    var badgeHtml = b.badge ? '<span class="menu-badge badge-' + (b.badgeType||'fav') + '">' + b.badge + '</span>' : '';
+    // Badge goes INSIDE menu-item-img (position:relative) so absolute positioning works correctly
+    var badgeHtml = b.badge ? '<span class="menu-badge menu-badge-' + (b.badgeType||'fav') + '">' + b.badge + '</span>' : '';
     html += '<div class="menu-item" onclick="openBookModal(' + b.id + ')">';
-    html += '<div class="menu-item-img" style="' + b.imgColor + ';display:flex;align-items:center;justify-content:center;font-size:3rem;">' + b.emoji + '</div>';
-    html += '<div class="menu-item-body">';
+    html += '<div class="menu-item-img" style="' + b.imgColor + ';display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;">';
     html += badgeHtml;
+    html += b.emoji;
+    html += '</div>';
+    html += '<div class="menu-item-body">';
     html += '<div class="menu-item-name">' + b.name + '</div>';
     html += '<div class="menu-item-desc">' + b.desc + '</div>';
     html += '<div class="menu-item-footer"><span class="menu-item-price">$' + b.price + '</span>';
@@ -5086,7 +5253,7 @@ function openBookModal(id) {
     waBtn.onclick = function() {
       var qty = parseInt((qtyEl && qtyEl.textContent) || '1') || 1;
       var msg = 'Hola, quiero pedir:\n• ' + book.name + ' x' + qty + ' — $' + (book.price * qty) + '\n\n¿Está disponible?';
-      window.open('https://wa.me/5218111817262?text=' + encodeURIComponent(msg), '_blank');
+      window.open('https://wa.me/5218114986316?text=' + encodeURIComponent(msg), '_blank');
     };
   }
 
