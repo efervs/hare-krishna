@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1E3A10">
+<title>Menú · Hare Krishna Monterrey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --hdr:#1E3A10;--cream:#F5EFE0;--cream2:#EBE1CA;
+  --green:#9AAB00;--green2:#7A8A00;
+  --gold:#C8973A;--brown:#8A6215;--dbrown:#5A3E0E;
+  --forest:#3F5E38;--orange:#B86830;--gray:#6A5E52;
+  --dark:#141410;--white:#fff;
+  --radius:10px;--shadow:0 2px 12px rgba(0,0,0,.08);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);min-height:100vh;padding-bottom:90px}
+
+/* ── HEADER ── */
+.hdr{background:var(--hdr);padding:14px 18px 12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.3)}
+.hdr-inner{display:flex;align-items:center;gap:12px}
+.hdr-logo{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(154,171,0,.4)}
+.hdr-logo img{width:100%;height:100%;object-fit:cover}
+.hdr-text{flex:1}
+.hdr-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;font-style:italic;color:var(--cream);line-height:1.1}
+.hdr-sub{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-top:2px}
+.hdr-lang{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:var(--cream);font-size:11px;font-weight:600;letter-spacing:1px;padding:5px 10px;border-radius:20px;text-decoration:none;flex-shrink:0;transition:.2s}
+.hdr-lang:hover{background:rgba(255,255,255,.2)}
+
+/* ── CATEGORY NAV ── */
+.cat-nav{background:var(--hdr);position:sticky;top:77px;z-index:99;border-bottom:2px solid rgba(154,171,0,.3);overflow-x:auto;scrollbar-width:none}
+.cat-nav::-webkit-scrollbar{display:none}
+.cat-nav-inner{display:flex;gap:0;padding:0 4px}
+.cat-btn{background:none;border:none;color:rgba(245,239,224,.6);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:10px 12px 9px;white-space:nowrap;cursor:pointer;position:relative;transition:.2s;border-bottom:2px solid transparent;margin-bottom:-2px}
+.cat-btn.active,.cat-btn:hover{color:var(--cream);border-bottom-color:var(--green)}
+.cat-btn span{font-size:13px;margin-right:4px}
+
+/* ── HERO BANNER (Favoritos) ── */
+.fav-banner{background:linear-gradient(135deg,var(--dbrown),var(--brown));padding:14px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.fav-label{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(245,239,224,.8);white-space:nowrap}
+.fav-chips{display:flex;gap:6px;flex-wrap:wrap}
+.fav-chip{background:rgba(0,0,0,.2);border:1px solid rgba(200,151,58,.4);border-radius:20px;padding:4px 10px;display:flex;align-items:center;gap:5px}
+.fav-chip-name{font-size:11px;font-weight:600;color:var(--cream)}
+.fav-chip-price{font-size:10px;color:var(--gold)}
+
+/* ── SECTIONS ── */
+.section{padding:0 0 8px}
+.section-hdr{background:var(--forest);padding:12px 18px 11px;display:flex;align-items:center;gap:10px}
+.section-emoji{font-size:20px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;font-style:italic;color:var(--cream);letter-spacing:.3px}
+.section-items{padding:10px 14px 4px;display:flex;flex-direction:column;gap:8px}
+
+/* ── ITEM CARDS ── */
+.item-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;border:1px solid rgba(0,0,0,.04)}
+.item-card-body{flex:1;padding:11px 13px}
+.item-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.item-name{font-weight:600;font-size:14px;color:var(--dark);line-height:1.25;flex:1}
+.item-price{font-weight:700;font-size:15px;color:var(--forest);white-space:nowrap;flex-shrink:0;margin-left:8px}
+.item-badges{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
+.badge{font-size:9px;font-weight:600;letter-spacing:.5px;padding:2px 7px;border-radius:10px;text-transform:uppercase}
+.badge-vegan{background:#e8f5e9;color:#2e7d32}
+.badge-fav{background:#fff3e0;color:#e65100}
+.badge-light{background:#e3f2fd;color:#1565c0}
+.badge-india{background:#fce4ec;color:#880e4f}
+.badge-sig{background:linear-gradient(90deg,#f3e5f5,#e8eaf6);color:#4a148c}
+.item-desc{font-size:12px;color:var(--gray);margin-top:5px;line-height:1.5}
+
+/* ── REBANADAS (small list) ── */
+.small-list{padding:8px 14px 6px}
+.small-list-title{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gray);padding:0 4px 8px;border-bottom:1px solid var(--cream2);margin-bottom:6px}
+.small-item{display:flex;justify-content:space-between;align-items:center;padding:6px 4px;border-bottom:1px solid rgba(0,0,0,.04)}
+.small-item:last-child{border-bottom:none}
+.small-item-name{font-size:13px;font-weight:500;color:var(--dark)}
+.small-item-price{font-size:13px;font-weight:600;color:var(--forest)}
+
+/* ── DESPENSA GRID ── */
+.despensa-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 14px}
+.despensa-item{background:var(--white);border-radius:8px;padding:10px 12px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04)}
+.despensa-item-name{font-size:12px;font-weight:600;color:var(--dark);line-height:1.3}
+.despensa-item-price{font-size:13px;font-weight:700;color:var(--forest);margin-top:4px}
+
+/* ── TIENDA (store) ── */
+.tienda-items{padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.tienda-item{background:var(--white);border-radius:8px;padding:10px 14px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);display:flex;justify-content:space-between;align-items:center}
+.tienda-item-name{font-size:13px;font-weight:500;color:var(--dark)}
+.tienda-item-price{font-size:14px;font-weight:700;color:var(--gold)}
+
+/* ── FOOTER ── */
+.menu-footer{background:var(--hdr);padding:20px 18px;margin-top:16px;text-align:center}
+.footer-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--cream);margin-bottom:6px}
+.footer-info{font-size:11px;color:rgba(245,239,224,.5);letter-spacing:1px;line-height:1.8}
+.footer-info a{color:rgba(154,171,0,.8);text-decoration:none}
+.footer-rule{height:1px;background:linear-gradient(to right,transparent,rgba(154,171,0,.4),transparent);margin:12px 0}
+
+/* ── STICKY WA BUTTON ── */
+.wa-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:linear-gradient(to top,rgba(245,239,224,1) 60%,rgba(245,239,224,0));pointer-events:none}
+.wa-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;border:none;border-radius:30px;padding:14px 28px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;width:100%;max-width:400px;margin:0 auto;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;pointer-events:auto;transition:.2s}
+.wa-btn:active{transform:scale(.97)}
+.wa-icon{width:22px;height:22px;flex-shrink:0}
+
+@media(min-width:500px){
+  body{max-width:480px;margin:0 auto;box-shadow:0 0 40px rgba(0,0,0,.15)}
+  .hdr,.cat-nav,.wa-bar{max-width:480px;margin-left:auto;margin-right:auto;left:50%;transform:translateX(-50%)}
+  .hdr{width:480px}
+  .cat-nav{width:480px}
+  .wa-bar{width:480px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <div class="hdr-logo">
+      <img src="../images/logo.png" alt="Hare Krishna" onerror="this.style.display='none';this.parentElement.style.background='#3F5E38';this.parentElement.innerHTML='<svg viewBox=\'0 0 48 48\' style=\'width:100%;height:100%;padding:8px\'><circle cx=\'24\' cy=\'24\' r=\'20\' fill=\'none\' stroke=\'#9AAB00\' stroke-width=\'2\'/><text x=\'24\' y=\'28\' text-anchor=\'middle\' fill=\'#F5EFE0\' font-size=\'18\' font-family=\'serif\'>🙏</text></svg>'">
+    </div>
+    <div class="hdr-text">
+      <div class="hdr-name">Hare Krishna</div>
+      <div class="hdr-sub">Monterrey · Barrio Antiguo</div>
+    </div>
+    <a href="menu-en.html" class="hdr-lang">EN</a>
+  </div>
+</header>
+
+<!-- CATEGORY NAV -->
+<nav class="cat-nav" id="catNav">
+  <div class="cat-nav-inner">
+    <button class="cat-btn active" onclick="scrollTo('india')"><span>🍛</span>India</button>
+    <button class="cat-btn" onclick="scrollTo('burgers')"><span>🍔</span>Burgers</button>
+    <button class="cat-btn" onclick="scrollTo('mexicana')"><span>🌮</span>Mexicana</button>
+    <button class="cat-btn" onclick="scrollTo('pizzas')"><span>🍕</span>Pizzas</button>
+    <button class="cat-btn" onclick="scrollTo('bebidas')"><span>🥤</span>Bebidas</button>
+    <button class="cat-btn" onclick="scrollTo('postres')"><span>🍮</span>Postres</button>
+    <button class="cat-btn" onclick="scrollTo('cafe')"><span>☕</span>Café</button>
+    <button class="cat-btn" onclick="scrollTo('despensa')"><span>🛒</span>Despensa</button>
+  </div>
+</nav>
+
+<!-- FAVORITOS -->
+<div class="fav-banner">
+  <div class="fav-label">★ Favoritos</div>
+  <div class="fav-chips">
+    <div class="fav-chip"><span class="fav-chip-name">Thali</span><span class="fav-chip-price">$250</span></div>
+    <div class="fav-chip"><span class="fav-chip-name">Maha Burger</span><span class="fav-chip-price">$239</span></div>
+    <div class="fav-chip"><span class="fav-chip-name">Tacos Pastor</span><span class="fav-chip-price">$195</span></div>
+    <div class="fav-chip"><span class="fav-chip-name">Pizza</span><span class="fav-chip-price">desde $279</span></div>
+    <div class="fav-chip"><span class="fav-chip-name">Kombucha</span><span class="fav-chip-price">$89</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ COCINA INDIA ═══════════════════ -->
+<section class="section" id="india">
+  <div class="section-hdr">
+    <span class="section-emoji">🍛</span>
+    <h2 class="section-title">Cocina India · Prasadam</h2>
+  </div>
+  <div class="section-items">
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Thali</span>
+          <span class="item-price">$250</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-sig">Firma de la casa</span><span class="badge badge-vegan">Vegano</span></div>
+        <div class="item-desc">Plato completo: arroz, dal, sabji, chapati y guarniciones del día</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Samosas</span>
+          <span class="item-price">$55</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-vegan">Vegano</span></div>
+        <div class="item-desc">Samosas crujientes de papa y especias con chutney de menta</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Chapati</span>
+          <span class="item-price">$25</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-vegan">Vegano</span></div>
+        <div class="item-desc">Pan plano de trigo integral, horneado al momento</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ BURGERS & TORTAS ═══════════════════ -->
+<section class="section" id="burgers">
+  <div class="section-hdr">
+    <span class="section-emoji">🍔</span>
+    <h2 class="section-title">Burgers &amp; Tortas</h2>
+  </div>
+  <div class="section-items">
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Maha Burger</span>
+          <span class="item-price">$239</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-fav">Más pedida</span></div>
+        <div class="item-desc">Guacamole, champiñones salteados, jitomate y aderezo de la casa</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Kali Burger</span>
+          <span class="item-price">$195</span>
+        </div>
+        <div class="item-desc">Cebolla caramelizada, lechuga, jitomate y mostaza artesanal</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Pirata · Gringa</span>
+          <span class="item-price">$189</span>
+        </div>
+        <div class="item-desc">Elige tu estilo: torta pirata o gringa derretida</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Happy Torta</span>
+          <span class="item-price">$179</span>
+        </div>
+        <div class="item-desc">Milanesa de seitán, frijoles, aguacate y jalapeños en telera</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Molletes</span>
+          <span class="item-price">$169</span>
+        </div>
+        <div class="item-desc">Frijoles negros, queso vegano derretido y pico de gallo fresco</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ COMIDA MEXICANA ═══════════════════ -->
+<section class="section" id="mexicana">
+  <div class="section-hdr">
+    <span class="section-emoji">🌮</span>
+    <h2 class="section-title">Comida Mexicana</h2>
+  </div>
+  <div class="section-items">
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Tacos Al Pastor</span>
+          <span class="item-price">$195</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-fav">Favorito</span></div>
+        <div class="item-desc">Seitán achiote, piña asada, cebolla y cilantro · 3 tacos</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Chilaquiles</span>
+          <span class="item-price">$149</span>
+        </div>
+        <div class="item-desc">Rojos o verdes con crema, queso, cebolla y frijoles negros</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Tacos Chicharrón</span>
+          <span class="item-price">$195</span>
+        </div>
+        <div class="item-desc">Chicharrón de soya en salsa verde, crema y queso vegano · 3 tacos</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Hippie Tacos</span>
+          <span class="item-price">$195</span>
+        </div>
+        <div class="item-desc">Verduras de temporada, hummus de la casa y aderezo de hierbas · 3 tacos</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Burrito Libertad</span>
+          <span class="item-price">$179</span>
+        </div>
+        <div class="item-desc">Arroz, frijoles, guacamole y seitán sazonado, todo enrollado</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Ensalada de Quinoa</span>
+          <span class="item-price">$195</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-light">Ligera</span><span class="badge badge-vegan">Vegana</span></div>
+        <div class="item-desc">Quinoa sazonada, aguacate, betabel, pepino y aderezo de jengibre</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Ensalada Mix</span>
+          <span class="item-price">$179</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-light">Ligera</span><span class="badge badge-vegan">Vegana</span></div>
+        <div class="item-desc">Verdes, betabel, pepino, semillas y aderezo de limón</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ PIZZAS ═══════════════════ -->
+<section class="section" id="pizzas">
+  <div class="section-hdr">
+    <span class="section-emoji">🍕</span>
+    <h2 class="section-title">Pizzas</h2>
+  </div>
+  <div style="padding:6px 14px 2px;font-size:10px;font-style:italic;color:var(--gray);text-align:center">· masa vegetariana artesanal ·</div>
+  <div class="section-items">
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Govinda</span>
+          <span class="item-price">$279</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-vegan">Vegana</span></div>
+        <div class="item-desc">Acelga con tomate, mozzarella y aceite de oliva al ajo</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Gauranga</span>
+          <span class="item-price">$319</span>
+        </div>
+        <div class="item-desc">Variedad de 3 quesos: mozzarella, gouda y queso de cabra</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Hari</span>
+          <span class="item-price">$289</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-light">Ligera</span></div>
+        <div class="item-desc">Albahaca y tomate con aceite de oliva y mozzarella derretida</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Balaram</span>
+          <span class="item-price">$309</span>
+        </div>
+        <div class="item-desc">Pimientos, aceitunas negras y champiñones en salsa de tomate</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Pepperoni Vegana</span>
+          <span class="item-price">$309</span>
+        </div>
+        <div class="item-desc">Salsa de tomate, pepperoni de soya y mozzarella</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- REBANADAS -->
+  <div class="small-list">
+    <div class="small-list-title">· por rebanada · desde $55</div>
+    <div class="small-item"><span class="small-item-name">Gauranga</span><span class="small-item-price">$79</span></div>
+    <div class="small-item"><span class="small-item-name">Pepperoni Vegana</span><span class="small-item-price">$65</span></div>
+    <div class="small-item"><span class="small-item-name">Balaram</span><span class="small-item-price">$59</span></div>
+    <div class="small-item"><span class="small-item-name">Govinda</span><span class="small-item-price">$59</span></div>
+    <div class="small-item"><span class="small-item-name">Hari</span><span class="small-item-price">$55</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ BEBIDAS ═══════════════════ -->
+<section class="section" id="bebidas">
+  <div class="section-hdr">
+    <span class="section-emoji">🥤</span>
+    <h2 class="section-title">Bebidas</h2>
+  </div>
+  <div class="section-items">
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Lassi</span>
+          <span class="item-price">$109</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-india">Clásico</span></div>
+        <div class="item-desc">Bebida india tradicional de yogur vegano con fruta de temporada</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Smoothie de Cacao</span>
+          <span class="item-price">$129</span>
+        </div>
+        <div class="item-desc">Cacao puro, plátano maduro y leche vegetal · rico y nutritivo</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Jugo de Mango</span>
+          <span class="item-price">$59</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-vegan">Vegano</span></div>
+        <div class="item-desc">Fresco y natural, sin azúcar añadida</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Kombucha</span>
+          <span class="item-price">$89</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-fav">Favorito</span></div>
+        <div class="item-desc">Artesanal fermentado · pregunta por el sabor del día</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ POSTRES ═══════════════════ -->
+<section class="section" id="postres">
+  <div class="section-hdr">
+    <span class="section-emoji">🍮</span>
+    <h2 class="section-title">Postres &amp; Dulces</h2>
+  </div>
+  <div class="section-items">
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Brownie</span>
+          <span class="item-price">$45</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-vegan">Vegano</span></div>
+        <div class="item-desc">Brownie denso de chocolate oscuro, sin huevo ni lácteos</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Dulce de Tapioca</span>
+          <span class="item-price">$79</span>
+        </div>
+        <div class="item-desc">Tapioca en leche de coco con especias suaves y vainilla</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Halwa</span>
+          <span class="item-price">$89</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-india">Postre indio</span></div>
+        <div class="item-desc">Sémola con frutas secas, especias y semillas tostadas</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Gulab Jamun</span>
+          <span class="item-price">$79</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-india">Postre indio</span></div>
+        <div class="item-desc">Bolitas suaves en jarabe de rosa y cardamomo · postre tradicional</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Pastel de Chocolate</span>
+          <span class="item-price">$59</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-vegan">Vegano</span></div>
+        <div class="item-desc">Rebanada húmeda con nueces y frutos secos · 100% vegano</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ CAFÉ ═══════════════════ -->
+<section class="section" id="cafe">
+  <div class="section-hdr">
+    <span class="section-emoji">☕</span>
+    <h2 class="section-title">Café &amp; Infusiones</h2>
+  </div>
+
+  <!-- Small coffee list -->
+  <div class="small-list">
+    <div class="small-item"><span class="small-item-name">Espresso</span><span class="small-item-price">$49</span></div>
+    <div class="small-item"><span class="small-item-name">Café Americano</span><span class="small-item-price">$59</span></div>
+    <div class="small-item"><span class="small-item-name">Macchiato</span><span class="small-item-price">$69</span></div>
+    <div class="small-item"><span class="small-item-name">Cappuccino</span><span class="small-item-price">$79</span></div>
+    <div class="small-item"><span class="small-item-name">Café Latte</span><span class="small-item-price">$79</span></div>
+    <div class="small-item"><span class="small-item-name">Té Chai</span><span class="small-item-price">$69</span></div>
+    <div class="small-item"><span class="small-item-name">Yogi Té</span><span class="small-item-price">$59</span></div>
+    <div class="small-item"><span class="small-item-name">Hierba Mate</span><span class="small-item-price">$69</span></div>
+  </div>
+
+  <!-- Featured café items -->
+  <div class="section-items">
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Chai Latte</span>
+          <span class="item-price">$89</span>
+        </div>
+        <div class="item-badges"><span class="badge badge-fav">Favorito</span></div>
+        <div class="item-desc">Chai especiado con leche vegetal espumada · cálido y aromático</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-body">
+        <div class="item-card-top">
+          <span class="item-name">Avena Caliente</span>
+          <span class="item-price">$99</span>
+        </div>
+        <div class="item-desc">Con canela, piloncillo y fruta del día</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ DESPENSA ═══════════════════ -->
+<section class="section" id="despensa">
+  <div class="section-hdr">
+    <span class="section-emoji">🛒</span>
+    <h2 class="section-title">Despensa · Para Llevar</h2>
+  </div>
+  <div style="padding:6px 18px 2px;font-size:11px;font-style:italic;color:var(--gray)">Productos artesanales y proteínas vegetales</div>
+  <div class="despensa-grid">
+    <div class="despensa-item"><div class="despensa-item-name">Chocolate de Mesa</div><div class="despensa-item-price">$139</div></div>
+    <div class="despensa-item"><div class="despensa-item-name">Choco. Barra Oscuro</div><div class="despensa-item-price">$139</div></div>
+    <div class="despensa-item"><div class="despensa-item-name">Choco. Barra Blanco</div><div class="despensa-item-price">$139</div></div>
+    <div class="despensa-item"><div class="despensa-item-name">Milanesa de Seitán</div><div class="despensa-item-price">$139</div></div>
+    <div class="despensa-item"><div class="despensa-item-name">Salchichas Veggie Frank</div><div class="despensa-item-price">$139</div></div>
+    <div class="despensa-item"><div class="despensa-item-name">Chorizo de Soya</div><div class="despensa-item-price">$129</div></div>
+    <div class="despensa-item"><div class="despensa-item-name">Mazapán</div><div class="despensa-item-price">$29</div></div>
+    <div class="despensa-item"><div class="despensa-item-name">Uvas</div><div class="despensa-item-price">$55</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TIENDA HARE KRISHNA ═══════════════════ -->
+<section class="section" id="tienda">
+  <div class="section-hdr" style="background:#4A3010">
+    <span class="section-emoji">📿</span>
+    <h2 class="section-title">Tienda Hare Krishna</h2>
+  </div>
+  <div style="padding:6px 18px 2px;font-size:11px;font-style:italic;color:var(--gray)">Productos de sabiduría y consciencia</div>
+  <div class="tienda-items">
+    <div class="tienda-item"><span class="tienda-item-name">Bhagavad Gita</span><span class="tienda-item-price">$450</span></div>
+    <div class="tienda-item"><span class="tienda-item-name">Incienso</span><span class="tienda-item-price">$60</span></div>
+    <div class="tienda-item"><span class="tienda-item-name">Un gusto superior</span><span class="tienda-item-price">$200</span></div>
+    <div class="tienda-item"><span class="tienda-item-name">Ayurveda</span><span class="tienda-item-price">$150</span></div>
+    <div class="tienda-item"><span class="tienda-item-name">La ciencia de la autorealización</span><span class="tienda-item-price">$200</span></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="menu-footer">
+  <div class="footer-name">Hare Krishna · Monterrey</div>
+  <div class="footer-rule"></div>
+  <div class="footer-info">
+    Barrio Antiguo · Monterrey, México<br>
+    <a href="https://harekrishnaMTY.com">harekrishnaMTY.com</a><br>
+    Precios en pesos MXN · Ingredientes vegetarianos
+  </div>
+</footer>
+
+<!-- STICKY WA BUTTON -->
+<div class="wa-bar">
+  <a href="https://wa.me/5218114986316?text=Hola%2C%20me%20gustar%C3%ADa%20hacer%20un%20pedido%20%F0%9F%99%8F" class="wa-btn" target="_blank" rel="noopener">
+    <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Pedir por WhatsApp
+  </a>
+</div>
+
+<script>
+// Active category highlight on scroll
+const sections = document.querySelectorAll('section[id]');
+const catBtns = document.querySelectorAll('.cat-btn');
+
+function scrollTo(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const offset = 77 + 40; // header + nav height
+  const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({top, behavior: 'smooth'});
+}
+
+function updateActiveBtn() {
+  const scrollY = window.pageYOffset;
+  let currentSection = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 140;
+    if (scrollY >= sectionTop) currentSection = section.id;
+  });
+  catBtns.forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('onclick').includes("'" + currentSection + "'"));
+  });
+  // Scroll active btn into view in nav
+  const activeBtn = document.querySelector('.cat-btn.active');
+  if (activeBtn) {
+    activeBtn.scrollIntoView({inline: 'center', behavior: 'smooth', block: 'nearest'});
+  }
+}
+
+window.addEventListener('scroll', updateActiveBtn, {passive: true});
+</script>
+</body>
+</html>
