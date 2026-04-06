@@ -13,135 +13,248 @@
   --hdr:#1E3A10;--cream:#F5EFE0;--cream2:#EBE1CA;
   --green:#9AAB00;--green2:#7A8A00;
   --gold:#C8973A;--brown:#8A6215;--dbrown:#5A3E0E;
-  --forest:#3F5E38;--orange:#B86830;--gray:#6A5E52;
-  --dark:#141410;--white:#fff;
+  --forest:#3F5E38;--gray:#6A5E52;--dark:#141410;--white:#fff;
   --radius:10px;--shadow:0 2px 12px rgba(0,0,0,.08);
+  --hdr-h:108px;--nav-h:40px;--sticky-top:148px;
 }
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);min-height:100vh;padding-bottom:90px}
+html{scroll-behavior:auto}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);min-height:100vh}
 
-/* ── HEADER ── */
-.hdr{background:var(--hdr);padding:14px 18px 12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.3)}
-.hdr-inner{display:flex;align-items:center;gap:12px}
-.hdr-logo{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(154,171,0,.4)}
-.hdr-logo img{width:100%;height:100%;object-fit:cover}
-.hdr-text{flex:1}
-.hdr-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;font-style:italic;color:var(--cream);line-height:1.1}
-.hdr-sub{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-top:2px}
-.hdr-lang{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:var(--cream);font-size:11px;font-weight:600;letter-spacing:1px;padding:5px 10px;border-radius:20px;text-decoration:none;flex-shrink:0;transition:.2s}
+/* ════ HEADER ════ */
+.hdr{background:var(--hdr);position:sticky;top:0;z-index:200;box-shadow:0 2px 16px rgba(0,0,0,.35)}
+.hdr-main{display:flex;align-items:center;gap:12px;padding:12px 16px 8px}
+.hdr-logo{width:46px;height:46px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(154,171,0,.4);background:var(--forest)}
+.hdr-logo img{width:100%;height:100%;object-fit:cover;display:block}
+.hdr-text{flex:1;min-width:0}
+.hdr-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;font-style:italic;color:var(--cream);line-height:1.1}
+.hdr-sub{font-size:8.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-top:2px}
+.hdr-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.hdr-lang{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:var(--cream);font-size:10.5px;font-weight:600;letter-spacing:.8px;padding:4px 9px;border-radius:16px;text-decoration:none;transition:.2s;white-space:nowrap}
 .hdr-lang:hover{background:rgba(255,255,255,.2)}
+/* Social row */
+.hdr-social{display:flex;align-items:center;justify-content:center;gap:10px;padding:5px 16px 9px}
+.soc-btn{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:rgba(245,239,224,.7);text-decoration:none;transition:.2s;flex-shrink:0}
+.soc-btn:hover{background:rgba(255,255,255,.18);color:var(--cream)}
+.soc-btn svg{width:14px;height:14px;fill:currentColor}
+.hdr-social-divider{width:1px;height:14px;background:rgba(255,255,255,.12);margin:0 2px}
 
-/* ── CATEGORY NAV ── */
-.cat-nav{background:var(--hdr);position:sticky;top:77px;z-index:99;border-bottom:2px solid rgba(154,171,0,.3);overflow-x:auto;scrollbar-width:none}
+/* ════ CATEGORY NAV ════ */
+.cat-nav{background:var(--hdr);position:sticky;top:var(--hdr-h);z-index:199;border-bottom:2px solid rgba(154,171,0,.28);overflow-x:auto;scrollbar-width:none}
 .cat-nav::-webkit-scrollbar{display:none}
-.cat-nav-inner{display:flex;gap:0;padding:0 4px}
-.cat-btn{background:none;border:none;color:rgba(245,239,224,.6);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:10px 12px 9px;white-space:nowrap;cursor:pointer;position:relative;transition:.2s;border-bottom:2px solid transparent;margin-bottom:-2px}
+.cat-nav-inner{display:flex;padding:0 4px;min-width:max-content}
+.cat-btn{background:none;border:none;color:rgba(245,239,224,.55);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:10px 11px 9px;white-space:nowrap;cursor:pointer;transition:.18s;border-bottom:2px solid transparent;margin-bottom:-2px}
 .cat-btn.active,.cat-btn:hover{color:var(--cream);border-bottom-color:var(--green)}
-.cat-btn span{font-size:13px;margin-right:4px}
+.cat-btn .ce{font-size:13px;margin-right:3px}
 
-/* ── HERO BANNER (Favorites) ── */
-.fav-banner{background:linear-gradient(135deg,var(--dbrown),var(--brown));padding:14px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.fav-label{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(245,239,224,.8);white-space:nowrap}
-.fav-chips{display:flex;gap:6px;flex-wrap:wrap}
-.fav-chip{background:rgba(0,0,0,.2);border:1px solid rgba(200,151,58,.4);border-radius:20px;padding:4px 10px;display:flex;align-items:center;gap:5px}
-.fav-chip-name{font-size:11px;font-weight:600;color:var(--cream)}
-.fav-chip-price{font-size:10px;color:var(--gold)}
+/* ════ LAYOUT ════ */
+.layout-wrapper{display:flex;align-items:flex-start}
+.menu-main{flex:1;min-width:0;padding-bottom:80px}
 
-/* ── SECTIONS ── */
-.section{padding:0 0 8px}
-.section-hdr{background:var(--forest);padding:12px 18px 11px;display:flex;align-items:center;gap:10px}
-.section-emoji{font-size:20px}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;font-style:italic;color:var(--cream);letter-spacing:.3px}
-.section-items{padding:10px 14px 4px;display:flex;flex-direction:column;gap:8px}
+/* ════ FAV BANNER ════ */
+.fav-banner{background:linear-gradient(135deg,var(--dbrown),var(--brown));padding:12px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.fav-label{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:rgba(245,239,224,.75);white-space:nowrap}
+.fav-chips{display:flex;gap:5px;flex-wrap:wrap}
+.fav-chip{background:rgba(0,0,0,.2);border:1px solid rgba(200,151,58,.4);border-radius:16px;padding:3px 9px;display:flex;align-items:center;gap:4px}
+.fav-chip-name{font-size:10.5px;font-weight:600;color:var(--cream)}
+.fav-chip-price{font-size:9.5px;color:var(--gold)}
 
-/* ── ITEM CARDS ── */
-.item-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;border:1px solid rgba(0,0,0,.04)}
-.item-card-body{flex:1;padding:11px 13px}
-.item-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
-.item-name{font-weight:600;font-size:14px;color:var(--dark);line-height:1.25;flex:1}
-.item-price{font-weight:700;font-size:15px;color:var(--forest);white-space:nowrap;flex-shrink:0;margin-left:8px}
-.item-badges{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
-.badge{font-size:9px;font-weight:600;letter-spacing:.5px;padding:2px 7px;border-radius:10px;text-transform:uppercase}
+/* ════ SECTIONS ════ */
+.section{padding:0 0 6px}
+.section-hdr{background:var(--forest);padding:11px 16px 10px;display:flex;align-items:center;gap:9px}
+.section-emoji{font-size:18px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;font-style:italic;color:var(--cream);letter-spacing:.3px}
+.section-items{padding:8px 12px 4px;display:flex;flex-direction:column;gap:7px}
+
+/* ════ ITEM CARDS ════ */
+.item-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;border:1px solid rgba(0,0,0,.04);cursor:pointer;transition:box-shadow .15s,transform .1s}
+.item-card:active{transform:scale(.985)}
+.item-card.added-flash{box-shadow:0 0 0 2px var(--green)!important;transition:box-shadow .08s}
+.item-card-body{flex:1;padding:10px 12px}
+.item-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px}
+.item-name{font-weight:600;font-size:13.5px;color:var(--dark);line-height:1.25;flex:1}
+.item-price{font-weight:700;font-size:14.5px;color:var(--forest);white-space:nowrap;flex-shrink:0}
+.item-badges{display:flex;gap:3px;flex-wrap:wrap;margin-top:4px}
+.badge{font-size:8.5px;font-weight:600;letter-spacing:.4px;padding:2px 6px;border-radius:8px;text-transform:uppercase}
 .badge-vegan{background:#e8f5e9;color:#2e7d32}
 .badge-fav{background:#fff3e0;color:#e65100}
 .badge-light{background:#e3f2fd;color:#1565c0}
 .badge-india{background:#fce4ec;color:#880e4f}
 .badge-sig{background:linear-gradient(90deg,#f3e5f5,#e8eaf6);color:#4a148c}
-.item-desc{font-size:12px;color:var(--gray);margin-top:5px;line-height:1.5}
+.item-desc{font-size:11.5px;color:var(--gray);margin-top:4px;line-height:1.5}
+/* Add button on card */
+.card-add{display:flex;align-items:center;justify-content:center;background:var(--forest);color:var(--white);border:none;cursor:pointer;width:36px;min-width:36px;font-size:22px;font-weight:300;flex-shrink:0;border-radius:0 var(--radius) var(--radius) 0;transition:.15s;padding:0;align-self:stretch}
+.card-add:hover{background:var(--green2)}
+.card-add:active{background:var(--green);transform:scale(.9)}
 
-/* ── SMALL LIST ── */
-.small-list{padding:8px 14px 6px}
-.small-list-title{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gray);padding:0 4px 8px;border-bottom:1px solid var(--cream2);margin-bottom:6px}
-.small-item{display:flex;justify-content:space-between;align-items:center;padding:6px 4px;border-bottom:1px solid rgba(0,0,0,.04)}
+/* ════ SMALL LIST (slices, coffee) ════ */
+.small-list{padding:6px 12px 4px}
+.small-list-title{font-size:9.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gray);padding:0 4px 7px;border-bottom:1px solid var(--cream2);margin-bottom:4px}
+.small-item{display:flex;justify-content:space-between;align-items:center;padding:5px 4px;border-bottom:1px solid rgba(0,0,0,.04);cursor:pointer;border-radius:4px;transition:background .12s}
 .small-item:last-child{border-bottom:none}
-.small-item-name{font-size:13px;font-weight:500;color:var(--dark)}
-.small-item-price{font-size:13px;font-weight:600;color:var(--forest)}
+.small-item:hover{background:rgba(63,94,56,.05)}
+.small-item:active{background:rgba(63,94,56,.1)}
+.small-item.added-flash{background:rgba(154,171,0,.15)}
+.small-item-name{font-size:12.5px;font-weight:500;color:var(--dark)}
+.small-item-right{display:flex;align-items:center;gap:8px}
+.small-item-price{font-size:12.5px;font-weight:600;color:var(--forest)}
+.small-plus{font-size:17px;font-weight:300;color:var(--forest);line-height:1;flex-shrink:0}
 
-/* ── PANTRY GRID ── */
-.despensa-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 14px}
-.despensa-item{background:var(--white);border-radius:8px;padding:10px 12px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04)}
-.despensa-item-name{font-size:12px;font-weight:600;color:var(--dark);line-height:1.3}
-.despensa-item-price{font-size:13px;font-weight:700;color:var(--forest);margin-top:4px}
+/* ════ PANTRY GRID ════ */
+.despensa-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:8px 12px}
+.despensa-item{background:var(--white);border-radius:8px;padding:9px 11px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);cursor:pointer;transition:.12s}
+.despensa-item:hover{box-shadow:0 2px 16px rgba(63,94,56,.15)}
+.despensa-item:active{transform:scale(.96)}
+.despensa-item.added-flash{box-shadow:0 0 0 2px var(--green)!important}
+.despensa-item-name{font-size:11.5px;font-weight:600;color:var(--dark);line-height:1.3}
+.despensa-item-price{font-size:12.5px;font-weight:700;color:var(--forest);margin-top:3px}
 
-/* ── STORE ── */
-.tienda-items{padding:10px 14px;display:flex;flex-direction:column;gap:6px}
-.tienda-item{background:var(--white);border-radius:8px;padding:10px 14px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);display:flex;justify-content:space-between;align-items:center}
-.tienda-item-name{font-size:13px;font-weight:500;color:var(--dark)}
-.tienda-item-price{font-size:14px;font-weight:700;color:var(--gold)}
+/* ════ STORE ════ */
+.tienda-items{padding:8px 12px;display:flex;flex-direction:column;gap:5px}
+.tienda-item{background:var(--white);border-radius:8px;padding:9px 13px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:.12s}
+.tienda-item:hover{box-shadow:0 2px 16px rgba(200,151,58,.2)}
+.tienda-item:active{transform:scale(.97)}
+.tienda-item.added-flash{box-shadow:0 0 0 2px var(--gold)!important}
+.tienda-item-name{font-size:12.5px;font-weight:500;color:var(--dark)}
+.tienda-item-price{font-size:13.5px;font-weight:700;color:var(--gold)}
 
-/* ── FOOTER ── */
-.menu-footer{background:var(--hdr);padding:20px 18px;margin-top:16px;text-align:center}
-.footer-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--cream);margin-bottom:6px}
-.footer-info{font-size:11px;color:rgba(245,239,224,.5);letter-spacing:1px;line-height:1.8}
-.footer-info a{color:rgba(154,171,0,.8);text-decoration:none}
-.footer-rule{height:1px;background:linear-gradient(to right,transparent,rgba(154,171,0,.4),transparent);margin:12px 0}
+/* ════ FOOTER ════ */
+.menu-footer{background:var(--hdr);padding:18px 16px;margin-top:12px;text-align:center}
+.footer-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--cream);margin-bottom:5px}
+.footer-info{font-size:10.5px;color:rgba(245,239,224,.45);letter-spacing:.8px;line-height:1.9}
+.footer-info a{color:rgba(154,171,0,.75);text-decoration:none}
+.footer-rule{height:1px;background:linear-gradient(to right,transparent,rgba(154,171,0,.35),transparent);margin:10px 0}
 
-/* ── STICKY WA BUTTON ── */
-.wa-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:linear-gradient(to top,rgba(245,239,224,1) 60%,rgba(245,239,224,0));pointer-events:none}
-.wa-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;border:none;border-radius:30px;padding:14px 28px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;width:100%;max-width:400px;margin:0 auto;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;pointer-events:auto;transition:.2s}
-.wa-btn:active{transform:scale(.97)}
-.wa-icon{width:22px;height:22px;flex-shrink:0}
-
-@media(min-width:500px){
-  body{max-width:480px;margin:0 auto;box-shadow:0 0 40px rgba(0,0,0,.15)}
-  .hdr,.cat-nav,.wa-bar{max-width:480px;margin-left:auto;margin-right:auto;left:50%;transform:translateX(-50%)}
-  .hdr{width:480px}
-  .cat-nav{width:480px}
-  .wa-bar{width:480px}
+/* ════ DESKTOP CART SIDEBAR ════ */
+.cart-sidebar{display:none}
+@media(min-width:760px){
+  body{max-width:820px;margin:0 auto}
+  .hdr,.cat-nav{max-width:820px;width:100%;left:50%;transform:translateX(-50%);position:sticky}
+  .layout-wrapper{max-width:820px;margin:0 auto}
+  .menu-main{padding-bottom:40px}
+  .cart-sidebar{
+    display:flex;flex-direction:column;
+    width:268px;flex-shrink:0;
+    position:sticky;top:var(--sticky-top);
+    height:calc(100vh - var(--sticky-top));
+    background:var(--white);
+    border-left:1px solid rgba(0,0,0,.07);
+    overflow:hidden;
+  }
+  .mobile-cart-bar{display:none!important}
 }
+.cart-sidebar-hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 11px;border-bottom:1px solid rgba(0,0,0,.07);background:var(--white);flex-shrink:0}
+.cart-sidebar-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;font-style:italic;color:var(--dark)}
+.cart-count-badge{background:var(--forest);color:var(--white);font-size:10px;font-weight:700;width:20px;height:20px;border-radius:50%;display:none;align-items:center;justify-content:center}
+.cart-sidebar-body{flex:1;overflow-y:auto;padding:0}
+
+/* ════ CART ITEMS (shared desktop + mobile) ════ */
+.cart-empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:40px 20px;color:var(--gray);text-align:center}
+.cart-empty-icon{font-size:36px;opacity:.4}
+.cart-empty-state p{font-size:13px}
+.cart-items-list{padding:8px 0}
+.c-item{padding:10px 16px;border-bottom:1px solid rgba(0,0,0,.05)}
+.c-item:last-child{border-bottom:none}
+.c-item-name{font-size:12.5px;font-weight:600;color:var(--dark);line-height:1.3;margin-bottom:5px}
+.c-item-row{display:flex;align-items:center;gap:6px}
+.c-qty-btn{background:var(--cream2);border:none;width:24px;height:24px;border-radius:50%;font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--dark);transition:.12s;flex-shrink:0;line-height:1}
+.c-qty-btn:hover{background:var(--forest);color:var(--white)}
+.c-qty-val{font-size:13px;font-weight:700;min-width:20px;text-align:center;flex-shrink:0}
+.c-item-sub{font-size:12.5px;font-weight:700;color:var(--forest);margin-left:auto;flex-shrink:0}
+.c-del-btn{background:none;border:none;color:rgba(0,0,0,.25);font-size:16px;cursor:pointer;padding:0 2px;line-height:1;transition:.12s;flex-shrink:0}
+.c-del-btn:hover{color:#c0392b}
+.cart-total-section{padding:12px 16px;border-top:2px solid var(--cream2);display:flex;align-items:center;justify-content:space-between;background:var(--white);flex-shrink:0}
+.cart-total-label{font-size:13px;font-weight:600;color:var(--dark)}
+.cart-total-amount{font-size:17px;font-weight:700;color:var(--forest)}
+.cart-clear-btn{display:block;width:calc(100% - 32px);margin:8px 16px 14px;background:none;border:1px solid rgba(0,0,0,.12);color:var(--gray);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px;border-radius:6px;cursor:pointer;transition:.15s;text-align:center}
+.cart-clear-btn:hover{border-color:var(--gray);color:var(--dark)}
+
+/* ════ MOBILE CART BAR ════ */
+.mobile-cart-bar{position:fixed;bottom:0;left:0;right:0;z-index:300;padding:10px 14px 14px;background:linear-gradient(to top,rgba(245,239,224,1) 55%,rgba(245,239,224,0));pointer-events:none;transition:opacity .3s}
+.view-order-btn{display:flex;align-items:center;justify-content:space-between;background:var(--forest);color:var(--white);border:none;border-radius:28px;padding:13px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;width:100%;max-width:380px;margin:0 auto;cursor:pointer;box-shadow:0 4px 20px rgba(30,58,16,.35);pointer-events:auto;transition:.18s}
+.view-order-btn:active{transform:scale(.97)}
+.cart-pill-right{display:flex;align-items:center;gap:8px}
+.cart-pill-count{background:var(--green);color:var(--white);font-size:11px;font-weight:700;min-width:22px;height:22px;border-radius:11px;display:flex;align-items:center;justify-content:center;padding:0 5px}
+.cart-pill-total{font-size:13px;font-weight:700;color:rgba(255,255,255,.85)}
+
+/* ════ CART DRAWER (mobile) ════ */
+.cart-overlay{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s}
+.cart-overlay.open{opacity:1;pointer-events:auto}
+.cart-drawer{position:fixed;bottom:0;left:0;right:0;z-index:401;background:var(--white);border-radius:20px 20px 0 0;max-height:82vh;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .3s cubic-bezier(.32,0,.67,0)}
+.cart-drawer.open{transform:translateY(0)}
+.cart-drawer-hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 18px 12px;border-bottom:1px solid rgba(0,0,0,.07);flex-shrink:0}
+.cart-drawer-handle{width:36px;height:4px;background:rgba(0,0,0,.1);border-radius:2px;position:absolute;top:8px;left:50%;transform:translateX(-50%)}
+.cart-drawer-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;font-style:italic;color:var(--dark)}
+.close-drawer-btn{background:rgba(0,0,0,.06);border:none;color:var(--dark);font-size:12px;font-weight:600;padding:6px 12px;border-radius:14px;cursor:pointer;letter-spacing:.3px}
+.cart-drawer-body{flex:1;overflow-y:auto;overscroll-behavior:contain}
+.cart-drawer-footer{padding:12px 18px 20px;border-top:2px solid var(--cream2);flex-shrink:0;background:var(--white)}
+.drawer-total-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.drawer-total-label{font-size:14px;font-weight:600;color:var(--dark)}
+.drawer-total-amount{font-size:20px;font-weight:700;color:var(--forest)}
+.drawer-clear-btn{width:100%;background:none;border:1px solid rgba(0,0,0,.12);color:var(--gray);font-family:'DM Sans',sans-serif;font-size:12px;padding:9px;border-radius:8px;cursor:pointer;transition:.15s}
+.drawer-clear-btn:hover{border-color:var(--gray);color:var(--dark)}
+
+/* ════ TOAST ════ */
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);z-index:500;background:rgba(30,58,16,.92);color:var(--white);font-size:12.5px;font-weight:600;padding:9px 18px;border-radius:20px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;white-space:nowrap;backdrop-filter:blur(4px)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(min-width:760px){.toast{bottom:30px}}
+
+/* ════ MISC ════ */
+.section-note{padding:5px 14px 2px;font-size:9.5px;font-style:italic;color:var(--gray);text-align:center}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ════ HEADER ════ -->
 <header class="hdr">
-  <div class="hdr-inner">
+  <div class="hdr-main">
     <div class="hdr-logo">
-      <img src="../images/logo.png" alt="Hare Krishna" onerror="this.style.display='none';this.parentElement.style.background='#3F5E38';this.parentElement.innerHTML='<svg viewBox=\'0 0 48 48\' style=\'width:100%;height:100%;padding:8px\'><circle cx=\'24\' cy=\'24\' r=\'20\' fill=\'none\' stroke=\'#9AAB00\' stroke-width=\'2\'/><text x=\'24\' y=\'28\' text-anchor=\'middle\' fill=\'#F5EFE0\' font-size=\'18\' font-family=\'serif\'>🙏</text></svg>'">
+      <img src="../assets/img/logo-green.webp" alt="Hare Krishna" loading="eager">
     </div>
     <div class="hdr-text">
       <div class="hdr-name">Hare Krishna</div>
       <div class="hdr-sub">Monterrey · Barrio Antiguo</div>
     </div>
-    <a href="menu-es.html" class="hdr-lang">ES</a>
+    <div class="hdr-right">
+      <a href="menu-es.html" class="hdr-lang">ES</a>
+    </div>
+  </div>
+  <!-- Social icons -->
+  <div class="hdr-social">
+    <a href="https://www.instagram.com/harekrishnamty/" class="soc-btn" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <div class="hdr-social-divider"></div>
+    <a href="https://www.facebook.com/harekrishna.restaurante/" class="soc-btn" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <div class="hdr-social-divider"></div>
+    <a href="https://maps.app.goo.gl/kzESGjP6fdeu2jAv6" class="soc-btn" target="_blank" rel="noopener" aria-label="Google Maps">
+      <svg viewBox="0 0 24 24"><path d="M12 0C7.802 0 4 3.403 4 7.602 4 11.8 7.469 16.812 12 24c4.531-7.188 8-12.2 8-16.398C20 3.403 16.199 0 12 0zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
+    </a>
   </div>
 </header>
 
-<!-- CATEGORY NAV -->
+<!-- ════ CATEGORY NAV ════ -->
 <nav class="cat-nav" id="catNav">
   <div class="cat-nav-inner">
-    <button class="cat-btn active" onclick="scrollTo('india')"><span>🍛</span>Indian</button>
-    <button class="cat-btn" onclick="scrollTo('burgers')"><span>🍔</span>Burgers</button>
-    <button class="cat-btn" onclick="scrollTo('mexican')"><span>🌮</span>Mexican</button>
-    <button class="cat-btn" onclick="scrollTo('pizzas')"><span>🍕</span>Pizzas</button>
-    <button class="cat-btn" onclick="scrollTo('drinks')"><span>🥤</span>Drinks</button>
-    <button class="cat-btn" onclick="scrollTo('desserts')"><span>🍮</span>Desserts</button>
-    <button class="cat-btn" onclick="scrollTo('coffee')"><span>☕</span>Coffee</button>
-    <button class="cat-btn" onclick="scrollTo('pantry')"><span>🛒</span>Pantry</button>
+    <button class="cat-btn active" data-target="india"><span class="ce">🍛</span>India</button>
+    <button class="cat-btn" data-target="burgers"><span class="ce">🍔</span>Burgers</button>
+    <button class="cat-btn" data-target="mexican"><span class="ce">🌮</span>Mexican</button>
+    <button class="cat-btn" data-target="pizzas"><span class="ce">🍕</span>Pizzas</button>
+    <button class="cat-btn" data-target="drinks"><span class="ce">🥤</span>Drinks</button>
+    <button class="cat-btn" data-target="desserts"><span class="ce">🍮</span>Desserts</button>
+    <button class="cat-btn" data-target="coffee"><span class="ce">☕</span>Coffee</button>
+    <button class="cat-btn" data-target="pantry"><span class="ce">🛒</span>Pantry</button>
   </div>
 </nav>
 
-<!-- FAVORITES -->
+<!-- ════ MAIN LAYOUT ════ -->
+<div class="layout-wrapper">
+
+<!-- ════ MENU MAIN ════ -->
+<main class="menu-main">
+
+<!-- Favorites -->
 <div class="fav-banner">
   <div class="fav-label">★ Favorites</div>
   <div class="fav-chips">
@@ -153,465 +266,334 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
   </div>
 </div>
 
-<!-- ═══════════════════ INDIAN KITCHEN ═══════════════════ -->
+<!-- ═══ INDIAN KITCHEN ═══ -->
 <section class="section" id="india">
-  <div class="section-hdr">
-    <span class="section-emoji">🍛</span>
-    <h2 class="section-title">Indian Kitchen · Prasadam</h2>
-  </div>
+  <div class="section-hdr"><span class="section-emoji">🍛</span><h2 class="section-title">Indian Kitchen · Prasadam</h2></div>
   <div class="section-items">
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Thali" data-price="250">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Thali</span>
-          <span class="item-price">$250</span>
-        </div>
-        <div class="item-badges"><span class="badge badge-sig">House Signature</span><span class="badge badge-vegan">Vegan</span></div>
-        <div class="item-desc">Full plate: rice, dal, sabji, chapati and sides of the day</div>
+        <div class="item-card-top"><span class="item-name">Thali</span><span class="item-price">$250</span></div>
+        <div class="item-badges"><span class="badge badge-sig">House signature</span><span class="badge badge-vegan">Vegan</span></div>
+        <div class="item-desc">Complete plate: rice, dal, sabji, chapati and daily sides</div>
       </div>
+      <button class="card-add" aria-label="Add Thali">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Samosas" data-price="55">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Samosas</span>
-          <span class="item-price">$55</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Samosas</span><span class="item-price">$55</span></div>
         <div class="item-badges"><span class="badge badge-vegan">Vegan</span></div>
-        <div class="item-desc">Crispy potato &amp; spice turnovers with mint chutney</div>
+        <div class="item-desc">Crispy potato and spice samosas with mint chutney</div>
       </div>
+      <button class="card-add" aria-label="Add Samosas">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Chapati" data-price="25">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Chapati</span>
-          <span class="item-price">$25</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Chapati</span><span class="item-price">$25</span></div>
         <div class="item-badges"><span class="badge badge-vegan">Vegan</span></div>
-        <div class="item-desc">Whole wheat flatbread, baked to order</div>
+        <div class="item-desc">Whole wheat flatbread, baked fresh to order</div>
       </div>
+      <button class="card-add" aria-label="Add Chapati">+</button>
     </div>
-
   </div>
 </section>
 
-<!-- ═══════════════════ BURGERS & TORTAS ═══════════════════ -->
+<!-- ═══ BURGERS & SANDWICHES ═══ -->
 <section class="section" id="burgers">
-  <div class="section-hdr">
-    <span class="section-emoji">🍔</span>
-    <h2 class="section-title">Burgers &amp; Tortas</h2>
-  </div>
+  <div class="section-hdr"><span class="section-emoji">🍔</span><h2 class="section-title">Burgers &amp; Sandwiches</h2></div>
   <div class="section-items">
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Maha Burger" data-price="239">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Maha Burger</span>
-          <span class="item-price">$239</span>
-        </div>
-        <div class="item-badges"><span class="badge badge-fav">Most Ordered</span></div>
+        <div class="item-card-top"><span class="item-name">Maha Burger</span><span class="item-price">$239</span></div>
+        <div class="item-badges"><span class="badge badge-fav">Most ordered</span></div>
         <div class="item-desc">Guacamole, sautéed mushrooms, tomato and house dressing</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Kali Burger" data-price="195">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Kali Burger</span>
-          <span class="item-price">$195</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Kali Burger</span><span class="item-price">$195</span></div>
         <div class="item-desc">Caramelized onion, lettuce, tomato and artisan mustard</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Pirata · Gringa" data-price="189">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Pirata · Gringa</span>
-          <span class="item-price">$189</span>
-        </div>
-        <div class="item-desc">Choose your style: pirata torta or a melty gringa</div>
+        <div class="item-card-top"><span class="item-name">Pirata · Gringa</span><span class="item-price">$189</span></div>
+        <div class="item-desc">Choose your style: pirata torta or melted gringa</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Happy Torta" data-price="179">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Happy Torta</span>
-          <span class="item-price">$179</span>
-        </div>
-        <div class="item-desc">Seitan schnitzel, beans, avocado and jalapeños on a telera roll</div>
+        <div class="item-card-top"><span class="item-name">Happy Torta</span><span class="item-price">$179</span></div>
+        <div class="item-desc">Seitan schnitzel, beans, avocado and jalapeños on a roll</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Molletes" data-price="169">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Molletes</span>
-          <span class="item-price">$169</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Molletes</span><span class="item-price">$169</span></div>
         <div class="item-desc">Black beans, melted vegan cheese and fresh pico de gallo</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
   </div>
 </section>
 
-<!-- ═══════════════════ MEXICAN FOOD ═══════════════════ -->
+<!-- ═══ MEXICAN FOOD ═══ -->
 <section class="section" id="mexican">
-  <div class="section-hdr">
-    <span class="section-emoji">🌮</span>
-    <h2 class="section-title">Mexican Food</h2>
-  </div>
+  <div class="section-hdr"><span class="section-emoji">🌮</span><h2 class="section-title">Mexican Food</h2></div>
   <div class="section-items">
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Al Pastor Tacos" data-price="195">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Al Pastor Tacos</span>
-          <span class="item-price">$195</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Al Pastor Tacos</span><span class="item-price">$195</span></div>
         <div class="item-badges"><span class="badge badge-fav">Favorite</span></div>
-        <div class="item-desc">Achiote seitan, roasted pineapple, onion and cilantro · 3 tacos</div>
+        <div class="item-desc">Achiote seitan, grilled pineapple, onion and cilantro · 3 tacos</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Chilaquiles" data-price="149">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Chilaquiles</span>
-          <span class="item-price">$149</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Chilaquiles</span><span class="item-price">$149</span></div>
         <div class="item-desc">Red or green with cream, cheese, onion and black beans</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Chicharrón Tacos" data-price="195">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Chicharrón Tacos</span>
-          <span class="item-price">$195</span>
-        </div>
-        <div class="item-desc">Soy chicharrón in salsa verde, cream and vegan cheese · 3 tacos</div>
+        <div class="item-card-top"><span class="item-name">Chicharrón Tacos</span><span class="item-price">$195</span></div>
+        <div class="item-desc">Soy chicharrón in green salsa, cream and vegan cheese · 3 tacos</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Hippie Tacos" data-price="195">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Hippie Tacos</span>
-          <span class="item-price">$195</span>
-        </div>
-        <div class="item-desc">Seasonal veggies, house hummus and herb dressing · 3 tacos</div>
+        <div class="item-card-top"><span class="item-name">Hippie Tacos</span><span class="item-price">$195</span></div>
+        <div class="item-desc">Seasonal vegetables, house hummus and herb dressing · 3 tacos</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Freedom Burrito" data-price="179">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Freedom Burrito</span>
-          <span class="item-price">$179</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Freedom Burrito</span><span class="item-price">$179</span></div>
         <div class="item-desc">Rice, beans, guacamole and seasoned seitan, all wrapped up</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Quinoa Salad" data-price="195">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Quinoa Salad</span>
-          <span class="item-price">$195</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Quinoa Salad</span><span class="item-price">$195</span></div>
         <div class="item-badges"><span class="badge badge-light">Light</span><span class="badge badge-vegan">Vegan</span></div>
-        <div class="item-desc">Spiced quinoa, avocado, beet, cucumber and ginger dressing</div>
+        <div class="item-desc">Seasoned quinoa, avocado, beet, cucumber and ginger dressing</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Mix Salad" data-price="179">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Mix Salad</span>
-          <span class="item-price">$179</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Mix Salad</span><span class="item-price">$179</span></div>
         <div class="item-badges"><span class="badge badge-light">Light</span><span class="badge badge-vegan">Vegan</span></div>
         <div class="item-desc">Greens, beet, cucumber, seeds and lemon dressing</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
   </div>
 </section>
 
-<!-- ═══════════════════ PIZZAS ═══════════════════ -->
+<!-- ═══ PIZZAS ═══ -->
 <section class="section" id="pizzas">
-  <div class="section-hdr">
-    <span class="section-emoji">🍕</span>
-    <h2 class="section-title">Pizzas</h2>
-  </div>
-  <div style="padding:6px 14px 2px;font-size:10px;font-style:italic;color:var(--gray);text-align:center">· vegetarian artisan dough ·</div>
+  <div class="section-hdr"><span class="section-emoji">🍕</span><h2 class="section-title">Pizzas</h2></div>
+  <div class="section-note">· artisan vegetarian dough ·</div>
   <div class="section-items">
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Pizza Govinda" data-price="279">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Govinda</span>
-          <span class="item-price">$279</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Govinda</span><span class="item-price">$279</span></div>
         <div class="item-badges"><span class="badge badge-vegan">Vegan</span></div>
-        <div class="item-desc">Swiss chard with tomato, mozzarella and garlic olive oil</div>
+        <div class="item-desc">Chard with tomato, mozzarella and garlic olive oil</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Pizza Gauranga" data-price="319">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Gauranga</span>
-          <span class="item-price">$319</span>
-        </div>
-        <div class="item-desc">Three-cheese blend: mozzarella, gouda and goat cheese</div>
+        <div class="item-card-top"><span class="item-name">Gauranga</span><span class="item-price">$319</span></div>
+        <div class="item-desc">Three-cheese variety: mozzarella, gouda and goat cheese</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Pizza Hari" data-price="289">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Hari</span>
-          <span class="item-price">$289</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Hari</span><span class="item-price">$289</span></div>
         <div class="item-badges"><span class="badge badge-light">Light</span></div>
         <div class="item-desc">Basil and tomato with olive oil and melted mozzarella</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Pizza Balaram" data-price="309">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Balaram</span>
-          <span class="item-price">$309</span>
-        </div>
-        <div class="item-desc">Bell peppers, black olives and mushrooms on tomato sauce</div>
+        <div class="item-card-top"><span class="item-name">Balaram</span><span class="item-price">$309</span></div>
+        <div class="item-desc">Bell peppers, black olives and mushrooms in tomato sauce</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Vegan Pepperoni Pizza" data-price="309">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Pepperoni</span>
-          <span class="item-price">$309</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Vegan Pepperoni</span><span class="item-price">$309</span></div>
         <div class="item-desc">Tomato sauce, soy pepperoni and mozzarella</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
   </div>
-
-  <!-- SLICES -->
   <div class="small-list">
     <div class="small-list-title">· per slice · from $55</div>
-    <div class="small-item"><span class="small-item-name">Gauranga</span><span class="small-item-price">$79</span></div>
-    <div class="small-item"><span class="small-item-name">Pepperoni</span><span class="small-item-price">$65</span></div>
-    <div class="small-item"><span class="small-item-name">Balaram</span><span class="small-item-price">$59</span></div>
-    <div class="small-item"><span class="small-item-name">Govinda</span><span class="small-item-price">$59</span></div>
-    <div class="small-item"><span class="small-item-name">Hari</span><span class="small-item-price">$55</span></div>
+    <div class="small-item" data-add data-name="Gauranga Slice" data-price="79"><span class="small-item-name">Gauranga</span><div class="small-item-right"><span class="small-item-price">$79</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Pepperoni Slice" data-price="65"><span class="small-item-name">Vegan Pepperoni</span><div class="small-item-right"><span class="small-item-price">$65</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Balaram Slice" data-price="59"><span class="small-item-name">Balaram</span><div class="small-item-right"><span class="small-item-price">$59</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Govinda Slice" data-price="59"><span class="small-item-name">Govinda</span><div class="small-item-right"><span class="small-item-price">$59</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Hari Slice" data-price="55"><span class="small-item-name">Hari</span><div class="small-item-right"><span class="small-item-price">$55</span><span class="small-plus">+</span></div></div>
   </div>
 </section>
 
-<!-- ═══════════════════ DRINKS ═══════════════════ -->
+<!-- ═══ DRINKS ═══ -->
 <section class="section" id="drinks">
-  <div class="section-hdr">
-    <span class="section-emoji">🥤</span>
-    <h2 class="section-title">Drinks</h2>
-  </div>
+  <div class="section-hdr"><span class="section-emoji">🥤</span><h2 class="section-title">Drinks</h2></div>
   <div class="section-items">
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Lassi" data-price="109">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Lassi</span>
-          <span class="item-price">$109</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Lassi</span><span class="item-price">$109</span></div>
         <div class="item-badges"><span class="badge badge-india">Classic</span></div>
-        <div class="item-desc">Traditional Indian vegan yogurt drink with seasonal fruit</div>
+        <div class="item-desc">Traditional Indian drink with vegan yogurt and seasonal fruit</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Cacao Smoothie" data-price="129">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Cacao Smoothie</span>
-          <span class="item-price">$129</span>
-        </div>
-        <div class="item-desc">Pure cacao, ripe banana and plant-based milk · rich and nutritious</div>
+        <div class="item-card-top"><span class="item-name">Cacao Smoothie</span><span class="item-price">$129</span></div>
+        <div class="item-desc">Pure cacao, ripe banana and plant milk · rich and nourishing</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Mango Juice" data-price="59">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Mango Juice</span>
-          <span class="item-price">$59</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Mango Juice</span><span class="item-price">$59</span></div>
         <div class="item-badges"><span class="badge badge-vegan">Vegan</span></div>
         <div class="item-desc">Fresh and natural, no added sugar</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Kombucha" data-price="89">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Kombucha</span>
-          <span class="item-price">$89</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Kombucha</span><span class="item-price">$89</span></div>
         <div class="item-badges"><span class="badge badge-fav">Favorite</span></div>
-        <div class="item-desc">Artisan fermented · ask for today's flavor</div>
+        <div class="item-desc">Artisan fermented · ask about today's flavor</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
   </div>
 </section>
 
-<!-- ═══════════════════ DESSERTS ═══════════════════ -->
+<!-- ═══ DESSERTS ═══ -->
 <section class="section" id="desserts">
-  <div class="section-hdr">
-    <span class="section-emoji">🍮</span>
-    <h2 class="section-title">Desserts &amp; Sweets</h2>
-  </div>
+  <div class="section-hdr"><span class="section-emoji">🍮</span><h2 class="section-title">Desserts &amp; Sweets</h2></div>
   <div class="section-items">
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Brownie" data-price="45">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Brownie</span>
-          <span class="item-price">$45</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Brownie</span><span class="item-price">$45</span></div>
         <div class="item-badges"><span class="badge badge-vegan">Vegan</span></div>
-        <div class="item-desc">Dense dark chocolate brownie, no eggs or dairy</div>
+        <div class="item-desc">Dense dark chocolate brownie, egg and dairy free</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Tapioca Sweet" data-price="79">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Tapioca Sweet</span>
-          <span class="item-price">$79</span>
-        </div>
-        <div class="item-desc">Tapioca in coconut milk with soft spices and vanilla</div>
+        <div class="item-card-top"><span class="item-name">Tapioca Sweet</span><span class="item-price">$79</span></div>
+        <div class="item-desc">Tapioca in coconut milk with gentle spices and vanilla</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Halwa" data-price="89">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Halwa</span>
-          <span class="item-price">$89</span>
-        </div>
-        <div class="item-badges"><span class="badge badge-india">Indian Sweet</span></div>
+        <div class="item-card-top"><span class="item-name">Halwa</span><span class="item-price">$89</span></div>
+        <div class="item-badges"><span class="badge badge-india">Indian dessert</span></div>
         <div class="item-desc">Semolina with dried fruits, spices and toasted seeds</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Gulab Jamun" data-price="79">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Gulab Jamun</span>
-          <span class="item-price">$79</span>
-        </div>
-        <div class="item-badges"><span class="badge badge-india">Indian Sweet</span></div>
-        <div class="item-desc">Soft balls in rose and cardamom syrup · traditional dessert</div>
+        <div class="item-card-top"><span class="item-name">Gulab Jamun</span><span class="item-price">$79</span></div>
+        <div class="item-badges"><span class="badge badge-india">Indian dessert</span></div>
+        <div class="item-desc">Soft balls in rose and cardamom syrup · traditional sweet</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Chocolate Cake" data-price="59">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Chocolate Cake</span>
-          <span class="item-price">$59</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Chocolate Cake</span><span class="item-price">$59</span></div>
         <div class="item-badges"><span class="badge badge-vegan">Vegan</span></div>
-        <div class="item-desc">Moist slice with walnuts and dried fruits · 100% vegan</div>
+        <div class="item-desc">Moist slice with walnuts and dried fruit · 100% vegan</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
   </div>
 </section>
 
-<!-- ═══════════════════ COFFEE ═══════════════════ -->
+<!-- ═══ COFFEE ═══ -->
 <section class="section" id="coffee">
-  <div class="section-hdr">
-    <span class="section-emoji">☕</span>
-    <h2 class="section-title">Coffee &amp; Infusions</h2>
-  </div>
-
+  <div class="section-hdr"><span class="section-emoji">☕</span><h2 class="section-title">Coffee &amp; Infusions</h2></div>
   <div class="small-list">
-    <div class="small-item"><span class="small-item-name">Espresso</span><span class="small-item-price">$49</span></div>
-    <div class="small-item"><span class="small-item-name">Americano</span><span class="small-item-price">$59</span></div>
-    <div class="small-item"><span class="small-item-name">Macchiato</span><span class="small-item-price">$69</span></div>
-    <div class="small-item"><span class="small-item-name">Cappuccino</span><span class="small-item-price">$79</span></div>
-    <div class="small-item"><span class="small-item-name">Latte</span><span class="small-item-price">$79</span></div>
-    <div class="small-item"><span class="small-item-name">Chai Tea</span><span class="small-item-price">$69</span></div>
-    <div class="small-item"><span class="small-item-name">Yogi Tea</span><span class="small-item-price">$59</span></div>
-    <div class="small-item"><span class="small-item-name">Herbal Mate</span><span class="small-item-price">$69</span></div>
+    <div class="small-item" data-add data-name="Espresso" data-price="49"><span class="small-item-name">Espresso</span><div class="small-item-right"><span class="small-item-price">$49</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Americano" data-price="59"><span class="small-item-name">Americano</span><div class="small-item-right"><span class="small-item-price">$59</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Macchiato" data-price="69"><span class="small-item-name">Macchiato</span><div class="small-item-right"><span class="small-item-price">$69</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Cappuccino" data-price="79"><span class="small-item-name">Cappuccino</span><div class="small-item-right"><span class="small-item-price">$79</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Latte" data-price="79"><span class="small-item-name">Latte</span><div class="small-item-right"><span class="small-item-price">$79</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Chai Tea" data-price="69"><span class="small-item-name">Chai Tea</span><div class="small-item-right"><span class="small-item-price">$69</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Yogi Tea" data-price="59"><span class="small-item-name">Yogi Tea</span><div class="small-item-right"><span class="small-item-price">$59</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Herbal Mate" data-price="69"><span class="small-item-name">Herbal Mate</span><div class="small-item-right"><span class="small-item-price">$69</span><span class="small-plus">+</span></div></div>
   </div>
-
   <div class="section-items">
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Chai Latte" data-price="89">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Chai Latte</span>
-          <span class="item-price">$89</span>
-        </div>
+        <div class="item-card-top"><span class="item-name">Chai Latte</span><span class="item-price">$89</span></div>
         <div class="item-badges"><span class="badge badge-fav">Favorite</span></div>
-        <div class="item-desc">Spiced chai with frothed plant-based milk · warm and aromatic</div>
+        <div class="item-desc">Spiced chai with frothed plant milk · warm and aromatic</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
-    <div class="item-card">
+    <div class="item-card" data-add data-name="Hot Oatmeal" data-price="99">
       <div class="item-card-body">
-        <div class="item-card-top">
-          <span class="item-name">Hot Oatmeal</span>
-          <span class="item-price">$99</span>
-        </div>
-        <div class="item-desc">With cinnamon, piloncillo and fruit of the day</div>
+        <div class="item-card-top"><span class="item-name">Hot Oatmeal</span><span class="item-price">$99</span></div>
+        <div class="item-desc">With cinnamon, piloncillo and seasonal fruit</div>
       </div>
+      <button class="card-add" aria-label="Add">+</button>
     </div>
-
   </div>
 </section>
 
-<!-- ═══════════════════ PANTRY ═══════════════════ -->
+<!-- ═══ PANTRY ═══ -->
 <section class="section" id="pantry">
-  <div class="section-hdr">
-    <span class="section-emoji">🛒</span>
-    <h2 class="section-title">Pantry · Take it Home</h2>
-  </div>
-  <div style="padding:6px 18px 2px;font-size:11px;font-style:italic;color:var(--gray)">Artisan products and plant proteins</div>
+  <div class="section-hdr"><span class="section-emoji">🛒</span><h2 class="section-title">Pantry · Take it Home</h2></div>
+  <div style="padding:5px 16px 2px;font-size:10.5px;font-style:italic;color:var(--gray)">Artisan products and plant proteins</div>
   <div class="despensa-grid">
-    <div class="despensa-item"><div class="despensa-item-name">Mesa Chocolate</div><div class="despensa-item-price">$139</div></div>
-    <div class="despensa-item"><div class="despensa-item-name">Dark Chocolate Bar</div><div class="despensa-item-price">$139</div></div>
-    <div class="despensa-item"><div class="despensa-item-name">White Chocolate Bar</div><div class="despensa-item-price">$139</div></div>
-    <div class="despensa-item"><div class="despensa-item-name">Seitan Schnitzel</div><div class="despensa-item-price">$139</div></div>
-    <div class="despensa-item"><div class="despensa-item-name">Veggie Frank Sausages</div><div class="despensa-item-price">$139</div></div>
-    <div class="despensa-item"><div class="despensa-item-name">Soy Chorizo</div><div class="despensa-item-price">$129</div></div>
-    <div class="despensa-item"><div class="despensa-item-name">Marzipan</div><div class="despensa-item-price">$29</div></div>
-    <div class="despensa-item"><div class="despensa-item-name">Grapes</div><div class="despensa-item-price">$55</div></div>
+    <div class="despensa-item" data-add data-name="Chocolate de Mesa" data-price="139"><div class="despensa-item-name">Chocolate de Mesa</div><div class="despensa-item-price">$139</div></div>
+    <div class="despensa-item" data-add data-name="Dark Chocolate Bar" data-price="139"><div class="despensa-item-name">Dark Chocolate Bar</div><div class="despensa-item-price">$139</div></div>
+    <div class="despensa-item" data-add data-name="White Chocolate Bar" data-price="139"><div class="despensa-item-name">White Chocolate Bar</div><div class="despensa-item-price">$139</div></div>
+    <div class="despensa-item" data-add data-name="Seitan Schnitzel" data-price="139"><div class="despensa-item-name">Seitan Schnitzel</div><div class="despensa-item-price">$139</div></div>
+    <div class="despensa-item" data-add data-name="Veggie Frank Sausages" data-price="139"><div class="despensa-item-name">Veggie Frank Sausages</div><div class="despensa-item-price">$139</div></div>
+    <div class="despensa-item" data-add data-name="Soy Chorizo" data-price="129"><div class="despensa-item-name">Soy Chorizo</div><div class="despensa-item-price">$129</div></div>
+    <div class="despensa-item" data-add data-name="Marzipan" data-price="29"><div class="despensa-item-name">Marzipan</div><div class="despensa-item-price">$29</div></div>
+    <div class="despensa-item" data-add data-name="Grapes" data-price="55"><div class="despensa-item-name">Grapes</div><div class="despensa-item-price">$55</div></div>
   </div>
 </section>
 
-<!-- ═══════════════════ KRISHNA STORE ═══════════════════ -->
+<!-- ═══ STORE ═══ -->
 <section class="section" id="store">
-  <div class="section-hdr" style="background:#4A3010">
-    <span class="section-emoji">📿</span>
-    <h2 class="section-title">Krishna Store</h2>
-  </div>
-  <div style="padding:6px 18px 2px;font-size:11px;font-style:italic;color:var(--gray)">Wisdom and consciousness products</div>
+  <div class="section-hdr" style="background:#4A3010"><span class="section-emoji">📿</span><h2 class="section-title">Krishna Store</h2></div>
+  <div style="padding:5px 16px 2px;font-size:10.5px;font-style:italic;color:var(--gray)">Wisdom and consciousness products</div>
   <div class="tienda-items">
-    <div class="tienda-item"><span class="tienda-item-name">Bhagavad Gita</span><span class="tienda-item-price">$450</span></div>
-    <div class="tienda-item"><span class="tienda-item-name">Incense</span><span class="tienda-item-price">$60</span></div>
-    <div class="tienda-item"><span class="tienda-item-name">A higher taste</span><span class="tienda-item-price">$200</span></div>
-    <div class="tienda-item"><span class="tienda-item-name">Ayurveda</span><span class="tienda-item-price">$150</span></div>
-    <div class="tienda-item"><span class="tienda-item-name">The science of self-realization</span><span class="tienda-item-price">$200</span></div>
+    <div class="tienda-item" data-add data-name="Bhagavad Gita" data-price="450"><span class="tienda-item-name">Bhagavad Gita</span><span class="tienda-item-price">$450</span></div>
+    <div class="tienda-item" data-add data-name="Incense" data-price="60"><span class="tienda-item-name">Incense</span><span class="tienda-item-price">$60</span></div>
+    <div class="tienda-item" data-add data-name="A higher taste" data-price="200"><span class="tienda-item-name">A higher taste</span><span class="tienda-item-price">$200</span></div>
+    <div class="tienda-item" data-add data-name="Ayurveda" data-price="150"><span class="tienda-item-name">Ayurveda</span><span class="tienda-item-price">$150</span></div>
+    <div class="tienda-item" data-add data-name="The science of self-realization" data-price="200"><span class="tienda-item-name">The science of self-realization</span><span class="tienda-item-price">$200</span></div>
   </div>
 </section>
 
@@ -621,48 +603,278 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
   <div class="footer-rule"></div>
   <div class="footer-info">
     Barrio Antiguo · Monterrey, México<br>
-    <a href="https://harekrishnaMTY.com">harekrishnaMTY.com</a><br>
+    <a href="https://harekrishnaMTY.com" target="_blank" rel="noopener">harekrishnaMTY.com</a><br>
     Prices in MXN pesos · Vegetarian ingredients
   </div>
 </footer>
 
-<!-- STICKY WA BUTTON -->
-<div class="wa-bar">
-  <a href="https://wa.me/5218114986316?text=Hello%2C+I%27d+like+to+place+an+order+%F0%9F%99%8F" class="wa-btn" target="_blank" rel="noopener">
-    <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Order via WhatsApp
-  </a>
+</main><!-- end menu-main -->
+
+<!-- ════ DESKTOP CART SIDEBAR ════ -->
+<aside class="cart-sidebar" id="cartSidebar">
+  <div class="cart-sidebar-hdr">
+    <span class="cart-sidebar-title">Your order</span>
+    <span class="cart-count-badge" id="cartCountBadge">0</span>
+  </div>
+  <div class="cart-sidebar-body" id="cartSidebarBody">
+    <!-- rendered by JS -->
+  </div>
+</aside>
+
+</div><!-- end layout-wrapper -->
+
+<!-- ════ MOBILE CART BAR ════ -->
+<div class="mobile-cart-bar" id="mobileCartBar" style="opacity:0;pointer-events:none">
+  <button class="view-order-btn" id="viewOrderBtn">
+    <span>View order</span>
+    <div class="cart-pill-right">
+      <span class="cart-pill-count" id="cartPillCount">0</span>
+      <span class="cart-pill-total" id="cartPillTotal">$0</span>
+    </div>
+  </button>
 </div>
 
-<script>
-const sections = document.querySelectorAll('section[id]');
-const catBtns = document.querySelectorAll('.cat-btn');
+<!-- ════ CART DRAWER (mobile) ════ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-handle"></div>
+  <div class="cart-drawer-hdr">
+    <span class="cart-drawer-title">Your order</span>
+    <button class="close-drawer-btn" id="closeDrawerBtn">Close</button>
+  </div>
+  <div class="cart-drawer-body" id="cartDrawerBody">
+    <!-- rendered by JS -->
+  </div>
+  <div class="cart-drawer-footer" id="cartDrawerFooter" style="display:none">
+    <div class="drawer-total-row">
+      <span class="drawer-total-label">Total</span>
+      <span class="drawer-total-amount" id="drawerTotal">$0</span>
+    </div>
+    <button class="drawer-clear-btn" id="drawerClearBtn">Clear cart</button>
+  </div>
+</div>
 
-function scrollTo(id) {
-  const el = document.getElementById(id);
+<!-- ════ TOAST ════ -->
+<div class="toast" id="toast">Added ✓</div>
+
+<script>
+/* ══════════════════════ CART ENGINE ══════════════════════ */
+var cart = [];
+
+function addToCart(name, price) {
+  var found = false;
+  for (var i = 0; i < cart.length; i++) {
+    if (cart[i].name === name) { cart[i].qty++; found = true; break; }
+  }
+  if (!found) cart.push({ name: name, price: price, qty: 1 });
+  renderCart();
+  showToast('Added: ' + name);
+}
+
+function changeQty(name, delta) {
+  for (var i = 0; i < cart.length; i++) {
+    if (cart[i].name === name) {
+      cart[i].qty += delta;
+      if (cart[i].qty <= 0) cart.splice(i, 1);
+      break;
+    }
+  }
+  renderCart();
+}
+
+function removeItem(name) {
+  cart = cart.filter(function(x) { return x.name !== name; });
+  renderCart();
+}
+
+function clearCart() {
+  cart = [];
+  renderCart();
+}
+
+function getTotal() {
+  var t = 0;
+  cart.forEach(function(x) { t += x.price * x.qty; });
+  return t;
+}
+
+function getTotalItems() {
+  var t = 0;
+  cart.forEach(function(x) { t += x.qty; });
+  return t;
+}
+
+function buildCartHTML() {
+  if (cart.length === 0) {
+    return '<div class="cart-empty-state"><div class="cart-empty-icon">🛒</div><p>Your selection is empty</p></div>';
+  }
+  var html = '<div class="cart-items-list">';
+  cart.forEach(function(item) {
+    var sub = item.price * item.qty;
+    var n = item.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+    html += '<div class="c-item">'
+      + '<div class="c-item-name">' + item.name + '</div>'
+      + '<div class="c-item-row">'
+      + '<button class="c-qty-btn" data-action="dec" data-name="' + n + '">−</button>'
+      + '<span class="c-qty-val">' + item.qty + '</span>'
+      + '<button class="c-qty-btn" data-action="inc" data-name="' + n + '" data-price="' + item.price + '">+</button>'
+      + '<span class="c-item-sub">$' + sub + '</span>'
+      + '<button class="c-del-btn" data-action="del" data-name="' + n + '">×</button>'
+      + '</div></div>';
+  });
+  html += '</div>'
+    + '<div class="cart-total-section"><span class="cart-total-label">Total</span><span class="cart-total-amount">$' + getTotal() + '</span></div>'
+    + '<button class="cart-clear-btn" data-action="clear">Clear cart</button>';
+  return html;
+}
+
+function renderCart() {
+  var n = getTotalItems();
+  var total = getTotal();
+  var html = buildCartHTML();
+
+  // Desktop sidebar
+  var sb = document.getElementById('cartSidebarBody');
+  if (sb) sb.innerHTML = html;
+
+  // Sidebar badge
+  var badge = document.getElementById('cartCountBadge');
+  if (badge) {
+    badge.textContent = n;
+    badge.style.display = n > 0 ? 'flex' : 'none';
+  }
+
+  // Mobile bar
+  var bar = document.getElementById('mobileCartBar');
+  if (bar) {
+    bar.style.opacity = n > 0 ? '1' : '0';
+    bar.style.pointerEvents = n > 0 ? 'auto' : 'none';
+  }
+  var pc = document.getElementById('cartPillCount');
+  if (pc) pc.textContent = n;
+  var pt = document.getElementById('cartPillTotal');
+  if (pt) pt.textContent = '$' + total;
+
+  // Mobile drawer body
+  var db = document.getElementById('cartDrawerBody');
+  if (db) db.innerHTML = html;
+
+  // Drawer footer
+  var df = document.getElementById('cartDrawerFooter');
+  if (df) df.style.display = cart.length > 0 ? 'block' : 'none';
+  var dt = document.getElementById('drawerTotal');
+  if (dt) dt.textContent = '$' + total;
+}
+
+/* ══════════ TOAST ══════════ */
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._tid);
+  t._tid = setTimeout(function() { t.classList.remove('show'); }, 1800);
+}
+
+/* ══════════ DRAWER ══════════ */
+function openCartDrawer() {
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartDrawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCartDrawer() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ══════════ SCROLL NAV ══════════ */
+function getHeaderOffset() {
+  var hdr = document.querySelector('.hdr');
+  var nav = document.querySelector('.cat-nav');
+  return (hdr ? hdr.offsetHeight : 108) + (nav ? nav.offsetHeight : 40) + 6;
+}
+
+function navScrollTo(id) {
+  var el = document.getElementById(id);
   if (!el) return;
-  const offset = 77 + 40;
-  const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-  window.scrollTo({top, behavior: 'smooth'});
+  var offset = getHeaderOffset();
+  var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+}
+
+/* ══════════ SCROLL SPY ══════════ */
+var sections = [];
+var catBtns = [];
+function initScrollSpy() {
+  sections = Array.from(document.querySelectorAll('section[id]'));
+  catBtns = Array.from(document.querySelectorAll('.cat-btn'));
 }
 
 function updateActiveBtn() {
-  const scrollY = window.pageYOffset;
-  let currentSection = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 140;
-    if (scrollY >= sectionTop) currentSection = section.id;
+  var scrollY = window.pageYOffset;
+  var offset = getHeaderOffset() + 20;
+  var current = '';
+  sections.forEach(function(s) {
+    if (s.getBoundingClientRect().top + window.pageYOffset - offset <= scrollY + 1) {
+      current = s.id;
+    }
   });
-  catBtns.forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('onclick').includes("'" + currentSection + "'"));
+  catBtns.forEach(function(btn) {
+    var isActive = btn.dataset.target === current;
+    btn.classList.toggle('active', isActive);
+    if (isActive) btn.scrollIntoView({ inline: 'nearest', block: 'nearest' });
   });
-  const activeBtn = document.querySelector('.cat-btn.active');
-  if (activeBtn) {
-    activeBtn.scrollIntoView({inline: 'center', behavior: 'smooth', block: 'nearest'});
-  }
 }
 
-window.addEventListener('scroll', updateActiveBtn, {passive: true});
+/* ══════════ EVENT DELEGATION ══════════ */
+document.addEventListener('click', function(e) {
+  // Cart action buttons (qty, del, clear)
+  var actionBtn = e.target.closest('[data-action]');
+  if (actionBtn) {
+    var action = actionBtn.dataset.action;
+    var name = actionBtn.dataset.name;
+    if (action === 'inc') addToCart(name, parseInt(actionBtn.dataset.price));
+    else if (action === 'dec') changeQty(name, -1);
+    else if (action === 'del') removeItem(name);
+    else if (action === 'clear') clearCart();
+    return;
+  }
+
+  // Add-to-cart items (cards, small items, pantry, store)
+  var addEl = e.target.closest('[data-add]');
+  if (addEl) {
+    // Flash animation
+    addEl.classList.add('added-flash');
+    setTimeout(function() { addEl.classList.remove('added-flash'); }, 500);
+    addToCart(addEl.dataset.name, parseInt(addEl.dataset.price));
+    return;
+  }
+
+  // Category nav buttons
+  var catBtn = e.target.closest('.cat-btn');
+  if (catBtn && catBtn.dataset.target) {
+    navScrollTo(catBtn.dataset.target);
+    return;
+  }
+});
+
+// Drawer open/close
+document.getElementById('viewOrderBtn').addEventListener('click', openCartDrawer);
+document.getElementById('closeDrawerBtn').addEventListener('click', closeCartDrawer);
+document.getElementById('cartOverlay').addEventListener('click', closeCartDrawer);
+
+// Drawer clear btn (separate since it's not data-action due to re-render)
+document.getElementById('cartDrawerBody').addEventListener('click', function(e) {
+  var clearBtn = e.target.closest('.cart-clear-btn');
+  if (clearBtn) clearCart();
+});
+
+// Scroll spy
+window.addEventListener('scroll', updateActiveBtn, { passive: true });
+
+// Init
+initScrollSpy();
+renderCart();
 </script>
 </body>
 </html>
