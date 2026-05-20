@@ -1,1 +1,10 @@
+# Reseñas QR — accent, URL-encoded, ASCII fallback
+/reseñas-qr           /resenas-qr.html   200
+/rese%C3%B1as-qr      /resenas-qr.html   200
+/resenas-qr           /resenas-qr.html   200
+/reseñas-qr/          /resenas-qr.html   200
+/rese%C3%B1as-qr/     /resenas-qr.html   200
+/resenas-qr/          /resenas-qr.html   200
+
+# SPA fallback (must remain last)
 /*    /index.html   200
