@@ -3335,19 +3335,19 @@ const menuItems = [
   { id:1,  cat:'favoritos', hero:true,
     name:'Thali', price:250, emoji:'🥘',
     badge:'Firma de la casa', badgeType:'firm',
-    desc:'Plato completo: arroz, dal, sabji, chapati y acompañamientos del día. Cambia cada día.',
+    desc:'Plato completo: arroz, dal, sabji, ensalada, rotis y un vaso de néctar.',
     imgColor:'background:url(assets/img/thali.webp) center/cover' },
 
   { id:2,  cat:'favoritos', hero:true,
     name:'Maha Burger', price:239, emoji:'🍔',
     badge:'Más pedido', badgeType:'pop',
-    desc:'Guacamole, jitomate y aderezo especial, con medallón de lenteja y milanesa de seitán.',
+    desc:'Guacamole, jitomate y aderezo especial, medallón de lenteja y milanesa de seitán.',
     imgColor:'background:url(assets/img/maha-burguer.webp) center/cover' },
 
   { id:3,  cat:'favoritos', hero:true,
     name:'Tacos Pastor', price:195, emoji:'🌮',
     badge:'Favorito', badgeType:'fav',
-    desc:'Seitán al achiote, piña asada, cebolla y cilantro fresco · 3 tacos.',
+    desc:'Proteína vegetal con achiote, piña asada y cilantro · 5 tacos.',
     imgColor:'background:url(assets/img/tacos.webp) center/cover' },
 
   { id:5,  cat:'favoritos', hero:true,
@@ -3357,21 +3357,27 @@ const menuItems = [
     imgColor:'background:linear-gradient(135deg,#7a2a18,#b04a38)' },
 
   { id:6,  cat:'favoritos', hero:true,
-    name:'Chai Latte', price:89, emoji:'🫖',
+    name:'Kombucha', price:89, emoji:'🫙',
     badge:'Favorito', badgeType:'fav',
-    desc:'Chai especiado con leche vegetal espumada · cálido y aromático.',
-    imgColor:'background:linear-gradient(135deg,#6a4020,#a07040)' },
+    desc:'Fermentada artesanal · pregunta el sabor del día.',
+    imgColor:'background:linear-gradient(135deg,#4a5a30,#7a8a50)' },
 
   /* ── COCINA INDIA ── */
+  { id:13, cat:'india',
+    name:'Inspiración del Chef', price:195, emoji:'🍛',
+    badge:'Vegano', badgeType:'fav',
+    desc:'Menú sorpresa, variable cada día: ensalada, arroz, sabji de vegetales, sabji de granos y pakoras · 100% vegano.',
+    imgColor:'background:linear-gradient(135deg,#3a5020,#608040)' },
+
   { id:10, cat:'india',
     name:'Thali', price:250, emoji:'🥘',
     badge:'Firma de la casa', badgeType:'firm',
-    desc:'El plato más completo de la casa. Arroz, dal, dos sabji, chapati y postre del día. Cambia cada día.',
+    desc:'Plato completo: arroz, dal, sabji, ensalada, rotis y un vaso de néctar.',
     imgColor:'background:url(assets/img/thali.webp) center/cover' },
 
   { id:11, cat:'india',
     name:'Samosas', price:55, emoji:'🥟',
-    desc:'Empanadas crujientes de papa y especias con chutney de menta. Perfectas para iniciar.',
+    desc:'Empanadas crujientes de papa y especias con aderezo o salsa.',
     imgColor:'background:url(assets/img/Samosas.webp) center/cover' },
 
   { id:12, cat:'india',
@@ -3382,124 +3388,128 @@ const menuItems = [
   /* ── BURGERS Y TORTAS ── */
   { id:20, cat:'burgers',
     name:'Maha Burger', price:239, emoji:'🍔',
-    badge:'Favorito', badgeType:'fav',
-    desc:'Guacamole, jitomate y aderezo especial, con medallón de lenteja y milanesa de seitán.',
+    badge:'Más pedido', badgeType:'pop',
+    desc:'Guacamole, jitomate y aderezo especial, medallón de lenteja y milanesa de seitán.',
     imgColor:'background:url(assets/img/maha-burguer.webp) center/cover' },
 
   { id:21, cat:'burgers',
-    name:'Kali Burger', price:195, emoji:'🍔',
-    desc:'Cebolla caramelizada, lechuga, jitomate y mostaza artesanal, con medallón de quinoa.',
+    name:'Kali Burger', price:179, emoji:'🍔',
+    desc:'Lechuga, jitomate y mostaza con medallón de lenteja.',
     imgColor:'background:url(assets/img/kali-burguer.webp) center/cover' },
 
   { id:22, cat:'burgers',
     name:'Pirata · Gringa', price:189, emoji:'🫔',
-    desc:'Elige tu versión: torta pirata o gringa bien fundida en queso vegano.',
+    desc:'Elige tu versión: torta pirata o gringa bien fundida.',
     imgColor:'background:url(assets/img/gringa.webp) center/cover' },
 
   { id:23, cat:'burgers',
     name:'Happy Torta', price:179, emoji:'🥪',
-    desc:'Milanesa de seitán, frijoles, aguacate y jalapeños en telera artesanal.',
+    desc:'Milanesa de seitán, frijoles y aguacate. Vegetariano o vegano.',
     imgColor:'background:linear-gradient(135deg,#4a3818,#7a6038)' },
 
   { id:24, cat:'burgers',
     name:'Molletes', price:169, emoji:'🍞',
-    desc:'Frijoles negros, queso vegano fundido y pico de gallo fresco. Ideal para desayuno.',
+    desc:'Frijoles, queso vegano fundido y pico de gallo fresco.',
     imgColor:'background:url(assets/img/molletes.webp) center/cover' },
 
   { id:25, cat:'burgers',
     name:'Hummus', price:109, emoji:'🍞',
-    desc:'Casero tradicional con un toque de limón y aceite de oliva virgen. Servido con bastones de verduras frescas y pan plano.',
+    desc:'Casero con limón y aceite de oliva. Zanahoria caramelizada y Roti.',
     imgColor:'background:linear-gradient(135deg,#5a4020,#906a3a)' },
+
+  { id:26, cat:'burgers',
+    name:'Boneless/Pakoras', price:195, emoji:'🍗',
+    desc:'Seitán crujiente en salsa búfalo, aderezo cremoso y bastones de zanahoria.',
+    imgColor:'background:linear-gradient(135deg,#7a4a18,#b07838)' },
    
   /* ── COCINA MEXICANA ── */
   { id:30, cat:'mexicana',
     name:'Tacos Pastor', price:195, emoji:'🌮',
-    badge:'Más pedido', badgeType:'pop',
-    desc:'Seitán al achiote, piña asada, cebolla y cilantro en tortilla de maíz · 3 tacos.',
+    badge:'Favorito', badgeType:'fav',
+    desc:'Proteína vegetal con achiote, piña asada y cilantro · 5 tacos.',
     imgColor:'background:url(assets/img/tacos.webp) center/cover' },
 
   { id:31, cat:'mexicana',
     name:'Chilaquiles', price:149, emoji:'🌶️',
-    desc:'Rojos o verdes con crema, queso, cebolla y frijoles negros.',
+    desc:'Rojos o verdes con crema, queso, frijoles y aguacate.',
     imgColor:'background:url(assets/img/Chilaquiles.webp) center/cover' },
 
   { id:32, cat:'mexicana',
     name:'Tacos Chicharrón', price:195, emoji:'🌮',
-    desc:'Chicharrón de soya en salsa verde, crema y queso vegano · 3 tacos.',
+    desc:'Chicharrón de seitán en tortilla de maíz con vegetales mixtos · 5 tacos.',
     imgColor:'background:url(assets/img/tacos_chicharron.webp) center/cover' },
 
   { id:33, cat:'mexicana',
     name:'Hippie Tacos', price:195, emoji:'🌮',
-    desc:'Verduras de temporada, hummus casero y aderezo de hierbas · 3 tacos.',
+    desc:'Verduras de temporada y seitán en tortilla de maíz con salsa picante · 5 tacos.',
     imgColor:'background:url(assets/img/hippie_tacos.webp) center/cover' },
 
   { id:34, cat:'mexicana',
     name:'Burrito Libertad', price:179, emoji:'🌯',
-    desc:'Arroz, frijoles, guacamole y seitán sazonado, todo bien envuelto.',
+    desc:'Arroz, frijoles, aguacate y seitán sazonado.',
     imgColor:'background:url(assets/img/Burrito.webp) center/cover' },
+
+  { id:37, cat:'mexicana',
+    name:'Enchiladas Suizas', price:179, emoji:'🫔',
+    desc:'Tortillas de maíz rellenas de champiñón y espinaca, bañadas en salsa verde suiza cremosa y gratinadas · 4 piezas.',
+    imgColor:'background:linear-gradient(135deg,#3a5020,#6a8a40)' },
 
   { id:35, cat:'mexicana',
     name:'Ensalada de Quinoa', price:195, emoji:'🥗',
     badge:'Ligero', badgeType:'fav',
-    desc:'Quinoa con especias, aguacate, betabel, pepino y aderezo de jengibre.',
+    desc:'Quinoa, aguacate, betabel, pepino y aderezo de jengibre.',
     imgColor:'background:url(assets/img/ensalada_quinoa.webp) center/cover' },
 
   { id:36, cat:'mexicana',
-    name:'Ensalada Mix', price:179, emoji:'🥗',
+    name:'Ensalada Suprema', price:179, emoji:'🥗',
     badge:'Ligero', badgeType:'fav',
-    desc:'Hojas verdes, betabel, pepino, semillas y aderezo de limón.',
+    desc:'Hojas verdes, betabel, pepino, hummus, brocolí, semillas y aderezo de limón.',
     imgColor:'background:linear-gradient(135deg,#2a4a20,#5a8040)' },
 
-  /* ── PIZZAS ENTERAS ── */
-  { id:40, cat:'pizzas',
-    name:'Govinda', price:279, emoji:'🍕',
-    badge:'Vegan', badgeType:'fav',
-    desc:'Acelga con tomate, mozzarella y aceite de oliva al ajo.',
-    imgColor:'background:url(assets/img/Govinda.webp) center/cover' },
-
+  /* ── PIZZAS ENTERAS (precio Mediana 14"; Grande 18" indicado en cada una) · queso Vegano o Vegetariano, mismo precio ── */
   { id:41, cat:'pizzas',
     name:'Gauranga', price:319, emoji:'🍕',
     badge:'Firma de la casa', badgeType:'firm',
-    desc:'Variedad de 3 quesos: mozzarella, gouda y queso de cabra.',
+    desc:'Variedad de 3 mix de quesos fundidos. · Mediana 14" $319 · Grande 18" $459.',
     imgColor:'background:url(assets/img/Gauranga.webp) center/cover' },
+
+  { id:43, cat:'pizzas',
+    name:'Balaram', price:309, emoji:'🍕',
+    desc:'Pimientos, aceitunas negras y chorizo vegetal sobre salsa de tomate. · Mediana 14" $309 · Grande 18" $449.',
+    imgColor:'background:url(assets/img/Balaram.webp) center/cover' },
+
+  { id:40, cat:'pizzas',
+    name:'Govinda', price:279, emoji:'🍕',
+    badge:'Vegan', badgeType:'fav',
+    desc:'Acelga con tomate, mozzarella y aceite de oliva. · Mediana 14" $279 · Grande 18" $409.',
+    imgColor:'background:url(assets/img/Govinda.webp) center/cover' },
 
   { id:42, cat:'pizzas',
     name:'Hari', price:289, emoji:'🍕',
     badge:'Ligero', badgeType:'fav',
-    desc:'Albahaca y tomate con aceite de oliva y mozzarella fundida.',
+    desc:'Albahaca y tomate con aceite de oliva y mozzarella fundida. · Mediana 14" $289 · Grande 18" $419.',
     imgColor:'background:url(assets/img/Hari.webp) center/cover' },
 
-  { id:43, cat:'pizzas',
-    name:'Balaram', price:309, emoji:'🍕',
-    desc:'Pimientos, aceitunas negras y champiñones sobre salsa de tomate.',
-    imgColor:'background:url(assets/img/Balaram.webp) center/cover' },
-
-  { id:44, cat:'pizzas',
-    name:'Pepperoni', price:309, emoji:'🍕',
-    badge:'Favorito', badgeType:'pop',
-    desc:'Salsa de tomate, pepperoni de soya y mozzarella.',
-    imgColor:'background:url(assets/img/Pepperoni.webp) center/cover' },
+  { id:45, cat:'pizzas',
+    name:'Lasaña', price:229, emoji:'🍝',
+    desc:'Salsa de tomate, suave salsa bechamel, queso vegano y relleno de calabaza con berenjena.',
+    imgColor:'background:linear-gradient(135deg,#7a2a18,#b04a38)' },
 
   /* ── REBANADAS ── */
   { id:50, cat:'rebanadas',
     name:'Gauranga', price:79, emoji:'🍕',
     badge:'Más pedido', badgeType:'pop',
-    desc:'Una rebanada con 3 quesos: mozzarella, gouda y queso de cabra.',
+    desc:'Una rebanada de la variedad de 3 mix de quesos fundidos.',
     imgColor:'background:url(assets/img/Gauranga.webp) center/cover' },
 
-  { id:51, cat:'rebanadas',
-    name:'Pepperoni', price:65, emoji:'🍕',
-    desc:'Pepperoni de soya con mozzarella. Una rebanada para probar sin compromiso.',
-    imgColor:'background:url(assets/img/Pepperoni.webp) center/cover' },
-
   { id:52, cat:'rebanadas',
-    name:'Balaram', price:59, emoji:'🍕',
-    desc:'Pimientos, aceitunas y champiñones. Un pedacito con todo el sabor.',
+    name:'Balaram', price:65, emoji:'🍕',
+    desc:'Pimientos, aceitunas negras y chorizo vegetal. Un pedacito con todo el sabor.',
     imgColor:'background:url(assets/img/Balaram.webp) center/cover' },
 
   { id:53, cat:'rebanadas',
     name:'Govinda', price:59, emoji:'🍕',
-    desc:'Acelga con tomate y mozzarella. La opción más ligera y vegana del día.',
+    desc:'Acelga con tomate y mozzarella. La opción más ligera del día.',
     imgColor:'background:url(assets/img/Govinda.webp) center/cover' },
 
   { id:54, cat:'rebanadas',
@@ -3511,7 +3521,7 @@ const menuItems = [
   { id:60, cat:'bebidas',
     name:'Lassi', price:109, emoji:'🥛',
     badge:'Clásico', badgeType:'fav',
-    desc:'Bebida tradicional india de yogurt vegano con fruta del día. Pregunta el sabor.',
+    desc:'Bebida tradicional india de yogurt con fruta de temporada.',
     imgColor:'background:url(assets/img/lassi.webp) center/cover' },
 
   { id:61, cat:'bebidas',
@@ -3530,17 +3540,12 @@ const menuItems = [
     desc:'Cacao puro, plátano maduro y leche vegetal · denso y nutritivo.',
     imgColor:'background:linear-gradient(135deg,#3a2818,#6a4830)' },
 
-  { id:63, cat:'bebidas',
+  { id:64, cat:'bebidas',
     name:'Smoothie de Mango', price:129, emoji:'🥭',
     desc:'Mango fresco y leche vegetal · ligero, tropical y revitalizante.',
     imgColor:'background:linear-gradient(135deg,#3a2818,#6a4830)' },
 
   /* ── CAFÉ E INFUSIONES ── */
-  { id:70, cat:'cafe',
-    name:'Avena Caliente', price:99, emoji:'🥣',
-    desc:'Con canela, piloncillo y fruta del día.',
-    imgColor:'background:url(assets/img/avena_caliente1.webp) center/cover' },
-
   { id:71, cat:'cafe',
     name:'Chai Latte', price:89, emoji:'🫖',
     badge:'Favorito', badgeType:'fav',
@@ -3577,11 +3582,6 @@ const menuItems = [
     desc:'Concentrado, intenso y breve. El café en su forma más pura.',
     imgColor:'background:linear-gradient(135deg,#1a1008,#3a2818)' },
 
-  { id:78, cat:'cafe',
-    name:'Hierba Mate', price:69, emoji:'🌿',
-    desc:'Infusión energizante con sabor terroso y limpio.',
-    imgColor:'background:linear-gradient(135deg,#3a5020,#608040)' },
-
   { id:79, cat:'cafe',
     name:'Yogi Té', price:59, emoji:'🫖',
     desc:'Mezcla de hierbas especiadas con regaliz, pimienta negra y canela.',
@@ -3589,30 +3589,30 @@ const menuItems = [
 
   /* ── POSTRES ── */
   { id:80, cat:'postres',
-    name:'Gulab Jamun', price:79, emoji:'🍯',
-    badge:'Firma de la casa', badgeType:'firm',
-    desc:'Bolitas suaves en almíbar de rosas y cardamomo · postre tradicional indio.',
+    name:'Gulab Jamun', price:99, emoji:'🍯',
+    badge:'Dulce Indio', badgeType:'firm',
+    desc:'Bolitas suaves en almíbar de rosas y cardamomo · postre tradicional.',
     imgColor:'background:linear-gradient(135deg,#7a3a18,#b06038)' },
 
   { id:81, cat:'postres',
-    name:'Halwa', price:89, emoji:'🍮',
+    name:'Halwa', price:109, emoji:'🍮',
     badge:'Dulce Indio', badgeType:'firm',
-    desc:'Sémola de trigo con frutos secos, especias y semillas tostadas. Denso y cálido.',
+    desc:'Sémola de trigo con frutos secos, especias y semillas tostadas.',
     imgColor:'background:linear-gradient(135deg,#6a4a18,#a07838)' },
 
   { id:82, cat:'postres',
-    name:'Dulce de Tapioca', price:79, emoji:'🍮',
+    name:'Dulce de Tapioca', price:99, emoji:'🍮',
     desc:'Tapioca en leche de coco con especias suaves y vainilla.',
     imgColor:'background:linear-gradient(135deg,#5a5040,#8a8060)' },
 
   { id:83, cat:'postres',
-    name:'Brownie Vegano', price:45, emoji:'🍫',
+    name:'Brownie Vegano', price:65, emoji:'🍫',
     badge:'Vegan', badgeType:'fav',
     desc:'Brownie denso de chocolate negro, sin huevo ni lácteos.',
     imgColor:'background:url(assets/img/Brownie.webp) center/cover' },
 
   { id:84, cat:'postres',
-    name:'Pastel de Chocolate', price:59, emoji:'🎂',
+    name:'Pastel de Chocolate', price:79, emoji:'🎂',
     badge:'Vegan', badgeType:'fav',
     desc:'Rebanada húmeda con nueces y frutos secos · 100% vegano.',
     imgColor:'background:linear-gradient(135deg,#3a1808,#6a3820)' },
@@ -3751,7 +3751,7 @@ const crossSellMap = {
   mexicana:  'El Jugo de Mango ($59) va perfecto con los tacos.',
   pizzas:    'La Kombucha ($89) combina muy bien con cualquier pizza.',
   rebanadas: 'Agrega una Kombucha ($89) y arma tu snack ideal.',
-  cafe:      '¿Quieres algo dulce? El Brownie Vegano ($45) va perfecto con el café.',
+  cafe:      '¿Quieres algo dulce? El Brownie Vegano ($65) va perfecto con el café.',
   postres:   'Un Chai Latte ($89) es el cierre ideal para tu postre.',
 };
 

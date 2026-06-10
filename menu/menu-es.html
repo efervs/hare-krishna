@@ -99,6 +99,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
 .small-item-price{font-size:12.5px;font-weight:600;color:var(--forest)}
 .small-plus{font-size:17px;font-weight:300;color:var(--forest);line-height:1;flex-shrink:0}
 
+/* ════ PIZZA SIZES (mediana / grande) ════ */
+.pizza-card{cursor:default}
+.pizza-card:active{transform:none}
+.pizza-sizes{display:flex;gap:6px;margin-top:9px}
+.pz-size{flex:1;display:flex;align-items:center;justify-content:center;gap:5px;background:var(--cream);border:1px solid rgba(63,94,56,.25);border-radius:8px;padding:7px 6px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.12s}
+.pz-size:hover{background:rgba(63,94,56,.08);border-color:var(--forest)}
+.pz-size:active{transform:scale(.97)}
+.pz-size.added-flash{background:rgba(154,171,0,.18);border-color:var(--green)}
+.pz-size-label{font-size:11px;font-weight:500;color:var(--dark)}
+.pz-size-price{font-size:12.5px;font-weight:700;color:var(--forest)}
+.pz-size-plus{font-size:15px;font-weight:300;color:var(--forest);line-height:1}
+
 /* ════ DESPENSA GRID ════ */
 .despensa-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:8px 12px}
 .despensa-item{background:var(--white);border-radius:8px;padding:9px 11px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);cursor:pointer;transition:.12s}
@@ -238,9 +250,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
 <nav class="cat-nav" id="catNav">
   <div class="cat-nav-inner">
     <button class="cat-btn active" data-target="india"><span class="ce">🍛</span>India</button>
+    <button class="cat-btn" data-target="entradas"><span class="ce">🥣</span>Entradas</button>
     <button class="cat-btn" data-target="burgers"><span class="ce">🍔</span>Burgers</button>
     <button class="cat-btn" data-target="mexicana"><span class="ce">🌮</span>Mexicana</button>
     <button class="cat-btn" data-target="pizzas"><span class="ce">🍕</span>Pizzas</button>
+    <button class="cat-btn" data-target="ensaladas"><span class="ce">🥗</span>Ensaladas</button>
     <button class="cat-btn" data-target="bebidas"><span class="ce">🥤</span>Bebidas</button>
     <button class="cat-btn" data-target="postres"><span class="ce">🍮</span>Postres</button>
     <button class="cat-btn" data-target="cafe"><span class="ce">☕</span>Café</button>
@@ -270,29 +284,57 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
 <section class="section" id="india">
   <div class="section-hdr"><span class="section-emoji">🍛</span><h2 class="section-title">Cocina India · Prasadam</h2></div>
   <div class="section-items">
-    <div class="item-card" data-add data-name="Thali" data-price="250">
+    <div class="item-card" data-add data-name="Inspiración del Chef" data-price="195">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Thali</span><span class="item-price">$250</span></div>
-        <div class="item-badges"><span class="badge badge-sig">Firma de la casa</span><span class="badge badge-vegan">Vegano</span></div>
-        <div class="item-desc">Plato completo: arroz, dal, sabji, chapati y guarniciones del día</div>
+        <div class="item-card-top"><span class="item-name">Inspiración del Chef</span><span class="item-price">$195</span></div>
+        <div class="item-badges"><span class="badge badge-vegan">Vegano</span></div>
+        <div class="item-desc">Menú sorpresa, variable cada día: ensalada, arroz, sabji de vegetales, sabji de granos y pakoras · 100% vegano</div>
       </div>
-      <button class="card-add" aria-label="Agregar Thali">+</button>
+      <button class="card-add" aria-label="Agregar Inspiración del Chef">+</button>
+    </div>
+    <div class="item-card" data-add data-name="Thali Krishna Prasad" data-price="250">
+      <div class="item-card-body">
+        <div class="item-card-top"><span class="item-name">Thali Krishna Prasad</span><span class="item-price">$250</span></div>
+        <div class="item-badges"><span class="badge badge-sig">Firma de la casa</span></div>
+        <div class="item-desc">Plato completo: arroz, dal, sabji, ensalada, rotis y un vaso de néctar</div>
+      </div>
+      <button class="card-add" aria-label="Agregar Thali Krishna Prasad">+</button>
     </div>
     <div class="item-card" data-add data-name="Samosas" data-price="55">
       <div class="item-card-body">
         <div class="item-card-top"><span class="item-name">Samosas</span><span class="item-price">$55</span></div>
         <div class="item-badges"><span class="badge badge-vegan">Vegano</span></div>
-        <div class="item-desc">Samosas crujientes de papa y especias con chutney de menta</div>
+        <div class="item-desc">Empanadas crujientes de papa y especias con aderezo o salsa</div>
       </div>
       <button class="card-add" aria-label="Agregar Samosas">+</button>
     </div>
     <div class="item-card" data-add data-name="Chapati" data-price="25">
       <div class="item-card-body">
         <div class="item-card-top"><span class="item-name">Chapati</span><span class="item-price">$25</span></div>
-        <div class="item-badges"><span class="badge badge-vegan">Vegano</span></div>
         <div class="item-desc">Pan plano de trigo integral, horneado al momento</div>
       </div>
       <button class="card-add" aria-label="Agregar Chapati">+</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ENTRADAS ═══ -->
+<section class="section" id="entradas">
+  <div class="section-hdr"><span class="section-emoji">🥣</span><h2 class="section-title">Entradas</h2></div>
+  <div class="section-items">
+    <div class="item-card" data-add data-name="Hummus" data-price="109">
+      <div class="item-card-body">
+        <div class="item-card-top"><span class="item-name">Hummus</span><span class="item-price">$109</span></div>
+        <div class="item-desc">Casero con limón y aceite de oliva. Zanahoria caramelizada y Roti</div>
+      </div>
+      <button class="card-add" aria-label="Agregar Hummus">+</button>
+    </div>
+    <div class="item-card" data-add data-name="Boneless/Pakoras" data-price="195">
+      <div class="item-card-body">
+        <div class="item-card-top"><span class="item-name">Boneless/Pakoras</span><span class="item-price">$195</span></div>
+        <div class="item-desc">Seitán crujiente en salsa búfalo, aderezo cremoso y bastones de zanahoria</div>
+      </div>
+      <button class="card-add" aria-label="Agregar Boneless/Pakoras">+</button>
     </div>
   </div>
 </section>
@@ -305,43 +347,36 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
       <div class="item-card-body">
         <div class="item-card-top"><span class="item-name">Maha Burger</span><span class="item-price">$239</span></div>
         <div class="item-badges"><span class="badge badge-fav">Más pedida</span></div>
-        <div class="item-desc">Guacamole, jitomate y aderezo especial, con medallón de lenteja y milanesa de seitán.</div>
+        <div class="item-desc">Guacamole, jitomate y aderezo especial, medallón de lenteja y milanesa de seitán</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
-    <div class="item-card" data-add data-name="Kali Burger" data-price="195">
+    <div class="item-card" data-add data-name="Kali Burger" data-price="179">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Kali Burger</span><span class="item-price">$195</span></div>
-        <div class="item-desc">Cebolla caramelizada, lechuga, jitomate y mostaza artesanal,
-con medallón de quinoa.</div>
+        <div class="item-card-top"><span class="item-name">Kali Burger</span><span class="item-price">$179</span></div>
+        <div class="item-desc">Lechuga, jitomate y mostaza con medallón de lenteja</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
     <div class="item-card" data-add data-name="Pirata · Gringa" data-price="189">
       <div class="item-card-body">
         <div class="item-card-top"><span class="item-name">Pirata · Gringa</span><span class="item-price">$189</span></div>
-        <div class="item-desc">Elige tu estilo: torta pirata o gringa derretida</div>
+        <div class="item-desc">Elige tu versión: torta pirata o gringa bien fundida</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
     <div class="item-card" data-add data-name="Happy Torta" data-price="179">
       <div class="item-card-body">
         <div class="item-card-top"><span class="item-name">Happy Torta</span><span class="item-price">$179</span></div>
-        <div class="item-desc">Milanesa de seitán, frijoles, aguacate y jalapeños en telera</div>
+        <div class="item-desc">Milanesa de seitán, frijoles y aguacate. Vegetariano o vegano</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
     <div class="item-card" data-add data-name="Molletes" data-price="169">
       <div class="item-card-body">
         <div class="item-card-top"><span class="item-name">Molletes</span><span class="item-price">$169</span></div>
-        <div class="item-desc">Frijoles negros, queso vegano derretido y pico de gallo fresco</div>
-      </div>
-      <button class="card-add" aria-label="Agregar">+</button>
-    </div>
-    <div class="item-card" data-add data-name="Hummus" data-price="109">
-      <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Hummus</span><span class="item-price">$109</span></div>
-        <div class="item-desc">Casero tradicional con un toque de limón y aceite de oliva virgen. Servido con bastones de verduras frescas y pan plano</div>
+        <div class="item-badges"><span class="badge badge-vegan">Vegano</span></div>
+        <div class="item-desc">Frijoles, queso vegano fundido y pico de gallo fresco</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
@@ -352,100 +387,102 @@ con medallón de quinoa.</div>
 <section class="section" id="mexicana">
   <div class="section-hdr"><span class="section-emoji">🌮</span><h2 class="section-title">Comida Mexicana</h2></div>
   <div class="section-items">
-    <div class="item-card" data-add data-name="Tacos Al Pastor" data-price="195">
+    <div class="item-card" data-add data-name="Tacos al Pastor" data-price="195">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Tacos Al Pastor</span><span class="item-price">$195</span></div>
+        <div class="item-card-top"><span class="item-name">Tacos al Pastor</span><span class="item-price">$195</span></div>
         <div class="item-badges"><span class="badge badge-fav">Favorito</span></div>
-        <div class="item-desc">Seitán achiote, piña asada, cebolla y cilantro · 3 tacos</div>
+        <div class="item-desc">Proteína vegetal con achiote, piña asada y cilantro · 5 tacos</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
     <div class="item-card" data-add data-name="Chilaquiles" data-price="149">
       <div class="item-card-body">
         <div class="item-card-top"><span class="item-name">Chilaquiles</span><span class="item-price">$149</span></div>
-        <div class="item-desc">Rojos o verdes con crema, queso, cebolla y frijoles negros</div>
+        <div class="item-desc">Rojos o verdes con crema, queso, frijoles y aguacate</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
     <div class="item-card" data-add data-name="Tacos Chicharrón" data-price="195">
       <div class="item-card-body">
         <div class="item-card-top"><span class="item-name">Tacos Chicharrón</span><span class="item-price">$195</span></div>
-        <div class="item-desc">Chicharrón de soya en salsa verde, crema y queso vegano · 3 tacos</div>
+        <div class="item-desc">Chicharrón de seitán en tortilla de maíz con vegetales mixtos · 5 tacos</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
     <div class="item-card" data-add data-name="Hippie Tacos" data-price="195">
       <div class="item-card-body">
         <div class="item-card-top"><span class="item-name">Hippie Tacos</span><span class="item-price">$195</span></div>
-        <div class="item-desc">Verduras de temporada, hummus de la casa y aderezo de hierbas · 3 tacos</div>
+        <div class="item-desc">Verduras de temporada y seitán en tortilla de maíz con salsa picante · 5 tacos</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
     <div class="item-card" data-add data-name="Burrito Libertad" data-price="179">
       <div class="item-card-body">
         <div class="item-card-top"><span class="item-name">Burrito Libertad</span><span class="item-price">$179</span></div>
-        <div class="item-desc">Arroz, frijoles, guacamole y seitán sazonado, todo enrollado</div>
+        <div class="item-desc">Arroz, frijoles, aguacate y seitán sazonado</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
-    <div class="item-card" data-add data-name="Ensalada de Quinoa" data-price="195">
+    <div class="item-card" data-add data-name="Enchiladas Suizas" data-price="179">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Ensalada de Quinoa</span><span class="item-price">$195</span></div>
-        <div class="item-badges"><span class="badge badge-light">Ligera</span><span class="badge badge-vegan">Vegana</span></div>
-        <div class="item-desc">Quinoa sazonada, aguacate, betabel, pepino y aderezo de jengibre</div>
-      </div>
-      <button class="card-add" aria-label="Agregar">+</button>
-    </div>
-    <div class="item-card" data-add data-name="Ensalada Mix" data-price="179">
-      <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Ensalada Mix</span><span class="item-price">$179</span></div>
-        <div class="item-badges"><span class="badge badge-light">Ligera</span><span class="badge badge-vegan">Vegana</span></div>
-        <div class="item-desc">Verdes, betabel, pepino, semillas y aderezo de limón</div>
+        <div class="item-card-top"><span class="item-name">Enchiladas Suizas</span><span class="item-price">$179</span></div>
+        <div class="item-desc">Tortillas de maíz rellenas de champiñón y espinaca, bañadas en salsa verde suiza cremosa y gratinadas · 4 piezas</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
   </div>
 </section>
 
-<!-- ═══ PIZZAS ═══ -->
+<!-- ═══ PIZZAS & LASAÑA ═══ -->
 <section class="section" id="pizzas">
-  <div class="section-hdr"><span class="section-emoji">🍕</span><h2 class="section-title">Pizzas</h2></div>
-  <div class="section-note">· masa vegetariana artesanal ·</div>
+  <div class="section-hdr"><span class="section-emoji">🍕</span><h2 class="section-title">Pizzas &amp; Lasaña</h2></div>
+  <div class="section-note">· masa artesanal · elige tu queso: Vegano o Vegetariano — mismo precio ·</div>
   <div class="section-items">
-    <div class="item-card" data-add data-name="Pizza Govinda" data-price="279">
+    <div class="item-card pizza-card">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Govinda</span><span class="item-price">$279</span></div>
-        <div class="item-badges"><span class="badge badge-vegan">Vegana</span></div>
-        <div class="item-desc">Acelga con tomate, mozzarella y aceite de oliva al ajo</div>
+        <div class="item-card-top"><span class="item-name">Gauranga</span></div>
+        <div class="item-desc">Variedad de 3 mix de quesos fundidos</div>
+        <div class="pizza-sizes">
+          <button class="pz-size" data-add data-name="Pizza Gauranga (Mediana 14&quot;)" data-price="319"><span class="pz-size-label">Mediana 14&quot;</span><span class="pz-size-price">$319</span><span class="pz-size-plus">+</span></button>
+          <button class="pz-size" data-add data-name="Pizza Gauranga (Grande 18&quot;)" data-price="459"><span class="pz-size-label">Grande 18&quot;</span><span class="pz-size-price">$459</span><span class="pz-size-plus">+</span></button>
+        </div>
       </div>
-      <button class="card-add" aria-label="Agregar">+</button>
     </div>
-    <div class="item-card" data-add data-name="Pizza Gauranga" data-price="319">
+    <div class="item-card pizza-card">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Gauranga</span><span class="item-price">$319</span></div>
-        <div class="item-desc">Variedad de 3 quesos: mozzarella, gouda y queso de cabra</div>
+        <div class="item-card-top"><span class="item-name">Balaram</span></div>
+        <div class="item-desc">Pimientos, aceitunas negras y chorizo vegetal sobre salsa de tomate</div>
+        <div class="pizza-sizes">
+          <button class="pz-size" data-add data-name="Pizza Balaram (Mediana 14&quot;)" data-price="309"><span class="pz-size-label">Mediana 14&quot;</span><span class="pz-size-price">$309</span><span class="pz-size-plus">+</span></button>
+          <button class="pz-size" data-add data-name="Pizza Balaram (Grande 18&quot;)" data-price="449"><span class="pz-size-label">Grande 18&quot;</span><span class="pz-size-price">$449</span><span class="pz-size-plus">+</span></button>
+        </div>
       </div>
-      <button class="card-add" aria-label="Agregar">+</button>
     </div>
-    <div class="item-card" data-add data-name="Pizza Hari" data-price="289">
+    <div class="item-card pizza-card">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Hari</span><span class="item-price">$289</span></div>
+        <div class="item-card-top"><span class="item-name">Govinda</span></div>
+        <div class="item-desc">Acelga con tomate, mozzarella y aceite de oliva</div>
+        <div class="pizza-sizes">
+          <button class="pz-size" data-add data-name="Pizza Govinda (Mediana 14&quot;)" data-price="279"><span class="pz-size-label">Mediana 14&quot;</span><span class="pz-size-price">$279</span><span class="pz-size-plus">+</span></button>
+          <button class="pz-size" data-add data-name="Pizza Govinda (Grande 18&quot;)" data-price="409"><span class="pz-size-label">Grande 18&quot;</span><span class="pz-size-price">$409</span><span class="pz-size-plus">+</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="item-card pizza-card">
+      <div class="item-card-body">
+        <div class="item-card-top"><span class="item-name">Hari</span></div>
         <div class="item-badges"><span class="badge badge-light">Ligera</span></div>
-        <div class="item-desc">Albahaca y tomate con aceite de oliva y mozzarella derretida</div>
+        <div class="item-desc">Albahaca y tomate con aceite de oliva y mozzarella fundida</div>
+        <div class="pizza-sizes">
+          <button class="pz-size" data-add data-name="Pizza Hari (Mediana 14&quot;)" data-price="289"><span class="pz-size-label">Mediana 14&quot;</span><span class="pz-size-price">$289</span><span class="pz-size-plus">+</span></button>
+          <button class="pz-size" data-add data-name="Pizza Hari (Grande 18&quot;)" data-price="419"><span class="pz-size-label">Grande 18&quot;</span><span class="pz-size-price">$419</span><span class="pz-size-plus">+</span></button>
+        </div>
       </div>
-      <button class="card-add" aria-label="Agregar">+</button>
     </div>
-    <div class="item-card" data-add data-name="Pizza Balaram" data-price="309">
+    <div class="item-card" data-add data-name="Lasaña" data-price="229">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Balaram</span><span class="item-price">$309</span></div>
-        <div class="item-desc">Pimientos, aceitunas negras y champiñones en salsa de tomate</div>
-      </div>
-      <button class="card-add" aria-label="Agregar">+</button>
-    </div>
-    <div class="item-card" data-add data-name="Pizza Pepperoni" data-price="309">
-      <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Pepperoni</span><span class="item-price">$309</span></div>
-        <div class="item-desc">Salsa de tomate, pepperoni de soya y mozzarella</div>
+        <div class="item-card-top"><span class="item-name">Lasaña</span><span class="item-price">$229</span></div>
+        <div class="item-desc">Salsa de tomate, suave salsa bechamel, queso vegano y relleno de calabaza con berenjena</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
@@ -453,10 +490,32 @@ con medallón de quinoa.</div>
   <div class="small-list">
     <div class="small-list-title">· por rebanada · desde $55</div>
     <div class="small-item" data-add data-name="Rebanada Gauranga" data-price="79"><span class="small-item-name">Gauranga</span><div class="small-item-right"><span class="small-item-price">$79</span><span class="small-plus">+</span></div></div>
-    <div class="small-item" data-add data-name="Rebanada Pepperoni" data-price="65"><span class="small-item-name">Pepperoni</span><div class="small-item-right"><span class="small-item-price">$65</span><span class="small-plus">+</span></div></div>
-    <div class="small-item" data-add data-name="Rebanada Balaram" data-price="59"><span class="small-item-name">Balaram</span><div class="small-item-right"><span class="small-item-price">$59</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Rebanada Balaram" data-price="65"><span class="small-item-name">Balaram</span><div class="small-item-right"><span class="small-item-price">$65</span><span class="small-plus">+</span></div></div>
     <div class="small-item" data-add data-name="Rebanada Govinda" data-price="59"><span class="small-item-name">Govinda</span><div class="small-item-right"><span class="small-item-price">$59</span><span class="small-plus">+</span></div></div>
     <div class="small-item" data-add data-name="Rebanada Hari" data-price="55"><span class="small-item-name">Hari</span><div class="small-item-right"><span class="small-item-price">$55</span><span class="small-plus">+</span></div></div>
+  </div>
+</section>
+
+<!-- ═══ ENSALADAS ═══ -->
+<section class="section" id="ensaladas">
+  <div class="section-hdr"><span class="section-emoji">🥗</span><h2 class="section-title">Ensaladas</h2></div>
+  <div class="section-items">
+    <div class="item-card" data-add data-name="Ensalada de Quinoa" data-price="195">
+      <div class="item-card-body">
+        <div class="item-card-top"><span class="item-name">Ensalada de Quinoa</span><span class="item-price">$195</span></div>
+        <div class="item-badges"><span class="badge badge-light">Ligera</span></div>
+        <div class="item-desc">Quinoa, aguacate, betabel, pepino y aderezo de jengibre</div>
+      </div>
+      <button class="card-add" aria-label="Agregar">+</button>
+    </div>
+    <div class="item-card" data-add data-name="Ensalada Suprema" data-price="179">
+      <div class="item-card-body">
+        <div class="item-card-top"><span class="item-name">Ensalada Suprema</span><span class="item-price">$179</span></div>
+        <div class="item-badges"><span class="badge badge-light">Ligera</span></div>
+        <div class="item-desc">Hojas verdes, betabel, pepino, hummus, brocolí, semillas y aderezo de limón</div>
+      </div>
+      <button class="card-add" aria-label="Agregar">+</button>
+    </div>
   </div>
 </section>
 
@@ -468,7 +527,7 @@ con medallón de quinoa.</div>
       <div class="item-card-body">
         <div class="item-card-top"><span class="item-name">Lassi</span><span class="item-price">$109</span></div>
         <div class="item-badges"><span class="badge badge-india">Clásico</span></div>
-        <div class="item-desc">Bebida india tradicional de yogur vegano con fruta de temporada</div>
+        <div class="item-desc">Bebida tradicional india de yogurt con fruta de temporada</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
@@ -498,7 +557,7 @@ con medallón de quinoa.</div>
       <div class="item-card-body">
         <div class="item-card-top"><span class="item-name">Kombucha</span><span class="item-price">$89</span></div>
         <div class="item-badges"><span class="badge badge-fav">Favorito</span></div>
-        <div class="item-desc">Artesanal fermentado · pregunta por el sabor del día</div>
+        <div class="item-desc">Fermentada artesanal · pregunta el sabor del día</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
@@ -509,40 +568,40 @@ con medallón de quinoa.</div>
 <section class="section" id="postres">
   <div class="section-hdr"><span class="section-emoji">🍮</span><h2 class="section-title">Postres &amp; Dulces</h2></div>
   <div class="section-items">
-    <div class="item-card" data-add data-name="Brownie" data-price="45">
+    <div class="item-card" data-add data-name="Brownie" data-price="65">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Brownie</span><span class="item-price">$45</span></div>
+        <div class="item-card-top"><span class="item-name">Brownie</span><span class="item-price">$65</span></div>
         <div class="item-badges"><span class="badge badge-vegan">Vegano</span></div>
-        <div class="item-desc">Brownie denso de chocolate oscuro, sin huevo ni lácteos</div>
+        <div class="item-desc">Brownie denso de chocolate negro, sin huevo ni lácteos</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
-    <div class="item-card" data-add data-name="Dulce de Tapioca" data-price="79">
+    <div class="item-card" data-add data-name="Dulce de Tapioca" data-price="99">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Dulce de Tapioca</span><span class="item-price">$79</span></div>
+        <div class="item-card-top"><span class="item-name">Dulce de Tapioca</span><span class="item-price">$99</span></div>
         <div class="item-desc">Tapioca en leche de coco con especias suaves y vainilla</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
-    <div class="item-card" data-add data-name="Halwa" data-price="89">
+    <div class="item-card" data-add data-name="Halwa" data-price="109">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Halwa</span><span class="item-price">$89</span></div>
-        <div class="item-badges"><span class="badge badge-india">Postre indio</span></div>
-        <div class="item-desc">Sémola con frutas secas, especias y semillas tostadas</div>
+        <div class="item-card-top"><span class="item-name">Halwa</span><span class="item-price">$109</span></div>
+        <div class="item-badges"><span class="badge badge-india">Dulce indio</span></div>
+        <div class="item-desc">Sémola de trigo con frutos secos, especias y semillas tostadas</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
-    <div class="item-card" data-add data-name="Gulab Jamun" data-price="79">
+    <div class="item-card" data-add data-name="Gulab Jamun" data-price="99">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Gulab Jamun</span><span class="item-price">$79</span></div>
-        <div class="item-badges"><span class="badge badge-india">Postre indio</span></div>
-        <div class="item-desc">Bolitas suaves en jarabe de rosa y cardamomo · postre tradicional</div>
+        <div class="item-card-top"><span class="item-name">Gulab Jamun</span><span class="item-price">$99</span></div>
+        <div class="item-badges"><span class="badge badge-india">Dulce indio</span></div>
+        <div class="item-desc">Bolitas suaves en almíbar de rosas y cardamomo · postre tradicional</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>
-    <div class="item-card" data-add data-name="Pastel de Chocolate" data-price="59">
+    <div class="item-card" data-add data-name="Pastel de Chocolate" data-price="79">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Pastel de Chocolate</span><span class="item-price">$59</span></div>
+        <div class="item-card-top"><span class="item-name">Pastel de Chocolate</span><span class="item-price">$79</span></div>
         <div class="item-badges"><span class="badge badge-vegan">Vegano</span></div>
         <div class="item-desc">Rebanada húmeda con nueces y frutos secos · 100% vegano</div>
       </div>
@@ -556,27 +615,19 @@ con medallón de quinoa.</div>
   <div class="section-hdr"><span class="section-emoji">☕</span><h2 class="section-title">Café &amp; Infusiones</h2></div>
   <div class="small-list">
     <div class="small-item" data-add data-name="Espresso" data-price="49"><span class="small-item-name">Espresso</span><div class="small-item-right"><span class="small-item-price">$49</span><span class="small-plus">+</span></div></div>
-    <div class="small-item" data-add data-name="Café Americano" data-price="59"><span class="small-item-name">Café Americano</span><div class="small-item-right"><span class="small-item-price">$59</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Café Americano" data-price="59"><span class="small-item-name">Café Americano · 8 oz</span><div class="small-item-right"><span class="small-item-price">$59</span><span class="small-plus">+</span></div></div>
     <div class="small-item" data-add data-name="Macchiato" data-price="69"><span class="small-item-name">Macchiato</span><div class="small-item-right"><span class="small-item-price">$69</span><span class="small-plus">+</span></div></div>
-    <div class="small-item" data-add data-name="Cappuccino" data-price="79"><span class="small-item-name">Cappuccino</span><div class="small-item-right"><span class="small-item-price">$79</span><span class="small-plus">+</span></div></div>
-    <div class="small-item" data-add data-name="Café Latte" data-price="79"><span class="small-item-name">Café Latte</span><div class="small-item-right"><span class="small-item-price">$79</span><span class="small-plus">+</span></div></div>
-    <div class="small-item" data-add data-name="Té Chai" data-price="69"><span class="small-item-name">Té Chai</span><div class="small-item-right"><span class="small-item-price">$69</span><span class="small-plus">+</span></div></div>
-    <div class="small-item" data-add data-name="Yogi Té" data-price="59"><span class="small-item-name">Yogi Té</span><div class="small-item-right"><span class="small-item-price">$59</span><span class="small-plus">+</span></div></div>
-    <div class="small-item" data-add data-name="Hierba Mate" data-price="69"><span class="small-item-name">Hierba Mate</span><div class="small-item-right"><span class="small-item-price">$69</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Cappuccino" data-price="79"><span class="small-item-name">Cappuccino · 8 oz</span><div class="small-item-right"><span class="small-item-price">$79</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Café Latte" data-price="79"><span class="small-item-name">Café Latte · 8 oz</span><div class="small-item-right"><span class="small-item-price">$79</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Té Chai" data-price="69"><span class="small-item-name">Té Chai · 8 oz</span><div class="small-item-right"><span class="small-item-price">$69</span><span class="small-plus">+</span></div></div>
+    <div class="small-item" data-add data-name="Yogi Té" data-price="59"><span class="small-item-name">Yogi Té · 8 oz</span><div class="small-item-right"><span class="small-item-price">$59</span><span class="small-plus">+</span></div></div>
   </div>
   <div class="section-items">
     <div class="item-card" data-add data-name="Chai Latte" data-price="89">
       <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Chai Latte</span><span class="item-price">$89</span></div>
+        <div class="item-card-top"><span class="item-name">Chai Latte · 8 oz</span><span class="item-price">$89</span></div>
         <div class="item-badges"><span class="badge badge-fav">Favorito</span></div>
-        <div class="item-desc">Chai especiado con leche vegetal espumada · cálido y aromático</div>
-      </div>
-      <button class="card-add" aria-label="Agregar">+</button>
-    </div>
-    <div class="item-card" data-add data-name="Avena Caliente" data-price="99">
-      <div class="item-card-body">
-        <div class="item-card-top"><span class="item-name">Avena Caliente</span><span class="item-price">$99</span></div>
-        <div class="item-desc">Con canela, piloncillo y fruta del día</div>
+        <div class="item-desc">Chai especiado con leche vegetal · cálido y aromático</div>
       </div>
       <button class="card-add" aria-label="Agregar">+</button>
     </div>

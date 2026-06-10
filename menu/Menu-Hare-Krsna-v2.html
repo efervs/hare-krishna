@@ -190,7 +190,8 @@ body {
 .sec:first-child { margin-top: 0; }
 
 /* ── MENU ITEM ── */
-.item { margin-bottom: 16px; }
+/* Interlineado UNIFORME en las 4 columnas (ambas hojas comparten el mismo valor). */
+.item { margin-bottom: 12px; }
 
 .item-row {
   display: flex;
@@ -272,30 +273,91 @@ body {
 .b-clasico{ background: var(--badge-clasico); }
 .b-dulce  { background: var(--badge-dulce); }
 
-/* ── PIZZA DUAL PRICE ── */
-.price-dual { display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; }
-.price-full {
-  font-family: 'Cinzel', serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.2;
-}
-.price-slice {
+/* ── PIZZA: banner de queso (vegano / vegetariano) ── */
+.pizza-cheese {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px 6px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 9.5px;
+  font-size: 10px;
+  color: var(--green-dark);
+  background: var(--cream-mid);
+  border: 0.5px solid var(--green-dark);
+  border-radius: 3px;
+  padding: 4px 8px;
+  margin-top: -3px;
+  margin-bottom: 9px;
+  line-height: 1.15;
+}
+.pizza-cheese .cheese-ico { width: 15px; height: 15px; object-fit: contain; flex-shrink: 0; }
+.pizza-cheese strong { font-weight: 600; letter-spacing: 0.02em; }
+.pizza-cheese .cheese-or { font-style: italic; color: var(--text-light); }
+.pizza-cheese .cheese-note { color: var(--text-light); font-style: italic; }
+
+/* ── PIZZA: encabezado de tamaños (Rebanada / Mediana 14" / Grande 18") ── */
+.pizza-head {
+  display: grid;
+  grid-template-columns: 1fr 50px 50px 50px;
+  column-gap: 4px;
+  align-items: end;
+  margin-bottom: 6px;
+}
+.pizza-head .ph-size {
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8.5px;
   font-weight: 300;
   color: var(--text-light);
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.pizza-head .ph-size b {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--green-dark);
+  letter-spacing: 0;
+}
+
+/* ── PIZZA: fila de producto con 3 tamaños ── */
+.pizza-item { margin-bottom: 13px; }
+.pizza-line {
+  display: grid;
+  grid-template-columns: 1fr 50px 50px 50px;
+  column-gap: 4px;
+  align-items: center;
+}
+.pizza-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.pz-price {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0;
   line-height: 1.2;
 }
-.pizza-sub {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 9px;
-  font-style: italic;
+.pz-price.pz-reb-cell {
+  font-size: 13px;
+  font-weight: 400;
   color: var(--text-light);
-  letter-spacing: 0.04em;
-  margin-bottom: 7px;
-  margin-top: -5px;
+}
+.pizza-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.35;
+  margin-top: 2px;
 }
 
 /* ── CAFÉ COMPACT ── */
@@ -304,8 +366,8 @@ body {
   justify-content: space-between;
   align-items: baseline;
   gap: 6px;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
   border-bottom: 0.5px solid var(--divider);
 }
 .cafe-row:last-of-type { border-bottom: none; }
@@ -317,6 +379,14 @@ body {
   display: flex;
   align-items: baseline;
   gap: 5px;
+}
+.cafe-size {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9.5px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-light);
+  letter-spacing: 0.03em;
 }
 .cafe-price {
   font-family: 'Cinzel', serif;
@@ -489,7 +559,7 @@ body {
 
   <!-- INSPIRACIÓN DEL CHEF -->
   <div class="inspiracion">
-    <div class="insp-label">Inspiración del Chef</div>
+    <div class="insp-label">Favoritos</div>
     <div class="insp-items">
       <div class="insp-item"><div class="insp-name">Thali</div><div class="insp-price">$250</div></div>
       <div class="insp-item"><div class="insp-name">Maha Burger</div><div class="insp-price">$239</div></div>
@@ -514,7 +584,7 @@ body {
   <!-- CONTENT -->
   <div class="content">
 
-    <!-- ── LEFT COL ── -->
+    <!-- ── LEFT COL: PLATO ESPECIAL + HAMBURGUESAS ── -->
     <div class="column">
 
       <div class="sec">Plato Especial</div>
@@ -522,12 +592,23 @@ body {
       <div class="item">
         <div class="item-row">
           <div class="item-lhs">
-            <span class="item-name">Thali</span>
+            <img src="uploads/Vegan.png" class="icon" alt="Vegan">
+            <span class="item-name">Inspiración del Chef</span>
+          </div>
+          <span class="item-price">$195</span>
+        </div>
+        <div class="item-desc">Menú sorpresa, variable cada día: ensalada, arroz, sabji de vegetales, sabji de granos y pakoras · 100% vegano.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-row">
+          <div class="item-lhs">
+            <span class="item-name">Thali Krishna Prasad</span>
             <span class="badge b-firma">Firma de la casa</span>
           </div>
           <span class="item-price">$250</span>
         </div>
-        <div class="item-desc" style="height: 30.3864px">Plato completo: arroz, dal, sabji, ensalada, rotis y un vaso de néctar.</div>
+        <div class="item-desc">Plato completo: arroz, dal, sabji, ensalada, rotis y un vaso de néctar.</div>
       </div>
 
       <div class="item">
@@ -538,7 +619,7 @@ body {
           </div>
           <span class="item-price">$55</span>
         </div>
-        <div class="item-desc" style="height: 30.3864px">Empanadas crujientes de papa y especias con aderezo o salsa.</div>
+        <div class="item-desc">Empanadas crujientes de papa y especias con aderezo o salsa.</div>
       </div>
 
       <div class="item">
@@ -548,7 +629,7 @@ body {
           </div>
           <span class="item-price">$25</span>
         </div>
-        <div class="item-desc" style="height: 12.2px">Pan plano de trigo integral, horneado al momento.</div>
+        <div class="item-desc">Pan plano de trigo integral, horneado al momento.</div>
       </div>
 
       <div class="sec">Hamburguesas & Tortas</div>
@@ -575,7 +656,7 @@ body {
           </div>
           <span class="item-price">$179</span>
         </div>
-        <div class="item-desc">Cebolla caramelizada, lechuga, jitomate y mostaza con medallón de lenteja.</div>
+        <div class="item-desc">Lechuga, jitomate y mostaza con medallón de lenteja.</div>
       </div>
 
       <div class="item">
@@ -611,8 +692,15 @@ body {
           </div>
           <span class="item-price">$169</span>
         </div>
-        <div class="item-desc" style="height: 12.2px">Frijoles, queso vegano fundido y pico de gallo fresco.</div>
+        <div class="item-desc">Frijoles, queso vegano fundido y pico de gallo fresco.</div>
       </div>
+
+    </div><!-- /left -->
+
+    <div class="col-line"></div>
+
+    <!-- ── RIGHT COL: ENTRADAS + MEXICANO ── -->
+    <div class="column">
 
       <div class="sec">Entradas</div>
 
@@ -623,27 +711,20 @@ body {
           </div>
           <span class="item-price">$109</span>
         </div>
-        <div class="item-desc" style="height: 30.4px">Casero con limón y aceite de oliva. Zanahoria caramelizada y pan plano.</div>
+        <div class="item-desc">Casero con limón y aceite de oliva. Zanahoria caramelizada y Roti.</div>
       </div>
 
       <div class="item">
         <div class="item-row">
           <div class="item-lhs">
-            <span class="item-name">Boneless</span>
+            <span class="item-name">Boneless/Pakoras</span>
           </div>
           <span class="item-price">$195</span>
         </div>
         <div class="item-desc">Seitán crujiente en salsa búfalo, aderezo cremoso y bastones de zanahoria.</div>
       </div>
 
-    </div><!-- /left -->
-
-    <div class="col-line"></div>
-
-    <!-- ── RIGHT COL ── -->
-    <div class="column">
-
-      <div class="sec">Tacos & Burritos</div>
+      <div class="sec">Mexicano</div>
 
       <div class="item">
         <div class="item-row">
@@ -653,7 +734,7 @@ body {
           </div>
           <span class="item-price">$195</span>
         </div>
-        <div class="item-desc" style="height: 32.3889px">Proteína vegetal con achiote, piña asada, cebolla y cilantro · 5 tacos.</div>
+        <div class="item-desc">Proteína vegetal con achiote, piña asada y cilantro · 5 tacos.</div>
       </div>
 
       <div class="item">
@@ -665,7 +746,7 @@ body {
           </div>
           <span class="item-price">$149</span>
         </div>
-        <div class="item-desc" style="height: 16.1944px">Rojos o verdes con crema, queso, cebolla y frijoles.</div>
+        <div class="item-desc">Rojos o verdes con crema, queso, frijoles y aguacate.</div>
       </div>
 
       <div class="item">
@@ -675,7 +756,7 @@ body {
           </div>
           <span class="item-price">$195</span>
         </div>
-        <div class="item-desc" style="height: 32.3889px">Chicharrón de seitán en tortilla de maíz con vegetales mixtos · 5 tacos.</div>
+        <div class="item-desc">Chicharrón de seitán en tortilla de maíz con vegetales mixtos · 5 tacos.</div>
       </div>
 
       <div class="item">
@@ -685,7 +766,7 @@ body {
           </div>
           <span class="item-price">$195</span>
         </div>
-        <div class="item-desc" style="height: 32.3889px">Verduras de temporada y seitán en tortilla de maíz con salsa picante · 5 tacos.</div>
+        <div class="item-desc">Verduras de temporada y seitán en tortilla de maíz con salsa picante · 5 tacos.</div>
       </div>
 
       <div class="item">
@@ -697,44 +778,7 @@ body {
           </div>
           <span class="item-price">$179</span>
         </div>
-        <div class="item-desc" style="height: 1.1944px">Arroz, frijoles, aguacate y seitán sazonado.</div>
-      </div>
-
-      <div class="sec">Ensaladas</div>
-
-      <div class="item">
-        <div class="item-row">
-          <div class="item-lhs">
-            <span class="item-name">Ensalada de Quinoa</span>
-            <span class="badge b-ligero">Ligero</span>
-          </div>
-          <span class="item-price">$195</span>
-        </div>
-        <div class="item-desc" style="height: 16.1944px">Quinoa, aguacate, betabel, pepino y aderezo de jengibre.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-row">
-          <div class="item-lhs">
-            <span class="item-name">Ensalada Suprema</span>
-            <span class="badge b-ligero">Ligero</span>
-          </div>
-          <span class="item-price">$179</span>
-        </div>
-        <div class="item-desc" style="height: 26.3889px">Hojas verdes, betabel, pepino, hummus, brocolí, semillas y aderezo de limón.</div>
-      </div>
-
-      <div class="sec">Bebidas</div>
-
-      <div class="item">
-        <div class="item-row">
-          <div class="item-lhs">
-            <span class="item-name">Lassi</span>
-            <span class="badge b-clasico">Clásico</span>
-          </div>
-          <span class="item-price">$109</span>
-        </div>
-        <div class="item-desc" style="height: 32.3889px">Bebida tradicional india de yogurt con fruta de temporada.</div>
+        <div class="item-desc">Arroz, frijoles, aguacate y seitán sazonado.</div>
       </div>
 
       <div class="item">
@@ -742,32 +786,11 @@ body {
           <div class="item-lhs">
             <img src="uploads/Vegan.png" class="icon" alt="Vegan">
             <img src="uploads/pasted-1777078693995-0.png" class="icon" alt="Vegetarian">
-            <span class="item-name">Smoothie</span>
+            <span class="item-name">Enchiladas Suizas</span>
           </div>
-          <span class="item-price">$129</span>
+          <span class="item-price">$179</span>
         </div>
-        <div class="item-desc" style="height: 32.3889px">Elige: Cacao (plátano y leche vegetal) o Mango (fresco y tropical).</div>
-      </div>
-
-      <div class="item">
-        <div class="item-row">
-          <div class="item-lhs">
-            <img src="uploads/Vegan.png" class="icon" alt="Vegan">
-            <span class="item-name">Jugo de Mango</span>
-          </div>
-          <span class="item-price">$59</span>
-        </div>
-        <div class="item-desc" style="height: 16.1944px">Fresco y natural, sin azúcar añadida.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-row">
-          <div class="item-lhs">
-            <span class="item-name">Kombucha</span>
-          </div>
-          <span class="item-price">$89</span>
-        </div>
-        <div class="item-desc" style="height: 16.1944px">Fermentada artesanal · pregunta el sabor del día.</div>
+        <div class="item-desc">Tortillas de maíz rellenas de champiñón y espinaca, bañadas en salsa verde suiza cremosa y gratinadas · 4 piezas.</div>
       </div>
 
     </div><!-- /right -->
@@ -799,71 +822,82 @@ body {
 
   <div class="content" style="flex:1">
 
-    <!-- ── LEFT COL: PIZZAS + QR ── -->
+    <!-- ── LEFT COL: PIZZAS + ENSALADAS + QR ── -->
     <div class="column">
 
       <div class="sec" style="margin-top:0">Pizzas &amp; Lasagna</div>
-      <div class="pizza-sub">· masa artesanal vegetariana · por pieza desde $55</div>
+      <div class="pizza-cheese">
+        <strong>Elige tu queso:</strong>
+        <img src="uploads/Vegan.png" class="cheese-ico" alt="Vegano">
+        <span>Vegano</span>
+        <span class="cheese-or">o</span>
+        <img src="uploads/pasted-1777078693995-0.png" class="cheese-ico" alt="Vegetariano">
+        <span>Vegetariano</span>
+        <span class="cheese-note">— mismo precio, tú eliges en cada pizza</span>
+      </div>
 
-      <div class="item">
-        <div class="item-row">
-          <div class="item-lhs">
+      <div class="pizza-head">
+        <span></span>
+        <span class="ph-size">Rebanada</span>
+        <span class="ph-size"><b>14"</b>Mediana</span>
+        <span class="ph-size"><b>18"</b>Grande</span>
+      </div>
+
+      <div class="pizza-item">
+        <div class="pizza-line">
+          <div class="pizza-name-cell">
             <img src="uploads/Vegan.png" class="icon" alt="Vegan">
             <img src="uploads/pasted-1777078693995-0.png" class="icon" alt="Vegetarian">
             <span class="item-name">Gauranga</span>
           </div>
-          <div class="price-dual">
-            <span class="price-full" style="height: 19.1944px">$319</span>
-            <span class="price-slice" style="height: 11.3889px">por pieza $79</span>
-          </div>
+          <span class="pz-price pz-reb-cell">$79</span>
+          <span class="pz-price">$319</span>
+          <span class="pz-price">$459</span>
         </div>
-        <div class="item-desc">Variedad de 3 mix de quesos fundidos. Vegetariano o vegano.</div>
+        <div class="pizza-desc">Variedad de 3 mix de quesos fundidos.</div>
       </div>
 
-      <div class="item">
-        <div class="item-row">
-          <div class="item-lhs">
+      <div class="pizza-item">
+        <div class="pizza-line">
+          <div class="pizza-name-cell">
             <img src="uploads/Vegan.png" class="icon" alt="Vegan">
             <img src="uploads/pasted-1777078693995-0.png" class="icon" alt="Vegetarian">
             <span class="item-name">Balaram</span>
           </div>
-          <div class="price-dual">
-            <span class="price-full">$309</span>
-            <span class="price-slice">por pieza $59</span>
-          </div>
+          <span class="pz-price pz-reb-cell">$65</span>
+          <span class="pz-price">$309</span>
+          <span class="pz-price">$449</span>
         </div>
-        <div class="item-desc">Pimientos, aceitunas negras y chorizo vegetal sobre salsa de tomate.</div>
+        <div class="pizza-desc">Pimientos, aceitunas negras y chorizo vegetal sobre salsa de tomate.</div>
       </div>
 
-      <div class="item">
-        <div class="item-row">
-          <div class="item-lhs">
+      <div class="pizza-item">
+        <div class="pizza-line">
+          <div class="pizza-name-cell">
             <img src="uploads/Vegan.png" class="icon" alt="Vegan">
             <img src="uploads/pasted-1777078693995-0.png" class="icon" alt="Vegetarian">
             <span class="item-name">Govinda</span>
           </div>
-          <div class="price-dual">
-            <span class="price-full">$279</span>
-            <span class="price-slice">por pieza $59</span>
-          </div>
+          <span class="pz-price pz-reb-cell">$59</span>
+          <span class="pz-price">$279</span>
+          <span class="pz-price">$409</span>
         </div>
-        <div class="item-desc">Acelga con tomate, mozzarella y aceite de oliva al ajo.</div>
+        <div class="pizza-desc">Acelga con tomate, mozzarella y aceite de oliva.</div>
       </div>
 
-      <div class="item">
-        <div class="item-row">
-          <div class="item-lhs">
+      <div class="pizza-item">
+        <div class="pizza-line">
+          <div class="pizza-name-cell">
             <img src="uploads/Vegan.png" class="icon" alt="Vegan">
             <img src="uploads/pasted-1777078693995-0.png" class="icon" alt="Vegetarian">
             <span class="item-name">Hari</span>
             <span class="badge b-ligero">Ligero</span>
           </div>
-          <div class="price-dual">
-            <span class="price-full">$289</span>
-            <span class="price-slice">por pieza $55</span>
-          </div>
+          <span class="pz-price pz-reb-cell">$55</span>
+          <span class="pz-price">$289</span>
+          <span class="pz-price">$419</span>
         </div>
-        <div class="item-desc">Albahaca y tomate con aceite de oliva y mozzarella fundida.</div>
+        <div class="pizza-desc">Albahaca y tomate con aceite de oliva y mozzarella fundida.</div>
       </div>
 
       <div class="item">
@@ -876,6 +910,30 @@ body {
           <span class="item-price">$229</span>
         </div>
         <div class="item-desc">Salsa de tomate, suave salsa bechamel, queso vegano y relleno de calabaza con berenjena.</div>
+      </div>
+
+      <div class="sec">Ensaladas</div>
+
+      <div class="item">
+        <div class="item-row">
+          <div class="item-lhs">
+            <span class="item-name">Ensalada de Quinoa</span>
+            <span class="badge b-ligero">Ligero</span>
+          </div>
+          <span class="item-price">$195</span>
+        </div>
+        <div class="item-desc">Quinoa, aguacate, betabel, pepino y aderezo de jengibre.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-row">
+          <div class="item-lhs">
+            <span class="item-name">Ensalada Suprema</span>
+            <span class="badge b-ligero">Ligero</span>
+          </div>
+          <span class="item-price">$179</span>
+        </div>
+        <div class="item-desc">Hojas verdes, betabel, pepino, hummus, brocolí, semillas y aderezo de limón.</div>
       </div>
 
       <!-- QR CODE -->
@@ -891,7 +949,7 @@ body {
 
     <div class="col-line"></div>
 
-    <!-- ── RIGHT COL: POSTRES + CAFÉS ── -->
+    <!-- ── RIGHT COL: POSTRES + BEBIDAS + CAFÉS ── -->
     <div class="column">
 
       <div class="sec" style="margin-top:0">Postres</div>
@@ -902,7 +960,7 @@ body {
             <img src="uploads/Vegan.png" class="icon" alt="Vegan">
             <span class="item-name">Brownie</span>
           </div>
-          <span class="item-price">$45</span>
+          <span class="item-price">$65</span>
         </div>
         <div class="item-desc">Brownie denso de chocolate negro, sin huevo ni lácteos.</div>
       </div>
@@ -912,7 +970,7 @@ body {
           <div class="item-lhs">
             <span class="item-name">Dulce de Tapioca</span>
           </div>
-          <span class="item-price">$79</span>
+          <span class="item-price">$99</span>
         </div>
         <div class="item-desc">Tapioca en leche de coco con especias suaves y vainilla.</div>
       </div>
@@ -923,7 +981,7 @@ body {
             <span class="item-name">Halwa</span>
             <span class="badge b-dulce">Dulce Indio</span>
           </div>
-          <span class="item-price">$89</span>
+          <span class="item-price">$109</span>
         </div>
         <div class="item-desc">Sémola de trigo con frutos secos, especias y semillas tostadas.</div>
       </div>
@@ -934,7 +992,7 @@ body {
             <span class="item-name">Gulab Jamun</span>
             <span class="badge b-dulce">Dulce Indio</span>
           </div>
-          <span class="item-price">$79</span>
+          <span class="item-price">$99</span>
         </div>
         <div class="item-desc">Bolitas suaves en almíbar de rosas y cardamomo · postre tradicional.</div>
       </div>
@@ -945,9 +1003,55 @@ body {
             <img src="uploads/Vegan.png" class="icon" alt="Vegan">
             <span class="item-name">Pastel de Chocolate</span>
           </div>
-          <span class="item-price">$59</span>
+          <span class="item-price">$79</span>
         </div>
         <div class="item-desc">Rebanada húmeda con nueces y frutos secos · 100% vegano.</div>
+      </div>
+
+      <div class="sec">Bebidas</div>
+
+      <div class="item">
+        <div class="item-row">
+          <div class="item-lhs">
+            <span class="item-name">Lassi</span>
+            <span class="badge b-clasico">Clásico</span>
+          </div>
+          <span class="item-price">$109</span>
+        </div>
+        <div class="item-desc">Bebida tradicional india de yogurt con fruta de temporada.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-row">
+          <div class="item-lhs">
+            <img src="uploads/Vegan.png" class="icon" alt="Vegan">
+            <img src="uploads/pasted-1777078693995-0.png" class="icon" alt="Vegetarian">
+            <span class="item-name">Smoothie</span>
+          </div>
+          <span class="item-price">$129</span>
+        </div>
+        <div class="item-desc">Elige: Cacao (plátano y leche vegetal) o Mango (fresco y tropical).</div>
+      </div>
+
+      <div class="item">
+        <div class="item-row">
+          <div class="item-lhs">
+            <img src="uploads/Vegan.png" class="icon" alt="Vegan">
+            <span class="item-name">Jugo de Mango</span>
+          </div>
+          <span class="item-price">$59</span>
+        </div>
+        <div class="item-desc">Fresco y natural, sin azúcar añadida.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-row">
+          <div class="item-lhs">
+            <span class="item-name">Kombucha</span>
+          </div>
+          <span class="item-price">$89</span>
+        </div>
+        <div class="item-desc">Fermentada artesanal · pregunta el sabor del día.</div>
       </div>
 
       <div class="sec">Cafés & Infusiones</div>
@@ -957,7 +1061,7 @@ body {
         <div class="cafe-price">$49</div>
       </div>
       <div class="cafe-row">
-        <div class="cafe-name">Café Americano</div>
+        <div class="cafe-name">Café Americano <span class="cafe-size">· 8 oz</span></div>
         <div class="cafe-price">$59</div>
       </div>
       <div class="cafe-row">
@@ -965,35 +1069,29 @@ body {
         <div class="cafe-price">$69</div>
       </div>
       <div class="cafe-row">
-        <div class="cafe-name">Cappuccino</div>
+        <div class="cafe-name">Cappuccino <span class="cafe-size">· 8 oz</span></div>
         <div class="cafe-price">$79</div>
       </div>
       <div class="cafe-row">
-        <div class="cafe-name">Café Latte</div>
+        <div class="cafe-name">Café Latte <span class="cafe-size">· 8 oz</span></div>
         <div class="cafe-price">$79</div>
       </div>
       <div class="cafe-row">
-        <div class="cafe-name">Té Chai</div>
+        <div class="cafe-name">Té Chai <span class="cafe-size">· 8 oz</span></div>
         <div class="cafe-price">$69</div>
       </div>
-      <div class="cafe-row" style="height: 28.0833px">
-        <div class="cafe-name" style="height: 2.2222px">Yogi Té</div>
+      <div class="cafe-row">
+        <div class="cafe-name">Yogi Té <span class="cafe-size">· 8 oz</span></div>
         <div class="cafe-price">$59</div>
       </div>
 
-      <div class="cafe-row" style="border-bottom: none; margin-top: 2px; height: 27.2222px">
-        <div class="cafe-name" style="height: 22.2222px">
-          Chai Latte <span class="badge b-fav">Favorito</span>
+      <div class="cafe-row" style="border-bottom: none; margin-top: 2px">
+        <div class="cafe-name">
+          Chai Latte <span class="cafe-size">· 8 oz</span> <span class="badge b-fav">Favorito</span>
         </div>
         <div class="cafe-price">$89</div>
       </div>
       <div class="cafe-desc">Chai especiado con leche vegetal · cálido y aromático.</div>
-
-      <div class="cafe-row" style="border-bottom:none">
-        <div class="cafe-name">Avena Caliente</div>
-        <div class="cafe-price">$99</div>
-      </div>
-      <div class="cafe-desc">Con canela, piloncillo y fruta del día.</div>
 
     </div><!-- /right -->
 
