@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu postre va por nuestra cuenta · Hare Krishna Barrio Antiguo</title>
+<meta name="description" content="Vuelve al Barrio Antiguo entre 3 y 7 pm dentro de 14 días y te invitamos el postre. Guarda tu brownie en WhatsApp. Sin consumo mínimo, sin letra chiquita.">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="Tu postre va por nuestra cuenta · Hare Krishna">
+<meta property="og:description" content="Vuelve de 3 a 7 pm dentro de 14 días y el brownie va por nuestra cuenta. Guárdalo en tu WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/assets/img/Brownie.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/img/Nuevo-Logo-Hare-Krshna-recomendado.png" type="image/png">
+<style>
+:root{
+  --olive:#3d4a2e; --olive-mid:#4a5838; --olive-light:#6b7a52; --sage:#8a9a70;
+  --cream:#f5f0e8; --beige:#ede7d8; --sand:#d4c5a4; --terracotta:#b05e42;
+  --brown:#7a5c3c; --charcoal:#262420; --white-bone:#faf7f2;
+  --text-main:#262420; --text-muted:#6b6557; --border:#ddd5c0;
+  --shadow:0 4px 24px rgba(38,36,32,.10); --shadow-lg:0 12px 48px rgba(38,36,32,.16);
+  --radius:12px; --radius-lg:20px;
+  --font-display:'Cormorant Garamond',Georgia,serif; --font-body:'Jost',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--white-bone);color:var(--text-main);line-height:1.65;font-size:16px}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.15}
+.container{max-width:760px;margin:0 auto;padding:0 22px}
+
+/* header */
+.site-header{background:var(--white-bone);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
+.site-header .inner{max-width:1100px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:42px;width:auto}
+.brand .name{font-family:var(--font-display);font-size:1.3rem;color:var(--olive)}
+.brand .name em{font-style:italic;color:var(--terracotta)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 28px;border-radius:100px;font-weight:500;font-size:.92rem;letter-spacing:.03em;cursor:pointer;border:none;transition:all .22s ease;text-decoration:none}
+.btn-sm{padding:10px 18px;font-size:.82rem}
+.btn-wa{background:#25D366;color:#fff;box-shadow:0 6px 20px rgba(37,211,102,.35)}
+.btn-wa:hover{background:#1db954;transform:translateY(-1px)}
+.btn-wa svg{width:18px;height:18px;fill:currentColor}
+
+/* hero */
+.hero{background:linear-gradient(160deg,var(--olive) 0%,var(--olive-mid) 60%,#33402a 100%);color:#fff;text-align:center;padding:54px 0 0;overflow:hidden}
+.eyebrow{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--sand);margin-bottom:14px}
+.hero h1{font-size:clamp(2.3rem,7vw,3.5rem);color:#fff;margin-bottom:14px}
+.hero h1 em{font-style:italic;color:#e9c97c}
+.hero p.lead{max-width:48ch;margin:0 auto 26px;color:rgba(255,255,255,.85);font-size:1.06rem}
+.hero-img-wrap{margin-top:30px;position:relative}
+.hero-img-wrap img{width:100%;max-width:760px;margin:0 auto;height:clamp(220px,42vw,340px);object-fit:cover;object-position:center 60%}
+.hero-badge{position:absolute;top:-14px;right:max(22px,calc(50% - 360px));background:var(--terracotta);color:#fff;font-family:var(--font-display);font-size:1.5rem;width:84px;height:84px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);transform:rotate(-8deg);line-height:1}
+.hero-badge small{font-family:var(--font-body);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;opacity:.9}
+
+/* cta block */
+.cta-zone{background:var(--cream);text-align:center;padding:40px 0 46px}
+.cta-zone .note{font-size:.86rem;color:var(--text-muted);margin-top:14px}
+.pulse{animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+
+/* steps */
+.section{padding:56px 0}
+.section h2{font-size:clamp(1.8rem,4vw,2.4rem);text-align:center;color:var(--olive);margin-bottom:8px}
+.section .sub{text-align:center;color:var(--text-muted);margin:0 auto 36px;max-width:46ch}
+.steps{display:grid;gap:18px}
+.step{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;box-shadow:var(--shadow)}
+.step .num{flex:0 0 auto;width:42px;height:42px;border-radius:50%;background:var(--olive);color:#fff;font-family:var(--font-display);font-size:1.4rem;display:flex;align-items:center;justify-content:center}
+.step h3{font-size:1.2rem;color:var(--charcoal);margin-bottom:3px}
+.step p{font-size:.95rem;color:var(--text-muted)}
+
+/* terms */
+.terms{background:var(--beige);border-radius:var(--radius-lg);padding:26px 26px}
+.terms h3{font-family:var(--font-body);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px}
+.terms ul{list-style:none;display:grid;gap:10px}
+.terms li{display:flex;gap:10px;font-size:.95rem;color:var(--text-main)}
+.terms li::before{content:"✓";color:var(--olive);font-weight:600}
+
+/* footer */
+.site-footer{background:var(--charcoal);color:rgba(255,255,255,.72);text-align:center;padding:40px 0 34px;margin-top:10px}
+.site-footer .name{font-family:var(--font-display);font-size:1.5rem;color:#fff;margin-bottom:8px}
+.site-footer a{color:#fff;border-bottom:1px solid rgba(255,255,255,.3)}
+.site-footer .row{font-size:.9rem;margin-top:6px}
+.site-footer .fine{font-size:.76rem;color:rgba(255,255,255,.4);margin-top:18px}
+
+/* wa float */
+.wa-float{position:fixed;bottom:20px;right:20px;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.45);z-index:30}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+@media(max-width:540px){.hero-badge{width:70px;height:70px;font-size:1.2rem;right:18px}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="https://hare-krishna.mx">
+      <img src="/assets/img/Nuevo-Logo-Hare-Krshna-recomendado.png" alt="Hare Krishna Monterrey">
+      <span class="name">Hare <em>Krishna</em></span>
+    </a>
+    <a class="btn btn-wa btn-sm" href="https://wa.me/5218114986316" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Gracias por volver · Barrio Antiguo</div>
+    <h1>Tu postre va <em>por nuestra cuenta</em></h1>
+    <p class="lead">Vuelve a darte la vuelta y te invitamos el brownie. Sin consumo mínimo, sin letra chiquita. Solo guárdalo en tu WhatsApp.</p>
+  </div>
+  <div class="hero-img-wrap">
+    <div class="hero-badge">$0<small>el postre</small></div>
+    <img src="/assets/img/Brownie.webp" alt="Brownie de chocolate vegano Hare Krishna">
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-zone">
+  <div class="container">
+    <a class="btn btn-wa pulse" href="https://wa.me/5218114986316?text=Hola%2C%20quiero%20guardar%20mi%20postre%20%F0%9F%8D%AB%20(TARDEDULCE)" target="_blank" rel="noopener" id="cta-guardar">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Guárdalo en mi WhatsApp
+    </a>
+    <p class="note">Te llega un mensaje listo. Se queda en tu chat y lo muestras al volver.</p>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section">
+  <div class="container">
+    <h2>Cómo funciona</h2>
+    <p class="sub">Tres pasos, cero apps, cero comisiones.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <div><h3>Guárdalo en tu WhatsApp</h3><p>Toca el botón de arriba (o escanea el QR de tu tarjeta). Se abre un mensaje y queda guardado en tu chat con nosotros.</p></div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div><h3>Vuelve de 3 a 7 pm</h3><p>Dentro de los próximos 14 días, en la hora tranquila del Barrio Antiguo, hecha para darte el rol sin prisa.</p></div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div><h3>Muéstranos el mensaje</h3><p>Enséñalo al pedir y el brownie va por nuestra cuenta. Así de fácil. Gracias por regresar 🙏</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="terms">
+      <h3>Lo que necesitas saber</h3>
+      <ul>
+        <li>Válido de <strong>3:00 a 7:00 pm</strong>, dentro de los <strong>14 días</strong> siguientes a tu visita.</li>
+        <li><strong>Sin consumo mínimo</strong> y sin letra chiquita.</li>
+        <li>Un postre por persona / tarjeta. No acumulable con otras promociones.</li>
+        <li>Válido solo en <strong>Hare Krishna Barrio Antiguo</strong> (José Mariano Abasolo 916).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="name">Hare Krishna</div>
+    <div class="row">José Mariano Abasolo 916 · Barrio Antiguo, Monterrey</div>
+    <div class="row"><a href="https://wa.me/5218114986316" target="_blank" rel="noopener">WhatsApp 81 1498 6316</a> · <a href="https://hare-krishna.mx">hare-krishna.mx</a></div>
+    <div class="fine">Cocina vegetariana sáttvica · Desde 2012</div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/5218114986316?text=Hola%2C%20quiero%20guardar%20mi%20postre%20%F0%9F%8D%AB%20(TARDEDULCE)" target="_blank" rel="noopener" title="Guarda tu postre por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     PIXEL DE META (retargeting) — pega tu ID y descomenta:
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','TU_PIXEL_ID'); fbq('track','PageView');
+document.getElementById('cta-guardar').addEventListener('click',function(){fbq('track','Lead');});
+</script>
+     ════════════════════════════════════════════════════════════ -->
+
+</body>
+</html>
