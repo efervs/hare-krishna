@@ -3238,6 +3238,8 @@ function navigate(to) {
     target.classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
   }
+  // Reflect section in URL (shareable links / printed QR deep-links); replaceState = no hashchange, no scroll jump
+  try { history.replaceState(null, '', to === 'home' ? location.pathname : '#' + to); } catch(e) {}
   // Update nav active state
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(l => {
@@ -4966,6 +4968,14 @@ document.addEventListener('DOMContentLoaded', function() {
       closeRoomModal();
     }
   });
+
+  // Deep-link support: open the section named in the URL hash (printed QR codes, shared links, back/forward)
+  function navigateFromHash() {
+    var h = (location.hash || '').replace('#','');
+    if (h && pages.indexOf(h) !== -1) navigate(h);
+  }
+  navigateFromHash();                                       // entry via QR / direct link
+  window.addEventListener('hashchange', navigateFromHash);  // back/forward & manual hash edits
 });
 
 /* ============================================
