@@ -2103,50 +2103,7 @@ footer {
               <th style="padding:11px 14px;"></th>
             </tr>
           </thead>
-          <tbody>
-            <tr style="border-bottom:1px solid var(--border);background:#fff;">
-              <td style="padding:10px 14px;font-weight:600;">Doble – 2 camas dobles</td>
-              <td style="padding:10px 14px;text-align:center;"><span class="amenity-tag">Privada</span></td>
-              <td style="padding:10px 14px;text-align:center;">1–2 personas</td>
-              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">Desde $1,690</td>
-              <td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(0)" style="white-space:nowrap;">Ver detalle</button></td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);background:var(--white-bone);">
-              <td style="padding:10px 14px;font-weight:600;">Doble Económica</td>
-              <td style="padding:10px 14px;text-align:center;"><span class="amenity-tag">Privada</span></td>
-              <td style="padding:10px 14px;text-align:center;">1–2 personas</td>
-              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">$1,790</td>
-              <td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(1)" style="white-space:nowrap;">Ver detalle</button></td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);background:#fff;">
-              <td style="padding:10px 14px;font-weight:600;">Individual Económica</td>
-              <td style="padding:10px 14px;text-align:center;"><span class="amenity-tag">Privada</span></td>
-              <td style="padding:10px 14px;text-align:center;">1 persona</td>
-              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">$1,250</td>
-              <td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(2)" style="white-space:nowrap;">Ver detalle</button></td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);background:var(--white-bone);">
-              <td style="padding:10px 14px;font-weight:600;">Doble Estándar</td>
-              <td style="padding:10px 14px;text-align:center;"><span class="amenity-tag">Privada</span></td>
-              <td style="padding:10px 14px;text-align:center;">1–2 personas</td>
-              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">Desde $1,250</td>
-              <td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(3)" style="white-space:nowrap;">Ver detalle</button></td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);background:#fff;">
-              <td style="padding:10px 14px;font-weight:600;">Compartida Mixta · 8 camas</td>
-              <td style="padding:10px 14px;text-align:center;"><span class="amenity-tag" style="background:var(--beige);">Compartida</span></td>
-              <td style="padding:10px 14px;text-align:center;">1 persona</td>
-              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">$450</td>
-              <td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(4)" style="white-space:nowrap;">Ver detalle</button></td>
-            </tr>
-            <tr style="background:var(--white-bone);">
-              <td style="padding:10px 14px;font-weight:600;">Sencilla Matrimonial baño exterior</td>
-              <td style="padding:10px 14px;text-align:center;"><span class="amenity-tag">Privada</span></td>
-              <td style="padding:10px 14px;text-align:center;">1 persona</td>
-              <td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">$990</td>
-              <td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(5)" style="white-space:nowrap;">Ver detalle</button></td>
-            </tr>
-          </tbody>
+          <tbody id="hostel-compare-tbody"><!-- Renderizado por renderCompareTable() desde hostelRooms (fuente única + cronograma de precios) --></tbody>
         </table>
       </div>
 
@@ -2154,129 +2111,7 @@ footer {
       <div class="compare-mobile" style="display:none;flex-direction:column;gap:10px;margin-bottom:28px;" id="compare-mobile-cards"></div>
 
       <!-- TARJETAS DE HABITACIONES -->
-      <div class="room-cards">
-
-        <!-- Hab 1 -->
-        <div class="room-card" id="room-card-0" onclick="openRoomModal(0)" style="cursor:pointer;">
-          <div class="room-card-img" style="background-image:url('assets/img/Habitacion-Doble-2 camas-dobles.webp');"></div>
-          <div class="room-card-body">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-              <div class="room-card-name" style="margin-bottom:0;">Habitación Doble – 2 camas dobles</div>
-            </div>
-            <p class="room-card-desc">Amplia y privada, con dos camas dobles. Ideal para una o dos personas que buscan más espacio y comodidad en Barrio Antiguo.</p>
-            <div class="room-amenities">
-              <span class="amenity-tag">2 camas dobles</span><span class="amenity-tag">Privada</span><span class="amenity-tag">Wi-Fi</span><span class="amenity-tag">1–2 personas</span>
-            </div>
-            <div class="room-footer">
-              <div>
-                <div class="room-price">Desde $1,690 <small>1 pax · Semana Santa</small></div>
-                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">2 personas: $1,790</div>
-              </div>
-              <button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(0)">Ver habitación</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hab 2 -->
-        <div class="room-card" id="room-card-1" onclick="openRoomModal(1)" style="cursor:pointer;">
-          <div class="room-card-img" style="background-image:url('assets/img/Habitacion-Doble-Economica.webp');"></div>
-          <div class="room-card-body">
-            <div class="room-card-name">Habitación Doble Económica</div>
-            <p class="room-card-desc">Práctica y cómoda para una o dos personas. Privada, funcional y bien ubicada en Barrio Antiguo.</p>
-            <div class="room-amenities">
-              <span class="amenity-tag">1 cama doble</span><span class="amenity-tag">Privada</span><span class="amenity-tag">Wi-Fi</span><span class="amenity-tag">1–2 personas</span>
-            </div>
-            <div class="room-footer">
-              <div>
-                <div class="room-price">$1,790 <small>1 o 2 pax · Semana Santa</small></div>
-                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">1 o 2 personas · mismo precio</div>
-              </div>
-              <button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(1)">Ver habitación</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hab 3 -->
-        <div class="room-card" id="room-card-2" onclick="openRoomModal(2)" style="cursor:pointer;">
-          <div class="room-card-img" style="background-image:url('assets/img/Habitacion-Individual-Economica.webp');"></div>
-          <div class="room-card-body">
-            <div class="room-card-name">Habitación Individual Económica</div>
-            <p class="room-card-desc">Habitación privada para una persona. Ideal para viajeros que buscan descanso, privacidad y una opción accesible.</p>
-            <div class="room-amenities">
-              <span class="amenity-tag">1 cama individual</span><span class="amenity-tag">Privada</span><span class="amenity-tag">Wi-Fi</span><span class="amenity-tag">1 persona</span>
-            </div>
-            <div class="room-footer">
-              <div>
-                <div class="room-price">$1,250 <small>1 pax · Semana Santa</small></div>
-                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">Solo 1 persona · $1,390 con 2 pax</div>
-              </div>
-              <button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(2)">Ver habitación</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hab 4 -->
-        <div class="room-card" id="room-card-3" onclick="openRoomModal(3)" style="cursor:pointer;">
-          <div class="room-card-img" style="background-image:url('assets/img/Habitacion-Doble-Estandar.webp');"></div>
-          <div class="room-card-body">
-            <div class="room-card-name">Habitación Doble Estándar</div>
-            <p class="room-card-desc">Habitación cómoda con dos camas dobles para una o dos personas. Espacio y funcionalidad bien ubicados.</p>
-            <div class="room-amenities">
-              <span class="amenity-tag">2 camas dobles</span><span class="amenity-tag">Privada</span><span class="amenity-tag">Wi-Fi</span><span class="amenity-tag">1–2 personas</span>
-            </div>
-            <div class="room-footer">
-              <div>
-                <div class="room-price">Desde $1,250 <small>1 pax · Semana Santa</small></div>
-                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">2 personas: $1,390</div>
-              </div>
-              <button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(3)">Ver habitación</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hab 5 -->
-        <div class="room-card" id="room-card-4" onclick="openRoomModal(4)" style="cursor:pointer;">
-          <div class="room-card-img" style="background-image:url('assets/img/area-uso-comun-hostel.webp');"></div>
-          <div class="room-card-body">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-              <div class="room-card-name" style="margin-bottom:0;">Compartida Mixta · 8 camas</div>
-              <span class="amenity-tag" style="font-size:0.68rem;background:var(--beige);">Dormitorio</span>
-            </div>
-            <p class="room-card-desc">Opción compartida para una persona. La alternativa más accesible, ideal para viajeros con presupuesto ajustado.</p>
-            <div class="room-amenities">
-              <span class="amenity-tag">Cama en dormitorio</span><span class="amenity-tag">Área compartida</span><span class="amenity-tag">Wi-Fi</span><span class="amenity-tag">1 persona</span>
-            </div>
-            <div class="room-footer">
-              <div>
-                <div class="room-price">$450 <small>1 pax · Semana Santa</small></div>
-                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">Solo 1 persona · Dormitorio mixto</div>
-              </div>
-              <button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(4)">Ver habitación</button>
-            </div>
-          </div>
-        </div>
-
-
-        <!-- Hab 6 -->
-        <div class="room-card" id="room-card-5" onclick="openRoomModal(5)" style="cursor:pointer;">
-          <div class="room-card-img" style="background-image:url('assets/img/Sencilla-Matrimonial-baño-exterior.webp');"></div>
-          <div class="room-card-body">
-            <div class="room-card-name">Sencilla Matrimonial baño exterior</div>
-            <p class="room-card-desc">Habitación sencilla con cama matrimonial y baño privado exterior. Privada, práctica y bien ubicada para una persona.</p>
-            <div class="room-amenities">
-              <span class="amenity-tag">Cama matrimonial</span><span class="amenity-tag">Privada</span><span class="amenity-tag">Wi-Fi</span><span class="amenity-tag">1 persona</span>
-            </div>
-            <div class="room-footer">
-              <div>
-                <div class="room-price">$990 <small>1 pax · Semana Santa</small></div>
-                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">Solo 1 persona · $1,390 con 2 pax</div>
-              </div>
-              <button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(5)">Ver habitación</button>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /room-cards -->
+      <div class="room-cards"><!-- Renderizado por renderRoomCards() desde hostelRooms (fuente única + cronograma de precios por fecha) --></div>
 
       <!-- ÁREAS COMUNES -->
       <div style="margin-top:28px;background:var(--beige);border-radius:var(--radius-lg);padding:22px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
@@ -2410,7 +2245,7 @@ footer {
               </div>
               <div class="summary-divider"></div>
               <div class="summary-row">
-                <span class="summary-label" style="font-weight:700;color:var(--text-main);">Tarifa base</span>
+                <span class="summary-label" id="s-price-label" style="font-weight:700;color:var(--text-main);">Precio</span>
                 <span class="summary-val" id="s-price" style="font-size:1.15rem;font-weight:700;color:var(--olive);">—</span>
               </div>
               <div id="s-note" style="font-size:0.74rem;color:var(--text-muted);margin-top:8px;line-height:1.6;padding:8px 10px;background:var(--beige);border-radius:8px;"></div>
@@ -2444,8 +2279,8 @@ footer {
       <div class="section-header"><span class="overline">El espacio</span><h2>Mira cómo es el hostel</h2></div>
       <div class="gallery">
         <div class="gal-item large" style="background-image:url('assets/img/terraza.webp');"></div>
-        <div class="gal-item" style="background-image:url('assets/img/Habitacion-Doble-2 camas-dobles.webp');"></div>
-        <div class="gal-item" style="background-image:url('assets/img/Habitacion-Doble-Estandar.webp');"></div>
+        <div class="gal-item" style="background-image:url('assets/img/doble-superior-2-camas.webp');"></div>
+        <div class="gal-item" style="background-image:url('assets/img/Doble-Estandar-baño-exterior.webp');"></div>
         <div class="gal-item wide" style="background-image:url('assets/img/area-uso-comun-hostel.webp');"></div>
         <div class="gal-item" style="background-image:url('assets/img/fachada-lateral.webp');"></div>
       </div>
@@ -2474,13 +2309,14 @@ footer {
   <section class="cta-band">
     <div class="container text-center">
       <h2>Tu lugar en Barrio Antiguo te espera</h2>
-      <p style="margin-bottom:28px;">Céntrico, tranquilo, con terraza y restaurante vegetariano. Reserva directa, sin comisiones.</p>
+      <p style="margin-bottom:10px;">Céntrico, tranquilo, con terraza y restaurante vegetariano en la propiedad.</p>
+      <p style="margin-bottom:28px;font-weight:600;">Reserva directa por WhatsApp: te damos el mejor precio y extras (como desayuno o salida tardía), sin comisiones de plataforma.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
-        <a class="btn btn-terra btn-lg" href="#reservar">📋 Solicitar reserva</a>
-        <a class="btn btn-ghost btn-lg" href="https://wa.me/5218114986316?text=Hola, quiero información sobre HK Barrio Antiguo" target="_blank">💬 WhatsApp</a>
+        <a class="btn btn-terra btn-lg" href="https://wa.me/5218114986316?text=Hola, quiero reservar directo en HK Barrio Antiguo" target="_blank">💬 Reservar directo por WhatsApp</a>
+        <a class="btn btn-ghost btn-lg" href="#reservar">📋 Solicitar reserva</a>
         <a class="btn btn-outline-light" href="#habitaciones">Ver habitaciones</a>
       </div>
-      <p style="margin-top:20px;font-size:0.78rem;color:rgba(255,255,255,0.45);">¿Prefieres reservar por una plataforma? <a href="https://www.booking.com/hotel/mx/hostal-hk.es-mx.html" target="_blank" style="color:rgba(255,255,255,0.6);text-decoration:underline;">También estamos en Booking.com</a></p>
+      <p style="margin-top:20px;font-size:0.78rem;color:rgba(255,255,255,0.45);">¿Prefieres una plataforma? También estamos en <a href="https://www.booking.com/hotel/mx/hostal-hk.es-mx.html" target="_blank" style="color:rgba(255,255,255,0.6);text-decoration:underline;">Booking.com</a> — pero reservando directo por WhatsApp siempre te damos el mejor trato.</p>
     </div>
   </section>
 </div>
@@ -4552,6 +4388,103 @@ var hostelRooms = [
     }
 ];
 
+/* ============================================================
+   HOSTEL PRICING ENGINE — cronograma automático por fecha
+   Precios = rejilla recomendada NextSwift (jul 2026 - jul 2027).
+   Paridad cerrada: la web muestra el MISMO precio de lista que Booking;
+   el mejor precio / paquete se ofrece por WhatsApp (no se publica número menor).
+   Para reprecificar cada temporada: editar HK_PRICE_TABLE / HK_SEASON_BY_MONTH / HK_DATE_OVERRIDES.
+============================================================ */
+var HK_PRICE_TABLE = {
+  // roomId: { baja, media, alta, evento, eventomax }  (MXN/noche; el dormitorio = por cama)
+  // Rejilla reconstruida 2026-07-17: dorm corregido (ya es por cama, se baja de $800), filosofia hibrida (media = tarifa actual).
+  0: { baja:2590, media:2900, alta:3290, evento:3690, eventomax:4190 }, // Doble Superior 2 camas
+  1: { baja:2490, media:2790, alta:3190, evento:3590, eventomax:3990 }, // Suite King
+  2: { baja:1990, media:2290, alta:2590, evento:2890, eventomax:3290 }, // Doble Estándar
+  3: { baja:390,  media:490,  alta:590,  evento:690,  eventomax:790  }, // Dormitorio (por cama)
+  4: { baja:2290, media:2590, alta:2900, evento:3290, eventomax:3790 }, // Doble Familiar
+  5: { baja:1390, media:1590, alta:1790, evento:1990, eventomax:2290 }  // Sencilla Matrimonial
+};
+
+// Temporada base por mes 'YYYY-MM' (fuera de rango => 'media').
+var HK_SEASON_BY_MONTH = {
+  '2026-07':'baja','2026-08':'media','2026-09':'media','2026-10':'alta','2026-11':'alta','2026-12':'media',
+  '2027-01':'baja','2027-02':'media','2027-03':'alta','2027-04':'alta','2027-05':'media','2027-06':'baja','2027-07':'baja'
+};
+
+// Ajustes de temporada dentro del mes + EVENTOS de Monterrey (rango inclusive; el último que aplica gana).
+var HK_DATE_OVERRIDES = [
+  { from:'2026-07-20', to:'2026-08-31', level:'media' },     // repunte vacacional
+  { from:'2026-12-20', to:'2027-01-06', level:'alta'  },     // ocio navideño
+  { from:'2026-08-19', to:'2026-08-19', level:'evento' },    // Rosalía
+  { from:'2026-08-25', to:'2026-08-29', level:'evento' },    // Congresos Cintermex
+  { from:'2026-09-13', to:'2026-09-13', level:'eventomax' }, // Clásico Regio + Scorpions
+  { from:'2026-09-21', to:'2026-09-26', level:'evento' },    // Congreso Hematología
+  { from:'2026-10-03', to:'2026-10-03', level:'evento' },    // Maroon 5
+  { from:'2026-10-24', to:'2026-10-24', level:'evento' },    // Clásico Nacional
+  { from:'2026-11-06', to:'2026-11-08', level:'eventomax' }, // Karol G (3 noches)
+  { from:'2026-11-13', to:'2026-11-16', level:'evento' },    // Puente Revolución + Buen Fin
+  { from:'2026-11-21', to:'2026-11-21', level:'evento' },    // Tigres-América
+  { from:'2027-02-01', to:'2027-02-01', level:'evento' },    // Puente Constitución
+  { from:'2027-02-13', to:'2027-02-13', level:'evento' },    // Junior H
+  { from:'2027-02-23', to:'2027-02-25', level:'evento' },    // Expo Manufactura + Westlife
+  { from:'2027-03-15', to:'2027-03-15', level:'evento' },    // Puente Juárez
+  { from:'2027-03-22', to:'2027-04-02', level:'eventomax' }, // Semana Santa / Pa'l Norte
+  { from:'2027-05-01', to:'2027-05-01', level:'evento' }     // Puente del Trabajo
+];
+
+function hkDateStr(d) {
+  var y = d.getFullYear(), m = ('0' + (d.getMonth() + 1)).slice(-2), day = ('0' + d.getDate()).slice(-2);
+  return y + '-' + m + '-' + day;
+}
+function hkParseDate(str) {
+  var p = String(str).split('-');
+  return new Date(parseInt(p[0]), parseInt(p[1]) - 1, parseInt(p[2]));
+}
+function hkSeasonForDate(dateStr) {
+  var level = null;
+  for (var i = 0; i < HK_DATE_OVERRIDES.length; i++) {
+    var o = HK_DATE_OVERRIDES[i];
+    if (dateStr >= o.from && dateStr <= o.to) level = o.level; // comparación de strings ISO es válida
+  }
+  if (level) return level;
+  return HK_SEASON_BY_MONTH[dateStr.slice(0, 7)] || 'media';
+}
+function hkPriceForRoomOnDate(roomId, dateObj) {
+  var row = HK_PRICE_TABLE[roomId];
+  if (!row) return null;
+  return row[hkSeasonForDate(hkDateStr(dateObj))];
+}
+function hkTodayPrice(roomId) { return hkPriceForRoomOnDate(roomId, new Date()); }
+
+// Suma noche por noche entre checkin (incl.) y checkout (excl.) — respeta el cronograma por fecha.
+function hkStayBreakdown(roomId, checkinStr, checkoutStr) {
+  var total = 0, nights = 0;
+  var d = hkParseDate(checkinStr), end = hkParseDate(checkoutStr);
+  var guard = 0;
+  while (d < end && guard < 400) {
+    var p = hkPriceForRoomOnDate(roomId, d);
+    if (p != null) { total += p; nights++; }
+    d.setDate(d.getDate() + 1);
+    guard++;
+  }
+  return { total: total, nights: nights, avg: nights ? Math.round(total / nights) : 0 };
+}
+
+// Fija el precio de HOY (por noche) en cada habitación, para tarjetas/tabla/selector.
+function hkApplyTodayPrices() {
+  for (var i = 0; i < hostelRooms.length; i++) {
+    var r = hostelRooms[i];
+    var p = hkTodayPrice(r.id);
+    if (p != null) {
+      r.nightly = p;
+      r.price1 = p;
+      r.price2 = p; // precio por habitación (sin recargo por 2ª persona); el dormitorio es por cama
+      r.priceLabel = '$' + p.toLocaleString();
+    }
+  }
+}
+
 var selectedHostelRoomId = null;
 
 function initHostelBooking() {
@@ -4631,12 +4564,17 @@ function getHostelFormData() {
     var d1 = new Date(checkin), d2 = new Date(checkout);
     nights = Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
   }
-  // Price
-  var price = null;
+  // Precio según el cronograma por fecha (suma noche por noche)
+  var price = null, stay = null;
   if (room) {
-    price = (guests === 2 && room.price2 !== null && room.price2 !== undefined) ? room.price2 : room.price1;
+    if (checkin && checkout && nights > 0) {
+      stay = hkStayBreakdown(room.id, checkin, checkout);
+      price = stay.total;
+    } else {
+      price = hkTodayPrice(room.id); // por noche, aún sin fechas
+    }
   }
-  return { room: room, checkin: checkin, checkout: checkout, guests: guests, nights: nights, price: price, name: name, phone: phone, notes: notes };
+  return { room: room, checkin: checkin, checkout: checkout, guests: guests, nights: nights, price: price, stay: stay, name: name, phone: phone, notes: notes };
 }
 
 function updateBookingSummary() {
@@ -4667,6 +4605,7 @@ function updateBookingSummary() {
   setText('s-checkout', d.checkout ? formatDate(d.checkout) : '—');
   setText('s-nights', d.nights > 0 ? d.nights + ' noche' + (d.nights !== 1 ? 's' : '') : '—');
   setText('s-guests', d.guests + ' persona' + (d.guests !== 1 ? 's' : ''));
+  setText('s-price-label', d.stay ? 'Total estancia' : 'Por noche (hoy)');
   setText('s-price', d.price ? '$' + d.price.toLocaleString() : '—');
 
   var nameRow = document.getElementById('s-name-row');
@@ -4681,7 +4620,12 @@ function updateBookingSummary() {
   var noteEl = document.getElementById('s-note');
   var noteTexts = [];
   if (d.nights > 0 && d.nights < 3) noteTexts.push('⚠️ Estancia mínima: 3 días. Ajusta tus fechas.');
-  if (d.price) noteTexts.push('Esta es la tarifa base para tu selección. El monto final se confirma por WhatsApp.');
+  if (d.stay && d.stay.nights > 0) {
+    noteTexts.push('Total de ' + d.stay.nights + ' noche' + (d.stay.nights !== 1 ? 's' : '') + ' (≈ $' + d.stay.avg.toLocaleString() + '/noche, según temporada).');
+    noteTexts.push('💬 Reserva directa por WhatsApp: mejor precio y extras que en las plataformas, sin comisión.');
+  } else if (d.price) {
+    noteTexts.push('Precio por noche de hoy. Elige fechas para ver el total de tu estancia.');
+  }
   if (noteEl) noteEl.innerHTML = noteTexts.join('<br>');
 
   // Validate dates
@@ -4740,7 +4684,11 @@ function sendHostelWA() {
   msg += '📅 Entrada: ' + formatDate(d.checkin) + '\n';
   msg += '📅 Salida: ' + formatDate(d.checkout) + '\n';
   msg += '🌙 Estancia: ' + d.nights + ' noche' + (d.nights !== 1 ? 's' : '') + '\n';
-  msg += '💰 Tarifa base: $' + d.price.toLocaleString() + '\n';
+  if (d.stay) {
+    msg += '💰 Total (' + d.stay.nights + ' noche' + (d.stay.nights !== 1 ? 's' : '') + '): $' + d.stay.total.toLocaleString() + ' (≈ $' + d.stay.avg.toLocaleString() + '/noche)\n';
+  } else {
+    msg += '💰 Precio por noche: $' + d.price.toLocaleString() + '\n';
+  }
   msg += '👤 Nombre: ' + d.name + '\n';
   msg += '📱 WhatsApp: ' + d.phone + '\n';
   if (d.notes) msg += '📝 Notas: ' + d.notes + '\n';
@@ -4784,11 +4732,10 @@ function openRoomModal(id) {
 
   var priceEl = document.getElementById('rm-price-box');
   if (priceEl) {
+    var unitTxt = (room.id === 3) ? 'Por cama · noche (hoy)' : 'Por noche (hoy)';
     var priceHtml = '';
-    priceHtml += '<div class="rm-price-row"><span>1 persona</span><strong>$' + room.price1.toLocaleString() + '</strong></div>';
-    if (room.price2 !== null && room.price2 !== undefined) {
-      priceHtml += '<div class="rm-price-row"><span>2 personas</span><strong>$' + room.price2.toLocaleString() + '</strong></div>';
-    }
+    priceHtml += '<div class="rm-price-row"><span>' + unitTxt + '</span><strong>$' + (room.nightly || room.price1).toLocaleString() + '</strong></div>';
+    priceHtml += '<div style="font-size:0.72rem;color:var(--text-muted);margin-top:6px;line-height:1.5;">El precio varía por temporada y fecha. Reserva directa por WhatsApp: mejor precio y extras, sin comisión.</div>';
     priceEl.innerHTML = priceHtml;
   }
 
@@ -4879,14 +4826,10 @@ function renderRoomCards() {
   var html = '';
   for (var i = 0; i < hostelRooms.length; i++) {
     var r = hostelRooms[i];
-    var priceHint = '';
-    if (r.price2 && r.price2 !== r.price1) {
-      priceHint = '1 persona: $' + r.price1.toLocaleString() + ' · 2 personas: $' + r.price2.toLocaleString();
-    } else if (r.maxGuests === 1) {
-      priceHint = 'Solo 1 persona';
-    } else {
-      priceHint = '1 o 2 personas · mismo precio';
-    }
+    var priceHint = (r.id === 3)
+      ? 'Precio por cama · dormitorio mixto'
+      : 'Tarifa por habitación · hasta ' + r.maxGuests + ' persona' + (r.maxGuests > 1 ? 's' : '');
+    var priceUnit = (r.id === 3) ? 'por cama · noche' : 'por noche';
 
     html += '<div class="room-card" id="room-card-' + r.id + '" onclick="openRoomModal(' + r.id + ')" style="cursor:pointer;">';
     html += '<div class="room-card-img" style="' + bgStyle(r.cover) + '"></div>';
@@ -4899,7 +4842,7 @@ function renderRoomCards() {
     }
     html += '</div>';
     html += '<div class="room-footer">';
-    html += '<div><div class="room-price">' + r.priceLabel + ' <small>tarifa base</small></div>';
+    html += '<div><div class="room-price">' + r.priceLabel + ' <small>' + priceUnit + '</small></div>';
     html += '<div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">' + priceHint + '</div></div>';
     html += '<button type="button" class="btn btn-terra btn-sm" onclick="event.stopPropagation();openRoomModal(' + r.id + ')">Ver habitación</button>';
     html += '</div></div></div>';
@@ -4927,6 +4870,27 @@ function renderMobileCompare() {
   container.innerHTML = html;
 }
 
+/* Tabla comparativa de escritorio (renderizada desde hostelRooms = fuente única) */
+function renderCompareTable() {
+  var tbody = document.getElementById('hostel-compare-tbody');
+  if (!tbody) return;
+  var html = '';
+  for (var i = 0; i < hostelRooms.length; i++) {
+    var r = hostelRooms[i];
+    var bg = (i % 2 === 0) ? '#fff' : 'var(--white-bone)';
+    var cap = (r.id === 3) ? '1 persona (por cama)' : 'Hasta ' + r.maxGuests + ' persona' + (r.maxGuests > 1 ? 's' : '');
+    var unit = (r.id === 3) ? '/cama' : '/noche';
+    html += '<tr style="border-bottom:1px solid var(--border);background:' + bg + ';">';
+    html += '<td style="padding:10px 14px;font-weight:600;">' + r.name + '</td>';
+    html += '<td style="padding:10px 14px;text-align:center;"><span class="amenity-tag"' + (r.type === 'Compartida' ? ' style="background:var(--beige);"' : '') + '>' + r.type + '</span></td>';
+    html += '<td style="padding:10px 14px;text-align:center;">' + cap + '</td>';
+    html += '<td style="padding:10px 14px;text-align:right;color:var(--olive);font-weight:700;">' + r.priceLabel + ' <small style="color:var(--text-muted);font-weight:400;">' + unit + '</small></td>';
+    html += '<td style="padding:10px 14px;"><button type="button" class="btn btn-outline btn-sm" onclick="openRoomModal(' + r.id + ')" style="white-space:nowrap;">Ver detalle</button></td>';
+    html += '</tr>';
+  }
+  tbody.innerHTML = html;
+}
+
 /* ============================================================
    INIT (extended)
 ============================================================ */
@@ -4945,7 +4909,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Inject footer into all pages
   injectFooters();
 
-  // Init hostel booking
+  // Init hostel booking — aplica el cronograma de precios por fecha ANTES de renderizar
+  hkApplyTodayPrices();
+  renderCompareTable();
   renderRoomCards();
   initHostelBooking();
 
