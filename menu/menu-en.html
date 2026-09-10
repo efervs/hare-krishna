@@ -126,7 +126,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
 .tienda-item:hover{box-shadow:0 2px 16px rgba(200,151,58,.2)}
 .tienda-item:active{transform:scale(.97)}
 .tienda-item.added-flash{box-shadow:0 0 0 2px var(--gold)!important}
-.tienda-item-name{font-size:12.5px;font-weight:500;color:var(--dark)}
+.tienda-item-name{font-size:12.5px;font-weight:500;color:var(--dark);flex:1;padding-right:8px}
 .tienda-item-price{font-size:13.5px;font-weight:700;color:var(--gold)}
 
 /* ════ FOOTER ════ */
@@ -655,11 +655,54 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
   <div class="section-hdr" style="background:#4A3010"><span class="section-emoji">📿</span><h2 class="section-title">Krishna Store</h2></div>
   <div style="padding:5px 16px 2px;font-size:10.5px;font-style:italic;color:var(--gray)">Wisdom and consciousness products</div>
   <div class="tienda-items">
-    <div class="tienda-item" data-add data-name="Bhagavad Gita" data-price="450"><span class="tienda-item-name">Bhagavad Gita</span><span class="tienda-item-price">$450</span></div>
-    <div class="tienda-item" data-add data-name="Incense" data-price="60"><span class="tienda-item-name">Incense</span><span class="tienda-item-price">$60</span></div>
-    <div class="tienda-item" data-add data-name="A higher taste" data-price="200"><span class="tienda-item-name">A higher taste</span><span class="tienda-item-price">$200</span></div>
-    <div class="tienda-item" data-add data-name="Ayurveda" data-price="150"><span class="tienda-item-name">Ayurveda</span><span class="tienda-item-price">$150</span></div>
-    <div class="tienda-item" data-add data-name="The science of self-realization" data-price="200"><span class="tienda-item-name">The science of self-realization</span><span class="tienda-item-price">$200</span></div>
+    <div style="padding:5px 16px 2px;font-size:10.5px;font-style:italic;color:var(--gray)">Items</div>
+    <div class="tienda-item" data-add data-name="Incense" data-price="75"><span class="tienda-item-name">Incense</span><span class="tienda-item-price">$75</span></div>
+    <div class="tienda-item" data-add data-name="Tongue cleaner" data-price="150"><span class="tienda-item-name">Tongue cleaner</span><span class="tienda-item-price">$150</span></div>
+    <div class="tienda-item" data-add data-name="Handmade soaps" data-price="75"><span class="tienda-item-name">Handmade soaps</span><span class="tienda-item-price">$75</span></div>
+    <div class="tienda-item" data-add data-name="Large tulasi japa mala" data-price="285"><span class="tienda-item-name">Large tulasi japa mala</span><span class="tienda-item-price">$285</span></div>
+    <div class="tienda-item" data-add data-name="Neem japa mala" data-price="250"><span class="tienda-item-name">Neem japa mala</span><span class="tienda-item-price">$250</span></div>
+    <div style="padding:5px 16px 2px;font-size:10.5px;font-style:italic;color:var(--gray)">Books in Spanish</div>
+    <div class="tienda-item" data-add data-name="Bhagavad Gita tal como es (español)" data-price="390"><span class="tienda-item-name">Bhagavad Gita tal como es (español)</span><span class="tienda-item-price">$390</span></div>
+    <div class="tienda-item" data-add data-name="Las glorias y pasatiempos de Srimati Radharani" data-price="200"><span class="tienda-item-name">Las glorias y pasatiempos de Srimati Radharani</span><span class="tienda-item-price">$200</span></div>
+    <div class="tienda-item" data-add data-name="Las enseñanzas de la reina Kunti" data-price="200"><span class="tienda-item-name">Las enseñanzas de la reina Kunti</span><span class="tienda-item-price">$200</span></div>
+    <div class="tienda-item" data-add data-name="Las enseñanzas de Kapiladeva: el hijo de Devahuti" data-price="200"><span class="tienda-item-name">Las enseñanzas de Kapiladeva: el hijo de Devahuti</span><span class="tienda-item-price">$200</span></div>
+    <div class="tienda-item" data-add data-name="Diario de un predicador viajero — Volumen VI" data-price="200"><span class="tienda-item-name">Diario de un predicador viajero — Volumen VI</span><span class="tienda-item-price">$200</span></div>
+    <div class="tienda-item" data-add data-name="Ciencia de la autorrealización" data-price="200"><span class="tienda-item-name">Ciencia de la autorrealización</span><span class="tienda-item-price">$200</span></div>
+    <div class="tienda-item" data-add data-name="Viaje hacia el autoconocimiento" data-price="200"><span class="tienda-item-name">Viaje hacia el autoconocimiento</span><span class="tienda-item-price">$200</span></div>
+    <div class="tienda-item" data-add data-name="Prabhupada en Radha Damodara" data-price="150"><span class="tienda-item-name">Prabhupada en Radha Damodara</span><span class="tienda-item-price">$150</span></div>
+    <div class="tienda-item" data-add data-name="Canciones de los Acaryas Vaisnavas" data-price="150"><span class="tienda-item-name">Canciones de los Acaryas Vaisnavas</span><span class="tienda-item-price">$150</span></div>
+    <div class="tienda-item" data-add data-name="Los cuatro senderos del Yoga (meditación / servicio)" data-price="100"><span class="tienda-item-name">Los cuatro senderos del Yoga (meditación / servicio)</span><span class="tienda-item-price">$100</span></div>
+    <div class="tienda-item" data-add data-name="Los cuatro senderos del Yoga (acción / conocimiento)" data-price="100"><span class="tienda-item-name">Los cuatro senderos del Yoga (acción / conocimiento)</span><span class="tienda-item-price">$100</span></div>
+    <div class="tienda-item" data-add data-name="Karma: cerrando ciclos" data-price="100"><span class="tienda-item-name">Karma: cerrando ciclos</span><span class="tienda-item-price">$100</span></div>
+    <div class="tienda-item" data-add data-name="Preguntas perfectas, respuestas perfectas" data-price="100"><span class="tienda-item-name">Preguntas perfectas, respuestas perfectas</span><span class="tienda-item-price">$100</span></div>
+    <div class="tienda-item" data-add data-name="Las enseñanzas de Caitanya" data-price="100"><span class="tienda-item-name">Las enseñanzas de Caitanya</span><span class="tienda-item-price">$100</span></div>
+    <div class="tienda-item" data-add data-name="Sankhya: la metafísica de los 24 elementos" data-price="100"><span class="tienda-item-name">Sankhya: la metafísica de los 24 elementos</span><span class="tienda-item-price">$100</span></div>
+    <div class="tienda-item" data-add data-name="Prabhupada, sólo él podía guiarnos" data-price="100"><span class="tienda-item-name">Prabhupada, sólo él podía guiarnos</span><span class="tienda-item-price">$100</span></div>
+    <div class="tienda-item" data-add data-name="Meditación y superconciencia" data-price="70"><span class="tienda-item-name">Meditación y superconciencia</span><span class="tienda-item-price">$70</span></div>
+    <div class="tienda-item" data-add data-name="Prahlada Maharaja" data-price="70"><span class="tienda-item-name">Prahlada Maharaja</span><span class="tienda-item-price">$70</span></div>
+    <div class="tienda-item" data-add data-name="Historias maravillosas de la India" data-price="70"><span class="tienda-item-name">Historias maravillosas de la India</span><span class="tienda-item-price">$70</span></div>
+    <div style="padding:5px 16px 2px;font-size:10.5px;font-style:italic;color:var(--gray)">Books in English</div>
+    <div class="tienda-item" data-add data-name="Srimad Bhagavatam Tenth Canto — Part Four" data-price="390"><span class="tienda-item-name">Srimad Bhagavatam Tenth Canto — Part Four</span><span class="tienda-item-price">$390</span></div>
+    <div class="tienda-item" data-add data-name="Prabhupada Nectar — Satsvarupa dasa Goswami" data-price="390"><span class="tienda-item-name">Prabhupada Nectar — Satsvarupa dasa Goswami</span><span class="tienda-item-price">$390</span></div>
+    <div class="tienda-item" data-add data-name="Srimad Bhagavatam Tenth Canto — Part Three" data-price="390"><span class="tienda-item-name">Srimad Bhagavatam Tenth Canto — Part Three</span><span class="tienda-item-price">$390</span></div>
+    <div class="tienda-item" data-add data-name="Bhagavad Gita as it is" data-price="250"><span class="tienda-item-name">Bhagavad Gita as it is</span><span class="tienda-item-price">$250</span></div>
+    <div class="tienda-item" data-add data-name="Teachings of Queen Kunti" data-price="250"><span class="tienda-item-name">Teachings of Queen Kunti</span><span class="tienda-item-price">$250</span></div>
+    <div class="tienda-item" data-add data-name="This is My Request" data-price="150"><span class="tienda-item-name">This is My Request</span><span class="tienda-item-price">$150</span></div>
+    <div class="tienda-item" data-add data-name="Prabhupada Messenger of the Supreme Lord" data-price="150"><span class="tienda-item-name">Prabhupada Messenger of the Supreme Lord</span><span class="tienda-item-price">$150</span></div>
+    <div class="tienda-item" data-add data-name="The Final Pastimes of Srila Prabhupada" data-price="100"><span class="tienda-item-name">The Final Pastimes of Srila Prabhupada</span><span class="tienda-item-price">$100</span></div>
+    <div class="tienda-item" data-add data-name="Vaisnava Compassion — Satsvarupa dasa Goswami" data-price="100"><span class="tienda-item-name">Vaisnava Compassion — Satsvarupa dasa Goswami</span><span class="tienda-item-price">$100</span></div>
+    <div class="tienda-item" data-add data-name="Back to Godhead — Not Your Everyday God" data-price="70"><span class="tienda-item-name">Back to Godhead — Not Your Everyday God</span><span class="tienda-item-price">$70</span></div>
+    <div class="tienda-item" data-add data-name="Easy Journey to Other Planets" data-price="70"><span class="tienda-item-name">Easy Journey to Other Planets</span><span class="tienda-item-price">$70</span></div>
+    <div class="tienda-item" data-add data-name="The Perfection of Yoga" data-price="70"><span class="tienda-item-name">The Perfection of Yoga</span><span class="tienda-item-price">$70</span></div>
+    <div class="tienda-item" data-add data-name="Chant and Be Happy" data-price="70"><span class="tienda-item-name">Chant and Be Happy</span><span class="tienda-item-price">$70</span></div>
+    <div class="tienda-item" data-add data-name="Watchless Gift" data-price="70"><span class="tienda-item-name">Watchless Gift</span><span class="tienda-item-price">$70</span></div>
+    <div class="tienda-item" data-add data-name="Spiritual Yoga" data-price="70"><span class="tienda-item-name">Spiritual Yoga</span><span class="tienda-item-price">$70</span></div>
+    <div class="tienda-item" data-add data-name="Raja Vidya: The King of Knowledge" data-price="70"><span class="tienda-item-name">Raja Vidya: The King of Knowledge</span><span class="tienda-item-price">$70</span></div>
+    <div class="tienda-item" data-add data-name="Coming Back" data-price="70"><span class="tienda-item-name">Coming Back</span><span class="tienda-item-price">$70</span></div>
+    <div class="tienda-item" data-add data-name="Krsna Consciousness: The Topmost Yoga System" data-price="70"><span class="tienda-item-name">Krsna Consciousness: The Topmost Yoga System</span><span class="tienda-item-price">$70</span></div>
+    <div style="padding:5px 16px 2px;font-size:10.5px;font-style:italic;color:var(--gray)">Books in Hindi</div>
+    <div class="tienda-item" data-add data-name="Srimad Bhagavatam" data-price="390"><span class="tienda-item-name">Srimad Bhagavatam</span><span class="tienda-item-price">$390</span></div>
+    <div class="tienda-item" data-add data-name="Biografía de Prabhupada" data-price="150"><span class="tienda-item-name">Biografía de Prabhupada</span><span class="tienda-item-price">$150</span></div>
   </div>
 </section>
 
