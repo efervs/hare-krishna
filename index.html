@@ -5350,7 +5350,7 @@ function renderBooks() {
     html += '<div class="menu-item-name">' + b.name + '</div>';
     html += '<div class="menu-item-desc">' + b.desc + '</div>';
     html += '<div class="menu-item-footer"><span class="menu-item-price">$' + b.price + '</span>';
-    html += '<button class="btn btn-terra btn-sm" onclick="event.stopPropagation();openBookModal(' + b.id + ')">Ver libro</button>';
+    html += '<button class="btn btn-terra btn-sm" onclick="event.stopPropagation();openBookModal(' + b.id + ')">' + (b.cat === 'tienda' ? 'Ver artículo' : 'Ver libro') + '</button>';
     html += '</div></div></div>';
   });
   grid.innerHTML = html;
@@ -5394,7 +5394,7 @@ function openBookModal(id) {
   /* Override WA button for books */
   var waBtn = document.querySelector('.pm-wa-btn');
   if (waBtn) {
-    waBtn.textContent = '💬 Pedir este libro por WhatsApp';
+    waBtn.textContent = '💬 Pedir este ' + (book.cat === 'tienda' ? 'artículo' : 'libro') + ' por WhatsApp';
     waBtn.onclick = function() {
       var qty = parseInt((qtyEl && qtyEl.textContent) || '1') || 1;
       var msg = 'Hola, quiero pedir:\n• ' + book.name + ' x' + qty + ' — $' + (book.price * qty) + '\n\n¿Está disponible?';
