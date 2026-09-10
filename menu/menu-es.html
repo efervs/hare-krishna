@@ -111,15 +111,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
 .pz-size-price{font-size:12.5px;font-weight:700;color:var(--forest)}
 .pz-size-plus{font-size:15px;font-weight:300;color:var(--forest);line-height:1}
 
-/* ════ DESPENSA GRID ════ */
-.despensa-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:8px 12px}
-.despensa-item{background:var(--white);border-radius:8px;padding:9px 11px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);cursor:pointer;transition:.12s}
-.despensa-item:hover{box-shadow:0 2px 16px rgba(63,94,56,.15)}
-.despensa-item:active{transform:scale(.96)}
-.despensa-item.added-flash{box-shadow:0 0 0 2px var(--green)!important}
-.despensa-item-name{font-size:11.5px;font-weight:600;color:var(--dark);line-height:1.3}
-.despensa-item-price{font-size:12.5px;font-weight:700;color:var(--forest);margin-top:3px}
-
 /* ════ TIENDA ════ */
 .tienda-items{padding:8px 12px;display:flex;flex-direction:column;gap:5px}
 .tienda-item{background:var(--white);border-radius:8px;padding:9px 13px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:.12s}
@@ -258,7 +249,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
     <button class="cat-btn" data-target="bebidas"><span class="ce">🥤</span>Bebidas</button>
     <button class="cat-btn" data-target="postres"><span class="ce">🍮</span>Postres</button>
     <button class="cat-btn" data-target="cafe"><span class="ce">☕</span>Café</button>
-    <button class="cat-btn" data-target="despensa"><span class="ce">🛒</span>Despensa</button>
+    <button class="cat-btn" data-target="tienda"><span class="ce">🛒</span>Tienda y despensa</button>
   </div>
 </nav>
 
@@ -634,22 +625,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
   </div>
 </section>
 
-<!-- ═══ DESPENSA ═══ -->
-<section class="section" id="despensa">
-  <div class="section-hdr"><span class="section-emoji">🛒</span><h2 class="section-title">Despensa · Para Llevar</h2></div>
-  <div style="padding:5px 16px 2px;font-size:10.5px;font-style:italic;color:var(--gray)">Productos artesanales y proteínas vegetales</div>
-  <div class="despensa-grid">
-    <div class="despensa-item" data-add data-name="Chocolate de Mesa" data-price="139"><div class="despensa-item-name">Chocolate de Mesa</div><div class="despensa-item-price">$139</div></div>
-    <div class="despensa-item" data-add data-name="Choco. Barra Oscuro" data-price="139"><div class="despensa-item-name">Choco. Barra Oscuro</div><div class="despensa-item-price">$139</div></div>
-    <div class="despensa-item" data-add data-name="Choco. Barra Blanco" data-price="139"><div class="despensa-item-name">Choco. Barra Blanco</div><div class="despensa-item-price">$139</div></div>
-    <div class="despensa-item" data-add data-name="Milanesa de Seitán" data-price="139"><div class="despensa-item-name">Milanesa de Seitán</div><div class="despensa-item-price">$139</div></div>
-    <div class="despensa-item" data-add data-name="Salchichas Veggie Frank" data-price="139"><div class="despensa-item-name">Salchichas Veggie Frank</div><div class="despensa-item-price">$139</div></div>
-    <div class="despensa-item" data-add data-name="Chorizo de Soya" data-price="129"><div class="despensa-item-name">Chorizo de Soya</div><div class="despensa-item-price">$129</div></div>
-    <div class="despensa-item" data-add data-name="Mazapán" data-price="29"><div class="despensa-item-name">Mazapán</div><div class="despensa-item-price">$29</div></div>
-    <div class="despensa-item" data-add data-name="Uvas" data-price="55"><div class="despensa-item-name">Uvas</div><div class="despensa-item-price">$55</div></div>
-  </div>
-</section>
-
 <!-- ═══ TIENDA ═══ -->
 <section class="section" id="tienda">
   <div class="section-hdr" style="background:#4A3010"><span class="section-emoji">📿</span><h2 class="section-title">Tienda Hare Krishna</h2></div>
@@ -661,6 +636,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
     <div class="tienda-item" data-add data-name="Jabones artesanales" data-price="75"><span class="tienda-item-name">Jabones artesanales</span><span class="tienda-item-price">$75</span></div>
     <div class="tienda-item" data-add data-name="Japa grande de tulasi" data-price="285"><span class="tienda-item-name">Japa grande de tulasi</span><span class="tienda-item-price">$285</span></div>
     <div class="tienda-item" data-add data-name="Japa de neem" data-price="250"><span class="tienda-item-name">Japa de neem</span><span class="tienda-item-price">$250</span></div>
+    <div style="padding:5px 16px 2px;font-size:10.5px;font-style:italic;color:var(--gray)">Despensa</div>
+    <div class="tienda-item" data-add data-name="Salchichas Veggie Frank" data-price="139"><span class="tienda-item-name">Salchichas Veggie Frank</span><span class="tienda-item-price">$139</span></div>
+    <div class="tienda-item" data-add data-name="Chorizo de Soya" data-price="129"><span class="tienda-item-name">Chorizo de Soya</span><span class="tienda-item-price">$129</span></div>
+    <div class="tienda-item" data-add data-name="Milanesa de Seitán" data-price="139"><span class="tienda-item-name">Milanesa de Seitán</span><span class="tienda-item-price">$139</span></div>
+    <div class="tienda-item" data-add data-name="Chocolate de Mesa" data-price="139"><span class="tienda-item-name">Chocolate de Mesa</span><span class="tienda-item-price">$139</span></div>
+    <div class="tienda-item" data-add data-name="Chocolate en barra, oscuro" data-price="139"><span class="tienda-item-name">Chocolate en barra, oscuro</span><span class="tienda-item-price">$139</span></div>
+    <div class="tienda-item" data-add data-name="Chocolate en barra, blanco" data-price="139"><span class="tienda-item-name">Chocolate en barra, blanco</span><span class="tienda-item-price">$139</span></div>
+    <div class="tienda-item" data-add data-name="Uvas" data-price="55"><span class="tienda-item-name">Uvas</span><span class="tienda-item-price">$55</span></div>
+    <div class="tienda-item" data-add data-name="Mazapán" data-price="29"><span class="tienda-item-name">Mazapán</span><span class="tienda-item-price">$29</span></div>
     <div style="padding:5px 16px 2px;font-size:10.5px;font-style:italic;color:var(--gray)">Libros en español</div>
     <div class="tienda-item" data-add data-name="Bhagavad Gita tal como es (español)" data-price="390"><span class="tienda-item-name">Bhagavad Gita tal como es (español)</span><span class="tienda-item-price">$390</span></div>
     <div class="tienda-item" data-add data-name="Las glorias y pasatiempos de Srimati Radharani" data-price="200"><span class="tienda-item-name">Las glorias y pasatiempos de Srimati Radharani</span><span class="tienda-item-price">$200</span></div>
@@ -949,7 +933,7 @@ document.addEventListener('click', function(e) {
     return;
   }
 
-  // Add-to-cart items (cards, small items, despensa, tienda)
+  // Add-to-cart items (cards, small items, tienda)
   var addEl = e.target.closest('[data-add]');
   if (addEl) {
     // Flash animation

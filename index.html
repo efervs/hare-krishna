@@ -1874,7 +1874,6 @@ footer {
           <button class="cat-btn" onclick="filterCat(this,'bebidas')">🥤 Bebidas</button>
           <button class="cat-btn" onclick="filterCat(this,'cafe')">☕ Café & Infusiones</button>
           <button class="cat-btn" onclick="filterCat(this,'postres')">🍮 Postres & Dulces</button>
-          <button class="cat-btn" onclick="filterCat(this,'despensa')">🧺 Despensa</button>
       </div>
     </div>
     <!-- Menu content -->
@@ -2821,6 +2820,7 @@ footer {
         <button class="cat-btn active" onclick="filterBookCat(this,'todos')">📚 Todos</button>
         <button class="cat-btn" onclick="filterBookCat(this,'libros')">📖 Libros</button>
         <button class="cat-btn" onclick="filterBookCat(this,'tienda')">🪔 Tienda</button>
+        <button class="cat-btn" onclick="filterBookCat(this,'despensa')">🧺 Despensa</button>
       </div>
     </div>
 
@@ -3454,47 +3454,6 @@ const menuItems = [
     badge:'Vegan', badgeType:'fav',
     desc:'Rebanada húmeda con nueces y frutos secos · 100% vegano.',
     imgColor:'background:linear-gradient(135deg,#3a1808,#6a3820)' },
-
-  /* ── DESPENSA / PARA LLEVAR ── */
-  { id:90, cat:'despensa',
-    name:'Chocolate de Mesa', price:139, emoji:'🍫',
-    desc:'Chocolate artesanal para preparar en casa. Producto local.',
-    imgColor:'background:linear-gradient(135deg,#2a1a10,#5a3a20)' },
-
-  { id:91, cat:'despensa',
-    name:'Choco. Barra Oscuro', price:139, emoji:'🍫',
-    desc:'Barra de chocolate oscuro artesanal. Intenso y sin lácteos.',
-    imgColor:'background:linear-gradient(135deg,#1a1008,#3a2010)' },
-
-  { id:92, cat:'despensa',
-    name:'Choco. Barra Blanco', price:139, emoji:'🍫',
-    desc:'Barra de chocolate blanco artesanal. Suave y cremoso.',
-    imgColor:'background:linear-gradient(135deg,#8a7050,#c0a878)' },
-
-  { id:93, cat:'despensa',
-    name:'Milanesa de Seitán', price:139, emoji:'🌿',
-    desc:'Proteína vegetal lista para cocinar. Producto artesanal Hare Krishna.',
-    imgColor:'background:linear-gradient(135deg,#4a5828,#7a8848)' },
-
-  { id:94, cat:'despensa',
-    name:'Salchichas Veggie Frank', price:139, emoji:'🌿',
-    desc:'Salchichas vegetales para llevar a casa. Sin carne, con sabor.',
-    imgColor:'background:linear-gradient(135deg,#5a4030,#9a7050)' },
-
-  { id:95, cat:'despensa',
-    name:'Chorizo de Soya', price:129, emoji:'🌿',
-    desc:'Chorizo de soya artesanal. Ideal para guisar o tacos.',
-    imgColor:'background:linear-gradient(135deg,#7a2a18,#b05030)' },
-
-  { id:96, cat:'despensa',
-    name:'Mazapán', price:29, emoji:'🍬',
-    desc:'Dulce tradicional de cacahuate. Pequeño, clásico e irresistible.',
-    imgColor:'background:linear-gradient(135deg,#8a7840,#c0b068)' },
-
-  { id:97, cat:'despensa',
-    name:'Uvas', price:55, emoji:'🍇',
-    desc:'Uvas frescas para llevar. Producto del día.',
-    imgColor:'background:linear-gradient(135deg,#3a2058,#6a4898)' },
 
 ];
 
@@ -4968,6 +4927,38 @@ var bookItems = [
     badge:null, badgeType:null,
     desc:'Para la meditación con mantra',
     imgColor:'background:linear-gradient(135deg,#3d4a2e,#6b7a52)' },
+  { id:94, cat:'despensa', name:'Salchichas Veggie Frank', price:139, emoji:'🌿',
+    badge:null, badgeType:null,
+    desc:'Salchichas vegetales para llevar a casa. Sin carne, con sabor.',
+    imgColor:'background:linear-gradient(135deg,#5a4030,#9a7050)' },
+  { id:95, cat:'despensa', name:'Chorizo de Soya', price:129, emoji:'🌿',
+    badge:null, badgeType:null,
+    desc:'Chorizo de soya artesanal. Ideal para guisar o tacos.',
+    imgColor:'background:linear-gradient(135deg,#7a2a18,#b05030)' },
+  { id:93, cat:'despensa', name:'Milanesa de Seitán', price:139, emoji:'🌿',
+    badge:null, badgeType:null,
+    desc:'Proteína vegetal lista para cocinar. Producto artesanal Hare Krishna.',
+    imgColor:'background:linear-gradient(135deg,#4a5828,#7a8848)' },
+  { id:90, cat:'despensa', name:'Chocolate de Mesa', price:139, emoji:'🍫',
+    badge:null, badgeType:null,
+    desc:'Chocolate artesanal para preparar en casa. Producto local.',
+    imgColor:'background:linear-gradient(135deg,#2a1a10,#5a3a20)' },
+  { id:91, cat:'despensa', name:'Chocolate en barra, oscuro', price:139, emoji:'🍫',
+    badge:null, badgeType:null,
+    desc:'Barra de chocolate oscuro artesanal. Intenso y sin lácteos.',
+    imgColor:'background:linear-gradient(135deg,#1a1008,#3a2010)' },
+  { id:92, cat:'despensa', name:'Chocolate en barra, blanco', price:139, emoji:'🍫',
+    badge:null, badgeType:null,
+    desc:'Barra de chocolate blanco artesanal. Suave y cremoso.',
+    imgColor:'background:linear-gradient(135deg,#8a7050,#c0a878)' },
+  { id:97, cat:'despensa', name:'Uvas', price:55, emoji:'🍇',
+    badge:null, badgeType:null,
+    desc:'Uvas frescas para llevar. Producto del día.',
+    imgColor:'background:linear-gradient(135deg,#3a2058,#6a4898)' },
+  { id:96, cat:'despensa', name:'Mazapán', price:29, emoji:'🍬',
+    badge:null, badgeType:null,
+    desc:'Dulce tradicional de cacahuate. Pequeño, clásico e irresistible.',
+    imgColor:'background:linear-gradient(135deg,#8a7840,#c0b068)' },
   { id:106, cat:'libros', name:'Libro "Bhagavad Gita tal como es (español)"', price:390, emoji:'📖',
     badge:'Esencial', badgeType:'firm',
     desc:'En español',
